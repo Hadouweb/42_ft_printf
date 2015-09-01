@@ -15,8 +15,14 @@ int     ft_format_byte(va_list ap);
 int     ft_format_uint(va_list ap);
 int     ft_format_hexa(va_list ap);
 int     ft_format_hexaup(va_list ap);
+int     ft_format_str(va_list ap);
+int     ft_format_ptr(va_list ap);
+//int     ft_format_float(va_list ap);
+int     ft_format_char(va_list ap);
 void    ft_putnbr(int n);
+//void    ft_putnbr_float(float n);
 int     ft_intlen(int n);
+size_t  ft_strlen(const char *str);
 char    *ft_itoa_base(int n, int base, int print_v);
 
 #endif

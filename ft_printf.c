@@ -22,10 +22,13 @@ int     ft_printf(const char *f, ...)
 
 int     main(void)
 {
-    ft_printf("me : %x\n", 123); 
-    ft_printf("me : %X\n", 123); 
+    void    *ptr;
+
+    ptr = NULL;
+    ft_printf("This is a simple test.\n"); 
+    //ft_printf("me : %f\n", -123.1231223); 
     
-    printf("%x\n", 123); 
-    printf("%X\n", 123); 
+    printf("This is a simple test.\n"); 
+    //printf("%f\n", -123.212311); 
     return (0);
 }
