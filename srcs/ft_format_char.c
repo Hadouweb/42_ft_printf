@@ -4,10 +4,6 @@ int     ft_format_char(va_list ap)
 {
     unsigned int    c;
     c = va_arg(ap, unsigned int);
-    printf("%c %u %d", c, c, c);
-    if (c == ' ')
-        ft_putchar(' ');
-    else    
-        ft_putchar('%');
+    ft_putchar(c);
     return (1);
 }

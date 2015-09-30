@@ -1,5 +1,6 @@
 #include "printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 int     ft_printf(const char *f, ...)
 {
@@ -21,7 +22,7 @@ int     ft_printf(const char *f, ...)
             cnt++;
         }
         else if (str[i + 1])
-            cnt += ft_select_format(ap, str[i += 1]);
+            cnt += ft_select_format(ap, &str[i += 1]);
         i++;
     }
     va_end(ap); 
@@ -36,12 +37,9 @@ int     main(void)
 
     test = 123;
     n2 = 0;
-    n1 = ft_printf("%S", L"米"); 
-    //ft_printf("me : %f\n", -123.1231223); 
-
-    n2 = printf("%S", L"b 米\n"); 
+    n1 = ft_printf("{% %}\n"); 
+    n2 = printf("{% %}\n"); 
 
     printf("\n%d %d\n", n1, n2);
-    //printf("%f\n", -123.212311); 
     return (0);
 }*/
