@@ -1,7 +1,7 @@
 #include "printf.h"
 #include "stdio.h"
 
-int     ft_intlen_base(int n, int base)
+int     ft_intlen_base(long long n, int base)
 {
     size_t  i;
 
@@ -16,7 +16,7 @@ int     ft_intlen_base(int n, int base)
     return (i);
 }
 
-char    *ft_itoa_base(int n, int base, int print_v)
+char    *ft_itoa_base(long long n, int base, int print_v)
 {
     char    *str;
     size_t  i;
@@ -35,7 +35,7 @@ char    *ft_itoa_base(int n, int base, int print_v)
     str[i] = '\0';
     while (n != 0)
     {
-        if (n % base > 10)
+        if (n % base >= 10)
             str[i - 1] = (n % base * sign) + print_v + 39;
         else
             str[i - 1] = (n % base * sign) + '0';

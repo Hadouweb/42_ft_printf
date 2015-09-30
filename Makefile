@@ -1,23 +1,24 @@
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -I ./
 NAME = libftprintf.a
-SRC = ft_printf.c\
-	  ft_format_byte.c\
-	  ft_format_char.c\
-	  ft_format_hexa.c\
-	  ft_format_hexaup.c\
-	  ft_format_int.c\
-	  ft_format_ptr.c\
-	  ft_format_str.c\
-	  ft_format_uint.c\
-	  ft_intlen.c\
-	  ft_itoa_base.c\
-	  ft_putchar.c\
-	  ft_putnbr.c\
-	  ft_putstr.c\
-	  ft_select_format.c\
-	  ft_strlen.c\
-#	  ft_putnbr_float.c\
-#	  ft_format_float.c\
+SRCPATH = ./srcs/
+SRC = $(SRCPATH)ft_printf.c\
+	  $(SRCPATH)ft_format_byte.c\
+	  $(SRCPATH)ft_format_char.c\
+	  $(SRCPATH)ft_format_hexa.c\
+	  $(SRCPATH)ft_format_hexaup.c\
+	  $(SRCPATH)ft_format_int.c\
+	  $(SRCPATH)ft_format_ptr.c\
+	  $(SRCPATH)ft_format_str.c\
+	  $(SRCPATH)ft_format_uint.c\
+	  $(SRCPATH)ft_intlen.c\
+	  $(SRCPATH)ft_itoa_base.c\
+	  $(SRCPATH)ft_putchar.c\
+	  $(SRCPATH)ft_putnbr.c\
+	  $(SRCPATH)ft_putstr.c\
+	  $(SRCPATH)ft_select_format.c\
+	  $(SRCPATH)ft_strlen.c\
+	  #	  ft_putnbr_float.c\
+	  #	  ft_format_float.c\
 
 PATH=$(basename $(SRC))
 OBJ=$(addsuffix .o, $(PATH))
@@ -29,10 +30,10 @@ $(NAME) : $(OBJ)
 	ranlib $(NAME)
 
 %.o: %.c
-		gcc -g -o $@ -c $< $(CFLAGS)
+	gcc -g -o $@ -c $< $(CFLAGS)
 
 clean:
-		@rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean mrproper
 
@@ -41,5 +42,5 @@ re: fclean all
 .PHONY: clean mrproper
 
 mrproper: clean
-		@rm -rf $(NAME)
+	@rm -rf $(NAME)
 

@@ -9,5 +9,5 @@ int     ft_format_ptr(va_list ap)
     c = va_arg(ap, unsigned long);
     p = ft_itoa_base(c, 16, '0');
     ft_putstr(p);
-    return (ft_strlen(p));
+    return (ft_strlen(p) + 2);
 }

@@ -22,5 +22,10 @@ int     ft_select_format(va_list ap, char c)
         return (ft_format_ptr(ap));
     else if (c == '%')
         return (ft_format_char(ap));
-    return (1);
+    else if (c == '}')
+    {
+        ft_putchar('}');
+        return (1);
+    }
+    return (-1);
 }

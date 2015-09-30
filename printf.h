@@ -23,6 +23,6 @@ void    ft_putnbr(int n);
 //void    ft_putnbr_float(float n);
 int     ft_intlen(int n);
 size_t  ft_strlen(const char *str);
-char    *ft_itoa_base(int n, int base, int print_v);
+char    *ft_itoa_base(long long n, int base, int print_v);
 
 #endif
