@@ -2,7 +2,7 @@
 
 int     ft_format_int(va_list ap, char c)
 {
-    if (c == 'd')
+    if (c == 'd' || c == 'i')
     {
         int     n;
         n = va_arg(ap, int);
