@@ -37,8 +37,8 @@ int     main(void)
 
     test = 123;
     n2 = 0;
-    n1 = ft_printf("%u\n", UINT_MAX); 
-    n2 = printf("%u\n", UINT_MAX); 
+    n1 = ft_printf("%d\n", test); 
+    n2 = printf("%d\n", test); 
 
     printf("\n%d %d\n", n1, n2);
     return (0);

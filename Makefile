@@ -2,6 +2,9 @@ CFLAGS = -Wall -Werror -Wextra -I ./
 NAME = libftprintf.a
 SRCPATH = ./srcs/
 SRC = $(SRCPATH)ft_printf.c\
+	  $(SRCPATH)tools.c\
+	  $(SRCPATH)ft_itoa_base.c\
+	  $(SRCPATH)ft_select_format.c\
 	  $(SRCPATH)ft_format_byte.c\
 	  $(SRCPATH)ft_format_char.c\
 	  $(SRCPATH)ft_format_hexa.c\
@@ -11,17 +14,6 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)ft_format_str.c\
 	  $(SRCPATH)ft_format_uint.c\
 	  $(SRCPATH)ft_format_percent.c\
-	  $(SRCPATH)ft_intlen.c\
-	  $(SRCPATH)ft_longlen.c\
-	  $(SRCPATH)ft_itoa_base.c\
-	  $(SRCPATH)ft_putchar.c\
-	  $(SRCPATH)ft_putnbr.c\
-	  $(SRCPATH)ft_putnbr_long.c\
-	  $(SRCPATH)ft_putstr.c\
-	  $(SRCPATH)ft_select_format.c\
-	  $(SRCPATH)ft_strlen.c\
-	  #	  ft_putnbr_float.c\
-	  #	  ft_format_float.c\
 
 PATH=$(basename $(SRC))
 OBJ=$(addsuffix .o, $(PATH))

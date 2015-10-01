@@ -7,16 +7,16 @@ int     ft_format_int(va_list ap, char c)
         int     n;
         n = va_arg(ap, int);
         ft_putnbr(n);
-        return (ft_intlen(n));
+        return (ft_nbrlen(n));
     } 
     else if (c == 'D')
     {
         long     n;
         n = va_arg(ap, long);
-        ft_putnbr_long(n);
+        ft_putnbr(n);
         if (n == 0)
             return (1);
-        return (ft_longlen(n));
+        return (ft_nbrlen(n));
     }
     return (0);
 }
