@@ -1,6 +1,6 @@
 #include "printf.h"
 
-char  ft_nbrlen(long long n)
+char  ft_nbrlen(long long n, int base)
 {
     char    i;
 
@@ -9,37 +9,23 @@ char  ft_nbrlen(long long n)
         i++;
     while (n != 0)
     {
-        n /= 10;
+        n /= base;
         i++;
     }
     return (i);
 }
 
-size_t  ft_strlen(const char *s)
+char  ft_nbrlen_u(unsigned long long n, int base)
 {
-    size_t  i;
+    char    i;
 
     i = 0;
-    while (s[i])
-        i++;
-    return (i);
-}
-
-void    ft_putchar(char c)
-{
-    write (1, &c, 1);
-}
-
-void    ft_putstr(char *str)
-{
-    size_t  i;
-
-    i = 0;
-    while (str[i])
+    while (n != 0)
     {
-        ft_putchar(str[i]);
+        n /= base;
         i++;
     }
+    return (i);
 }
 
 void    ft_putnbr(long long n)
@@ -57,4 +43,11 @@ void    ft_putnbr(long long n)
             ft_putnbr(n / 10);
         ft_putchar(n % 10 + '0');
     }
+}
+
+void    ft_putnbr_u(unsigned long long n)
+{
+    if (n >= 10)
+        ft_putnbr_u(n / 10);
+    ft_putchar(n % 10 + '0');
 }

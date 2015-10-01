@@ -10,7 +10,9 @@
 void    ft_putchar(char c);
 void    ft_putstr(char *str);
 void    ft_putnbr(long long n);
-char    ft_nbrlen(long long n);
+void    ft_putnbr_u(unsigned long long n);
+char    ft_nbrlen(long long n, int base);
+char    ft_nbrlen_u(unsigned long long n, int base);
 size_t  ft_strlen(const char *str);
 char    *ft_itoa_base(long long n, int base, int print_v);
 

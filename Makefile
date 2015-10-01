@@ -2,7 +2,8 @@ CFLAGS = -Wall -Werror -Wextra -I ./
 NAME = libftprintf.a
 SRCPATH = ./srcs/
 SRC = $(SRCPATH)ft_printf.c\
-	  $(SRCPATH)tools.c\
+	  $(SRCPATH)tools_str.c\
+	  $(SRCPATH)tools_nbr.c\
 	  $(SRCPATH)ft_itoa_base.c\
 	  $(SRCPATH)ft_select_format.c\
 	  $(SRCPATH)ft_format_byte.c\

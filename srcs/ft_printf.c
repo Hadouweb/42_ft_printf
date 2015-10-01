@@ -1,6 +1,7 @@
 #include "printf.h"
 #include <stdio.h>
 #include <limits.h>
+#include <locale.h>
 
 int     ft_printf(const char *f, ...)
 {
@@ -28,18 +29,22 @@ int     ft_printf(const char *f, ...)
     va_end(ap); 
     return (cnt);
 }
-/*
+
 int     main(void)
 {
     int     test;
     int     n1;
     int     n2;
 
+    char *locale;
+
+    locale = setlocale(LC_ALL, "");
+
     test = 123;
     n2 = 0;
-    n1 = ft_printf("%d\n", test); 
-    n2 = printf("%d\n", test); 
+    n1 = ft_printf("%C\n", L'猫'); 
+    n2 = printf("%C\n", L'猫'); 
 
     printf("\n%d %d\n", n1, n2);
     return (0);
-}*/
+}
