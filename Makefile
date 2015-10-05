@@ -4,6 +4,7 @@ SRCPATH = ./srcs/
 SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)tools_str.c\
 	  $(SRCPATH)tools_nbr.c\
+	  $(SRCPATH)tools_unicode.c\
 	  $(SRCPATH)ft_itoa_base.c\
 	  $(SRCPATH)ft_select_format.c\
 	  $(SRCPATH)ft_format_byte.c\
@@ -13,6 +14,7 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)ft_format_int.c\
 	  $(SRCPATH)ft_format_ptr.c\
 	  $(SRCPATH)ft_format_str.c\
+	  $(SRCPATH)ft_format_unicode.c\
 	  $(SRCPATH)ft_format_uint.c\
 	  $(SRCPATH)ft_format_percent.c\
 

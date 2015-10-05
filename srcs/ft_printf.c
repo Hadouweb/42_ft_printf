@@ -42,8 +42,8 @@ int     main(void)
 
     test = 123;
     n2 = 0;
-    n1 = ft_printf("%C\n", L'猫'); 
-    n2 = printf("%C\n", L'猫'); 
+    n1 = ft_printf("%S", L"米米è"); 
+    n2 = printf("%S", L"米"); 
 
     printf("\n%d %d\n", n1, n2);
     return (0);
