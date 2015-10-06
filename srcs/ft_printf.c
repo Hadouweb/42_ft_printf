@@ -35,6 +35,7 @@ int     main(void)
     int     test;
     int     n1;
     int     n2;
+    wchar_t    c;
 
     char *locale;
 
@@ -42,9 +43,10 @@ int     main(void)
 
     test = 123;
     n2 = 0;
-    n1 = ft_printf("%S", L"米米è"); 
-    n2 = printf("%S", L"米"); 
+    c = L"\0";
+    n1 = ft_printf("%S\n", NULL); 
+    n2 = printf("%S\n", NULL); 
+    ft_printf("%d %d\n", n1, n2); 
 
-    printf("\n%d %d\n", n1, n2);
     return (0);
 }
