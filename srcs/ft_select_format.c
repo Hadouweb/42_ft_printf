@@ -23,6 +23,6 @@ int     ft_select_format(va_list ap, char *c)
     else if (*c == 'p')
         return (ft_format_ptr(ap));
     else if (*c == '%' || *c == '}' || *c == ' ')
-        return (ft_format_percent(ap, c));
+        return (ft_format_percent(c));
     return (-1);
 }

@@ -30,8 +30,10 @@ int     ft_format_str(va_list ap);
 int     ft_format_uni_one(va_list ap);
 int     ft_format_uni_many(va_list ap);
 int     ft_format_ptr(va_list ap);
-int     ft_format_percent(va_list ap, char *t);
+int     ft_format_percent(char *t);
 //int     ft_format_float(va_list ap);
 //void    ft_putnbr_float(float n);
 
+void    ft_printbit_wchar(wchar_t *w);
+int     ft_wis_empty(wchar_t *w);
 #endif

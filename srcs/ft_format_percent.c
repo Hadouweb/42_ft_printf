@@ -1,9 +1,7 @@
 #include "printf.h"
 
-int     ft_format_percent(va_list ap, char *t)
+int     ft_format_percent(char *t)
 {
-    unsigned int    c;
-    c = va_arg(ap, unsigned int);
     if (*t == ' ')
     {
         if (*(t + 1) == '%')

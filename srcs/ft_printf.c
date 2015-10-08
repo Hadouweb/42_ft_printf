@@ -29,13 +29,13 @@ int     ft_printf(const char *f, ...)
     va_end(ap); 
     return (cnt);
 }
-
+/*
 int     main(void)
 {
     int     test;
     int     n1;
     int     n2;
-    wchar_t    c;
+    char    *c;
 
     char *locale;
 
@@ -43,10 +43,9 @@ int     main(void)
 
     test = 123;
     n2 = 0;
-    c = L"\0";
-    n1 = ft_printf("%S\n", NULL); 
-    n2 = printf("%S\n", NULL); 
+    n1 = ft_printf("%O\n", LONG_MAX);
+    n2 = printf("%O\n", LONG_MAX);
     ft_printf("%d %d\n", n1, n2); 
 
     return (0);
-}
+}*/

@@ -10,7 +10,7 @@ int     ft_intlen_base(long long n, int base)
         i++;
     while (n != 0)
     {
-        n /= base;
+        n = n / base;
         i++;
     }
     return (i);
@@ -21,6 +21,7 @@ char    *ft_itoa_base(long long n, int base, int print_v)
     char    *str;
     size_t  i;
     int     sign;
+
 
     if (base < 2 || base > 16)
         return (0);
