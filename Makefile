@@ -1,6 +1,7 @@
-CFLAGS = -Wall -Werror -Wextra -I ./
+CFLAGS = -Wall -Werror -Wextra
 NAME = libftprintf.a
 SRCPATH = ./srcs/
+INCPATH =./includes
 SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)tools_str.c\
 	  $(SRCPATH)tools_nbr.c\
@@ -18,8 +19,7 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)ft_format_uint.c\
 	  $(SRCPATH)ft_format_percent.c\
 
-PATH=$(basename $(SRC))
-OBJ=$(addsuffix .o, $(PATH))
+OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
@@ -28,7 +28,7 @@ $(NAME) : $(OBJ)
 	ranlib $(NAME)
 
 %.o: %.c
-	gcc -g -o $@ -c $< $(CFLAGS)
+	gcc -I$(INCPATH) -o $@ -c $< $(CFLAGS)
 
 clean:
 	@rm -rf $(OBJ)

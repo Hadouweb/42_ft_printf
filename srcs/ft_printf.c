@@ -1,7 +1,16 @@
-#include "printf.h"
-#include <stdio.h>
-#include <limits.h>
-#include <locale.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/09 21:46:42 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/09 22:05:40 by nle-bret         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int     ft_printf(const char *f, ...)
 {
@@ -29,23 +38,3 @@ int     ft_printf(const char *f, ...)
     va_end(ap); 
     return (cnt);
 }
-/*
-int     main(void)
-{
-    int     test;
-    int     n1;
-    int     n2;
-    char    *c;
-
-    char *locale;
-
-    locale = setlocale(LC_ALL, "");
-
-    test = 123;
-    n2 = 0;
-    n1 = ft_printf("%O\n", LONG_MAX);
-    n2 = printf("%O\n", LONG_MAX);
-    ft_printf("%d %d\n", n1, n2); 
-
-    return (0);
-}*/

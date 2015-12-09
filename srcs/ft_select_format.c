@@ -1,7 +1,33 @@
-#include "printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_select_format.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/09 21:47:22 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/09 22:36:53 by nle-bret         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int     ft_select_format(va_list ap, char *c)
 {
+	t_conv	*conv[10];
+	int		i;
+
+	i = 0;
+	conv[0].s = 'd';
+	conv[0].p = ft_format_int;
+	while (i < 10)
+	{
+		if (conv[i]->s == c)
+			conv[i]->p(ap, *c);
+		i++;
+	}
+	
+
     if (*c == 'd' || *c == 'i' || *c == 'D')
         return (ft_format_int(ap, *c));
     else if (*c == 'o' || *c == 'O')
