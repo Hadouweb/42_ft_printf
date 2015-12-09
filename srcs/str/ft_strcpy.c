@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 00:30:09 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/11/24 02:39:07 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/10 00:24:41 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     main(void)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	int     test;
-	int     n1;
-	int     n2;
-	char    *c;
+	size_t	i;
 
-	char *locale;
-
-	n1 = ft_printf("%D\n", -10);
-	n2 = printf("%D\n", -10);
-
-	return (0);
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

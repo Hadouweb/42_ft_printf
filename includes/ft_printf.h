@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 22:29:15 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/09 22:31:38 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 00:24:09 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct	s_conv
 {
-	char  		s;
+	char  		s[10];
 	int   		(*p)(va_list ap, char c);
 }				t_conv;
 
@@ -55,4 +55,7 @@ int     ft_format_percent(char *t);
 
 void    ft_printbit_wchar(wchar_t *w);
 int     ft_wis_empty(wchar_t *w);
+
+char	*ft_strcpy(char *dst, const char *src);
+size_t	ft_strlen(const char *s);
 #endif

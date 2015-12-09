@@ -1,6 +1,7 @@
 CFLAGS = -Wall -Werror -Wextra
 NAME = libftprintf.a
 SRCPATH = ./srcs/
+STRPATH = $(SRCPATH)/str/
 INCPATH =./includes
 SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)tools_str.c\
@@ -18,6 +19,8 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)ft_format_unicode.c\
 	  $(SRCPATH)ft_format_uint.c\
 	  $(SRCPATH)ft_format_percent.c\
+	  $(STRPATH)ft_strlen.c\
+	  $(STRPATH)ft_strcpy.c\
 
 OBJ = $(SRC:.c=.o)
 
