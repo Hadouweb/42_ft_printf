@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:44:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/09 22:36:00 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 23:48:05 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,49 @@
 
 int     ft_format_int(va_list ap, t_format *f)
 {
-    if (f->conv == 'd' || f->conv == 'i')
-    {
-        int     n;
-        
-		n = va_arg(ap, int);
-        ft_putnbr(n);
-        return (ft_nbrlen(n, 10));
-    } 
-    else if (f->conv == 'D')
-    {
-        long     n;
-		
-		n = va_arg(ap, long);
-        ft_putnbr(n);
-        if (n == 0)
-            return (1);
-        return (ft_nbrlen(n, 10));
-    }
-    return (0);
+	int     n;
+	int		i;
+	char	*str;
+
+	if (f->conv == 'D')
+		return (ft_format_D(ap, f));
+	i = 0;
+	f->conv = 0;
+	n = va_arg(ap, int);
+	str = ft_itoa_base(n, 10, 0);
+	if (f->prec)
+	{
+		i = ft_atoi(f->prec) - ft_strlen(str);
+		while (i)
+		{
+			str = ft_strjoin("0", str);
+			i--;
+		}
+	}
+	ft_putstr(str);
+	return (ft_strlen(str));
+}
+
+int		ft_format_D(va_list ap, t_format *f)
+{
+	long	n;
+	int		i;
+	char	*str;
+
+	i = 0;
+	f->conv = 0;
+	n = va_arg(ap, long);
+	str = ft_itoa_base(n, 10, 0);
+	if (f->prec)
+	{
+		i = ft_atoi(f->prec) - ft_strlen(str);
+		while (i)
+		{
+			str = ft_strjoin("0", str);
+			i--;
+		}
+	}
+	ft_putstr(str);
+	return (ft_strlen(str));
+
 }

@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 23:07:51 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 23:48:50 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct	s_format
 int				ft_printf(const char *f, ...);
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
-void			ft_putnbr(long long n);
+void			ft_strnbr(long long n, char **str);
 void			ft_putnbr_u(unsigned long long n);
 char			ft_nbrlen(long long n, int base);
 char			ft_nbrlen_u(unsigned long long n, int base);
@@ -52,6 +52,7 @@ int				ft_wconvert(char *str, wchar_t w);
 
 int				ft_select_format(va_list ap, t_format *format);
 int				ft_format_int(va_list ap, t_format *format);
+int				ft_format_D(va_list ap, t_format *format);
 int				ft_format_byte(va_list ap, t_format *format);
 int				ft_format_char(va_list ap, t_format *format);
 int				ft_format_uint(va_list ap, t_format *format);
@@ -81,5 +82,6 @@ void			*ft_memalloc(size_t size);
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_strdel(char **as);
 char			*ft_stradd_char(char **s, char c);
+int				ft_atoi(const char *str);
 
 #endif

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_uint.c                                   :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:45:58 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 23:48:47 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/11/24 02:54:36 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/10 23:46:39 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_format_uint(va_list ap, t_format *format)
+int		ft_atoi(const char *str)
 {
-    unsigned long long     n;
+	long long	nbr;
+	int			sign;
+	size_t		i;
 
-	format->conv = 0;
-    n = va_arg(ap, unsigned long long);
-    ft_putnbr_u(n);
-    if (n == 0)
-        return (1);
-    return (ft_nbrlen_u(n, 10));
+	nbr = 0;
+	i = 0;
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+			str[i] == '\r' || str[i] == '\f' || str[i] == ' ')
+		i++;
+	sign = (str[i] == '-') ? -1 : 1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nbr *= 10;
+		nbr += (int)(str[i] - '0');
+		i++;
+	}
+	return (sign * nbr);
 }
