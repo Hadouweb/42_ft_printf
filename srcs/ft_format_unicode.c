@@ -6,19 +6,20 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:46:16 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 03:39:55 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 22:12:25 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_format_uni_many(va_list ap)
+int     ft_format_uni_many(va_list ap, t_format *format)
 {
     char    *str;
     wchar_t *wstr;
     size_t  cnt;
     size_t  i;
 
+	format->conv = 0;
     i = 0;
     cnt = 0;
     wstr = va_arg(ap, wchar_t*);
@@ -38,12 +39,13 @@ int     ft_format_uni_many(va_list ap)
     return (cnt);
 }
 
-int     ft_format_uni_one(va_list ap)
+int     ft_format_uni_one(va_list ap, t_format *format)
 {
     wchar_t w;
     char    *str;
     size_t  cnt;
 
+	format->conv = 0;
     w = va_arg(ap, wchar_t);
 	str = NULL;
     str = (char*)malloc(sizeof(wchar_t) + 1);

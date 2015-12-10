@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_str.c                                    :+:      :+:    :+:   */
+/*   ft_stradd_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:45:41 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 22:11:33 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/10 23:06:38 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/10 23:07:24 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_format_str(va_list ap, t_format *format)
+char	*ft_stradd_char(char **s, char c)
 {
-    char	   *str;
+	int		len;
+	char	*str;
 
-	format->conv = 0;
-    str = va_arg(ap, char*);
-    if (!str)
-        str = "(null)";
-	ft_putstr(str);
-    return (ft_strlen(str));
+	len = ft_strlen(*s);
+	str = (char *)malloc(len + 1 * sizeof(char) + 1);
+	ft_strcpy(str, *s);
+	ft_strdel(s);
+	str[len++] = c;
+	str[len] = '\0';
+	return (str);
 }

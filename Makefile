@@ -20,7 +20,13 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)ft_format_uint.c\
 	  $(SRCPATH)ft_format_percent.c\
 	  $(STRPATH)ft_strlen.c\
+	  $(STRPATH)ft_stradd_char.c\
+	  $(STRPATH)ft_strdel.c\
 	  $(STRPATH)ft_strcpy.c\
+	  $(STRPATH)ft_strjoin.c\
+	  $(STRPATH)ft_strdup.c\
+	  $(SRCPATH)ft_memalloc.c\
+	  $(SRCPATH)ft_memset.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_str.c                                    :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:45:41 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 22:11:33 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/11/24 15:24:31 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/10 22:56:00 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_format_str(va_list ap, t_format *format)
+void	ft_strdel(char **as)
 {
-    char	   *str;
-
-	format->conv = 0;
-    str = va_arg(ap, char*);
-    if (!str)
-        str = "(null)";
-	ft_putstr(str);
-    return (ft_strlen(str));
+	free(*as);
+	*as = NULL;
 }

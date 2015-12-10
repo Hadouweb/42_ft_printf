@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:46:42 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 06:19:53 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 22:58:13 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ft_save_string(char *str, t_format **format, va_list ap)
 				i += ret;
 			while ((ret = ft_check_modifier(format, &str[i])) != 0)
 				i += ret;
+			while ((ret = ft_check_precision(format, &str[i])) != 0)
+				i += ret;
 			ft_check_conv(format, &str[i]);
 			cnt += ft_select_format(ap, *format);
 		}
@@ -40,6 +42,7 @@ void	ft_save_string(char *str, t_format **format, va_list ap)
 		}
 		i++;
 	}
+	ft_print_format(*format);
 	(*format)->len = cnt;
 }
 

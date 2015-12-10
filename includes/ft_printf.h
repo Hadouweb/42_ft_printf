@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 06:11:12 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 23:07:51 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct	s_format
 	char		ll;
 	char		j;
 	char		z;
+	char		*prec;
 	int			len;
 	char		conv;
 	char		*str;
@@ -51,15 +52,15 @@ int				ft_wconvert(char *str, wchar_t w);
 
 int				ft_select_format(va_list ap, t_format *format);
 int				ft_format_int(va_list ap, t_format *format);
-int				ft_format_byte(va_list ap);
-int				ft_format_char(va_list ap);
-int				ft_format_uint(va_list ap);
-int				ft_format_hexa(va_list ap);
-int				ft_format_hexaup(va_list ap);
-int				ft_format_str(va_list ap);
-int				ft_format_uni_one(va_list ap);
-int				ft_format_uni_many(va_list ap);
-int				ft_format_ptr(va_list ap);
+int				ft_format_byte(va_list ap, t_format *format);
+int				ft_format_char(va_list ap, t_format *format);
+int				ft_format_uint(va_list ap, t_format *format);
+int				ft_format_hexa(va_list ap, t_format *format);
+int				ft_format_hexaup(va_list ap, t_format *format);
+int				ft_format_str(va_list ap, t_format *format);
+int				ft_format_uni_one(va_list ap, t_format *format);
+int				ft_format_uni_many(va_list ap, t_format *format);
+int				ft_format_ptr(va_list ap, t_format *format);
 int				ft_format_percent(char *t);
 //int			ft_format_float(va_list ap);
 //void			ft_putnbr_float(float n);
@@ -71,7 +72,14 @@ void			ft_save_string(char *str, t_format **format, va_list ap);
 void			ft_format_init(t_format **format);
 int				ft_check_flag(t_format **format, char *s);
 int				ft_check_modifier(t_format **format, char *s);
+int				ft_check_precision(t_format **format, char *s);
 void			ft_print_format(t_format *format);
 int				ft_check_conv(t_format **format, char *s);
+char			*ft_strjoin(char const *s, char const *s2);
+char			*ft_strdup(const char *s1);
+void			*ft_memalloc(size_t size);
+void			*ft_memset(void *b, int c, size_t len);
+void			ft_strdel(char **as);
+char			*ft_stradd_char(char **s, char c);
 
 #endif
