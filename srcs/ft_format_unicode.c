@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:46:16 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 01:41:21 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 03:39:55 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int     ft_format_uni_many(va_list ap)
     i = 0;
     cnt = 0;
     wstr = va_arg(ap, wchar_t*);
+	str = NULL;
     if (wstr == NULL)
     {
         ft_putstr("(null)");
@@ -44,7 +45,8 @@ int     ft_format_uni_one(va_list ap)
     size_t  cnt;
 
     w = va_arg(ap, wchar_t);
-    str = (char*)malloc(4);
+	str = NULL;
+    str = (char*)malloc(sizeof(wchar_t) + 1);
     cnt = ft_wconvert(str, w);
     ft_putstr(str);
     return (cnt);

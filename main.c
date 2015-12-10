@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 01:53:03 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 03:27:38 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int     main(void)
 	setlocale (LC_ALL, "");
 
 	test = 10;
+ft_printf("%S\n", L"米");
+printf("%S\n", L"米");
+
+	ft_printf("%C%C\n", 'B', 'A');
 	n1 = ft_printf("%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C\n",
 	   ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-',
 	   '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';',

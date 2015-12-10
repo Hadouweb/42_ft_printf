@@ -6,44 +6,11 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:48:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/09 21:48:08 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 03:39:53 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void    ft_printbit_wchar(wchar_t *w)
-{
-    size_t  i;
-
-    i = 1 << 31;
-    while (i > 0)
-    {
-        if (*w & i)
-            ft_putchar('1');
-        else
-            ft_putchar('0');
-        i >>= 1;
-    }
-    ft_putchar('\n');
-}
-
-int    ft_wis_empty(wchar_t *w)
-{
-    size_t  i;
-
-    i = 1 << 31;
-    if (w != NULL)
-    {
-        while (i > 0)
-        {
-            if (*w & i)
-                return (0);
-            i >>= 1;
-        }
-    }
-    return (1);
-}
 
 size_t  ft_wlen(wchar_t *wstr)
 {

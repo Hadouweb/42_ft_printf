@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 22:29:15 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 00:24:09 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/10 03:37:53 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <wchar.h>
 
 typedef struct	s_conv
 {
@@ -52,9 +51,6 @@ int     ft_format_ptr(va_list ap);
 int     ft_format_percent(char *t);
 //int     ft_format_float(va_list ap);
 //void    ft_putnbr_float(float n);
-
-void    ft_printbit_wchar(wchar_t *w);
-int     ft_wis_empty(wchar_t *w);
 
 char	*ft_strcpy(char *dst, const char *src);
 size_t	ft_strlen(const char *s);
