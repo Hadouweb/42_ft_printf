@@ -22,8 +22,8 @@ int     main(void)
 	setlocale (LC_ALL, "");
 
 	test = 10;
-	n1 = ft_printf("%d", 123);
-	n2 = printf("%d", 123);
+	n1 = ft_printf("before %s after\n", "coucou");
+	n2 = printf("before %s after\n", "coucou");
 
 
 	printf("\n%d %d\n", n1, n2);

@@ -30,8 +30,7 @@ void	ft_save_string(char *str, t_format **format, va_list ap)
 				i += ret;
 			while ((ret = ft_check_modifier(format, &str[i])) != 0)
 				i += ret;
-			if (ft_check_conv(format, &str[i]))
-				i++;
+			ft_check_conv(format, &str[i]);
 			cnt += ft_select_format(ap, *format);
 		}
 		else
@@ -55,7 +54,6 @@ int     ft_printf(const char *f, ...)
 	ft_format_init(&format);
 	str = (char *)malloc(sizeof(char) * (strlen(f)) + 1);
 	str = strcpy(str, f);
-	format->conv = 'd';
 	ft_save_string(str, &format, ap);
 	va_end(ap);
 	return (format->len);

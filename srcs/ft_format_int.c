@@ -19,7 +19,6 @@ int     ft_format_int(va_list ap, t_format *f)
         int     n;
         
 		n = va_arg(ap, int);
-	printf("OK\n");
         ft_putnbr(n);
         return (ft_nbrlen(n, 10));
     } 
