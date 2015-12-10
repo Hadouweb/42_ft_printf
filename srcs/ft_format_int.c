@@ -12,19 +12,22 @@
 
 #include "ft_printf.h"
 
-int     ft_format_int(va_list ap, char c)
+int     ft_format_int(va_list ap, t_format *f)
 {
-    if (c == 'd' || c == 'i')
+    if (f->conv == 'd' || f->conv == 'i')
     {
         int     n;
-        n = va_arg(ap, int);
+        
+		n = va_arg(ap, int);
+	printf("OK\n");
         ft_putnbr(n);
         return (ft_nbrlen(n, 10));
     } 
-    else if (c == 'D')
+    else if (f->conv == 'D')
     {
         long     n;
-        n = va_arg(ap, long);
+		
+		n = va_arg(ap, long);
         ft_putnbr(n);
         if (n == 0)
             return (1);

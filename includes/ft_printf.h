@@ -49,8 +49,8 @@ size_t			ft_wlen(wchar_t *wstr);
 char			*ft_itoa_base(long long n, int base, int print_v);
 int				ft_wconvert(char *str, wchar_t w);
 
-int				ft_select_format(va_list ap, char *c);
-int				ft_format_int(va_list ap, char c);
+int				ft_select_format(va_list ap, t_format *format);
+int				ft_format_int(va_list ap, t_format *format);
 int				ft_format_byte(va_list ap);
 int				ft_format_char(va_list ap);
 int				ft_format_uint(va_list ap);
@@ -72,5 +72,6 @@ void			ft_format_init(t_format **format);
 int				ft_check_flag(t_format **format, char *s);
 int				ft_check_modifier(t_format **format, char *s);
 void			ft_print_format(t_format *format);
+int				ft_check_conv(t_format **format, char *s);
 
 #endif

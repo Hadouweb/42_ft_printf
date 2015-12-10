@@ -18,13 +18,12 @@ int     main(void)
 	int     test;
 	int     n1;
 	int     n2;
-	char    *c;
 
 	setlocale (LC_ALL, "");
 
 	test = 10;
-	n1 = ft_printf("%0+lld coucou\n", 10000000000000);
-	n2 = printf("%0c", 'T');
+	n1 = ft_printf("%d", 123);
+	n2 = printf("%d", 123);
 
 
 	printf("\n%d %d\n", n1, n2);

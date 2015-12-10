@@ -16,19 +16,23 @@ void	ft_save_string(char *str, t_format **format, va_list ap)
 {
 	size_t	i;
 	size_t	cnt;
+	int		ret;
 
 	i = 0;
 	cnt = 0;
-	ap = 0;
-	(*format)->len = 0;
+	ret = 0;
 	while (str[i])
 	{
 		if (str[i] == '%' && str[i + 1])
 		{
 			i++;
-			while (ft_check_flag(format, &str[i]))
+			while ((ret = ft_check_flag(format, &str[i])) != 0)
+				i += ret;
+			while ((ret = ft_check_modifier(format, &str[i])) != 0)
+				i += ret;
+			if (ft_check_conv(format, &str[i]))
 				i++;
-			//cnt += ft_select_format(ap, &str[i += 1]);
+			cnt += ft_select_format(ap, *format);
 		}
 		else
 		{
@@ -37,7 +41,7 @@ void	ft_save_string(char *str, t_format **format, va_list ap)
 		}
 		i++;
 	}
-	ft_print_format(*format);
+	(*format)->len = cnt;
 }
 
 int     ft_printf(const char *f, ...)
@@ -51,6 +55,7 @@ int     ft_printf(const char *f, ...)
 	ft_format_init(&format);
 	str = (char *)malloc(sizeof(char) * (strlen(f)) + 1);
 	str = strcpy(str, f);
+	format->conv = 'd';
 	ft_save_string(str, &format, ap);
 	va_end(ap);
 	return (format->len);
