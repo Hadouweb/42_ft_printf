@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/11 01:16:17 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/11 04:08:57 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+
+# define N		int
+# define SC 	signed short
+# define S 		short
+# define L 		long
+# define LL 	long long
+# define IMT 	intmax_t
+# define UC 	unsigned char
+# define US 	unsigned short
+# define UL 	unsigned long
+# define ULL 	unsigned long long
+# define ST 	size_t
 
 typedef struct	s_format
 {
@@ -85,5 +97,5 @@ void			*ft_memset(void *b, int c, size_t len);
 void			ft_strdel(char **as);
 char			*ft_stradd_char(char **s, char c);
 int				ft_atoi(const char *str);
-
+void			ft_strsize(char **str, t_format *f, int size);
 #endif
