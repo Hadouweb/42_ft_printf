@@ -28,28 +28,38 @@ void	ft_modif_type(t_format *f, long long *n)
 		*n = (int)*n;
 }
 
-int     ft_format_int(va_list ap, t_format *f)
+void	ft_check_flag_int(t_format **f)
+{
+	(*f)->sharp = 0;
+	(*f)->space = ((*f)->more) ? 0 : (*f)->space;
+	(*f)->zero = ((*f)->less) ? 0 : (*f)->zero;
+}
+
+int     ft_format_int(va_list ap, t_format **f)
 {
 	long long	n;
 	char		*str;
 	int			size;
 
 	size = 0;
+	ft_check_flag_int(f);
 	n = va_arg(ap, long long);
-	if (f->conv == 'D')
-		f->l = 1;
+	if ((*f)->conv == 'D')
+		(*f)->l = 1;
 	else
-		ft_modif_type(f, &n);
+		ft_modif_type(*f, &n);
 	str = ft_itoa_base(n, 10, 0);
-	if ((f->more && !f->prec && !f->zero) || (f->less && f->more))
+	if (!(*f)->prec && (*f)->more && (*f)->size && !(*f)->zero)
 		str = ft_strjoin("+", str);
-	if (f->space && n >= 0 && !f->more)
+	if ((*f)->space)
 		str = ft_strjoin(" ", str);
-	if (f->size || f->prec)
-		size = (f->size) ? ft_atoi(f->size) : ft_atoi(f->prec);
+	if ((*f)->prec)
+		size = ft_atoi((*f)->prec) - ft_strlen(str);
+	if ((*f)->size)
+		size = ft_atoi((*f)->size) - ft_strlen(str);
 	if (size > 0)
-		ft_strsize(&str, f, size);
-	else if (f->more && str[0] != '+')
+		ft_strsize(&str, *f, size);
+	if ((*f)->more && !(*f)->size && n > 0)
 		str = ft_strjoin("+", str);
 	ft_putstr(str);
 	return (ft_strlen(str));
@@ -57,26 +67,24 @@ int     ft_format_int(va_list ap, t_format *f)
 
 void	ft_strsize(char **str, t_format *f, int size)
 {
+	char	*c;
 	int		i;
 	int		rest;
-	char	*c;
 
-	rest = size - ft_strlen(*str);
-	i = rest;
-	if (f->space || (f->size && !f->zero) || (f->less && f->zero))
+	rest = size;
+	if ((f->space || f->size) && !f->zero)
 		c = " ";
 	else
 		c = "0";
+	i = 0;
+	if (*str[0] == '+')
+		i++;
 	if (f->less && !f->prec)
-		while (i-- > 0)
+		while (size-- > 0)
 			*str = ft_strjoin(*str, c);
 	else
-		while (i-- > 0)
+		while (size-- > 0)
 			*str = ft_strjoin(c, *str);
-	if (f->more && rest > 0 && c[0] == '0')
+	if (f->more && f->zero && rest > 0)
 		*str[0] = '+';
-	else if (f->more && rest > 0 && c[0] == '0' && f->prec && f->less)
-		*str = ft_strjoin("+", *str);
-	else if (f->more && size > 0 && rest <= 0 && f->zero)
-		*str = ft_strjoin("+", *str);
 }

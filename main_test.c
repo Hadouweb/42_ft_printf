@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_hexaup.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:44:43 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 22:36:37 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/11 06:54:23 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <locale.h>
+#include <limits.h>
 
-int     ft_format_hexaup(va_list ap, t_format **f)
+int     main(void)
 {
-    unsigned int	n;
-   	char			*str;
-	int				len;
+	int     n1;
+	int     n2;
 
-	n = va_arg(ap, unsigned int);
-    str = ft_itoa_base(n, 16, '0' - 32);
-	len = ft_nbrlen_u(n, 16);
-	if ((*f)->sharp && str)
-	{
-		str = ft_strjoin("0X", str);
-		len += 2;
-	}
-	ft_putstr(str);
-    if (n == 0)
-        return (1);
-    return (len);
+	setlocale (LC_ALL, "");
+
+	n1 = ft_printf("%lo, %lo", 0, ULONG_MAX);
+	n2 = printf("%lo, %lo", 0, ULONG_MAX);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int     ft_format_byte(va_list ap, t_format *f)
+int     ft_format_byte(va_list ap, t_format **f)
 {
     unsigned long    n;
     char            *str;
@@ -21,11 +21,11 @@ int     ft_format_byte(va_list ap, t_format *f)
 	i = 0;
     n = va_arg(ap, unsigned long);
     str = ft_itoa_base(n, 8, '0');
-	if (f->sharp && str[0] != '0')
+	if ((*f)->sharp && str[0] != '0')
     	str = ft_strjoin("0", str);
-	if (f->prec)
+	if ((*f)->prec)
 	{
-		i = ft_atoi(f->prec) - ft_strlen(str);
+		i = ft_atoi((*f)->prec) - ft_strlen(str);
 		while (i > 0)
 		{
 			str = ft_strjoin("0", str);

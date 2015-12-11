@@ -35,7 +35,7 @@ void	ft_save_string(char *str, t_format **format, va_list ap)
 			while ((ret = ft_check_precision(format, &str[i])) != 0)
 				i += ret;
 			ft_check_conv(format, &str[i]);
-			cnt += ft_select_format(ap, *format);
+			cnt += ft_select_format(ap, format);
 		}
 		else
 		{

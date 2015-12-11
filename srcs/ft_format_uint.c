@@ -12,11 +12,11 @@
 
 #include "ft_printf.h"
 
-int     ft_format_uint(va_list ap, t_format *format)
+int     ft_format_uint(va_list ap, t_format **f)
 {
     unsigned long long     n;
 
-	format->conv = 0;
+	(*f)->conv = 0;
     n = va_arg(ap, unsigned long long);
     ft_putnbr_u(n);
     if (n == 0)

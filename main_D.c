@@ -42,9 +42,9 @@ int     main(void)
 	n2 = printf("[%+10D]", 12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
-	ft_printf("[+ 10D] : ");
-	n1 = ft_printf("[%+ 10D]", 12345);
-	n2 = printf("[%+ 10D]", 12345);
+	ft_printf("[ +10D] : ");
+	n1 = ft_printf("[% +10D]", 12345);
+	n2 = printf("[% +10D]", 12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
 	ft_printf("[+#D] : ");

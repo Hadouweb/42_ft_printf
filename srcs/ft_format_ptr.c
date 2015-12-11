@@ -12,12 +12,12 @@
 
 #include "ft_printf.h"
 
-int     ft_format_ptr(va_list ap, t_format *format)
+int     ft_format_ptr(va_list ap, t_format **f)
 {
     char            *p;
     unsigned long   c;
 
-	format->conv = 0;
+	(*f)->conv = 0;
     ft_putstr("0x");
     c = va_arg(ap, unsigned long);
     p = ft_itoa_base(c, 16, '0');

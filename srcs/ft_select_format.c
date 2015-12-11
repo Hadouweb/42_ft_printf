@@ -119,30 +119,30 @@ int		ft_check_size(t_format **f, char *s)
 	return (0);
 }
 
-int     ft_select_format(va_list ap, t_format *f)
+int     ft_select_format(va_list ap, t_format **f)
 {
-    if (f->conv == 'd' || f->conv == 'i' || f->conv == 'D')
+    if ((*f)->conv == 'd' || (*f)->conv == 'i' || (*f)->conv == 'D')
         return (ft_format_int(ap, f));
-    else if (f->conv == 'o' || f->conv == 'O')
+    else if ((*f)->conv == 'o' || (*f)->conv == 'O')
         return (ft_format_byte(ap, f));
-    else if (f->conv == 'u' || f->conv == 'U')
+    else if ((*f)->conv == 'u' || (*f)->conv == 'U')
         return (ft_format_uint(ap, f));
-    else if (f->conv == 'x')
+    else if ((*f)->conv == 'x')
         return (ft_format_hexa(ap, f));
-    else if (f->conv == 'X')
+    else if ((*f)->conv == 'X')
         return (ft_format_hexaup(ap, f));
-    else if (f->conv == 'c')
+    else if ((*f)->conv == 'c')
         return (ft_format_char(ap, f));
-    else if (f->conv == 's')
+    else if ((*f)->conv == 's')
         return (ft_format_str(ap, f));
-    else if (f->conv == 'S')
+    else if ((*f)->conv == 'S')
         return (ft_format_uni_many(ap, f));
-    else if (f->conv == 'C')
+    else if ((*f)->conv == 'C')
         return (ft_format_uni_one(ap, f));
-    else if (f->conv == 'p')
+    else if ((*f)->conv == 'p')
         return (ft_format_ptr(ap, f));
-    else if (f->conv == '%' || f->conv == '}' || f->conv == ' ')
-        return (ft_format_percent(&f->conv));
+    else if ((*f)->conv == '%' || (*f)->conv == '}' || (*f)->conv == ' ')
+        return (ft_format_percent(&(*f)->conv));
     return (-1);
 }
 

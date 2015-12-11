@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-int     ft_format_uni_many(va_list ap, t_format *format)
+int     ft_format_uni_many(va_list ap, t_format **f)
 {
     char    *str;
     wchar_t *wstr;
     size_t  cnt;
     size_t  i;
 
-	format->conv = 0;
+	(*f)->conv = 0;
     i = 0;
     cnt = 0;
     wstr = va_arg(ap, wchar_t*);
@@ -39,13 +39,13 @@ int     ft_format_uni_many(va_list ap, t_format *format)
     return (cnt);
 }
 
-int     ft_format_uni_one(va_list ap, t_format *format)
+int     ft_format_uni_one(va_list ap, t_format **f)
 {
     wchar_t w;
     char    *str;
     size_t  cnt;
 
-	format->conv = 0;
+	(*f)->conv = 0;
     w = va_arg(ap, wchar_t);
 	str = NULL;
     str = (char*)malloc(sizeof(wchar_t) + 1);

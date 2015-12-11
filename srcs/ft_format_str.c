@@ -12,11 +12,11 @@
 
 #include "ft_printf.h"
 
-int     ft_format_str(va_list ap, t_format *format)
+int     ft_format_str(va_list ap, t_format **f)
 {
     char	   *str;
 
-	format->conv = 0;
+	(*f)->conv = 0;
     str = va_arg(ap, char*);
     if (!str)
         str = "(null)";

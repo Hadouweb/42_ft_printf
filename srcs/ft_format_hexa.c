@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int     ft_format_hexa(va_list ap, t_format *f)
+int     ft_format_hexa(va_list ap, t_format **f)
 {
     unsigned int	n;
 	char			*str;
@@ -24,14 +24,14 @@ int     ft_format_hexa(va_list ap, t_format *f)
 	n = va_arg(ap, unsigned int);
     str = ft_itoa_base(n, 16, '0');
 	len = ft_nbrlen(n, 16);
-	if (f->sharp && str)
+	if ((*f)->sharp && str)
 	{
 		str = ft_strjoin("0x", str);
 		len += 2;
 	}
-	if (f->prec && !f->zero)
+	if ((*f)->prec && !(*f)->zero)
 	{
-		i = ft_atoi(f->prec) - ft_strlen(str);
+		i = ft_atoi((*f)->prec) - ft_strlen(str);
 		while (i > 0)
 		{
 			str = ft_strjoin("0", str);
