@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:47:22 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 23:48:16 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/11 00:59:40 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_format_init(t_format **format)
 	(*format)->j = 0;
 	(*format)->z = 0;
 	(*format)->prec = NULL;
+	(*format)->size = NULL;
 	(*format)->conv = 0;
 	(*format)->str = NULL;
 }
@@ -87,6 +88,8 @@ int		ft_check_precision(t_format **f, char *s)
 	char	*tmp;
 
 	tmp = NULL;
+	if (*s != '.')
+		return (0);
 	if (*s >= '0' && *s <= '9')
 	{
 		if (!(*f)->prec)
@@ -96,6 +99,25 @@ int		ft_check_precision(t_format **f, char *s)
 		}
 		else
 			(*f)->prec = ft_stradd_char(&(*f)->prec, s[0]);
+		return (1);
+	}
+	return (0);
+}
+
+int		ft_check_size(t_format **f, char *s)
+{
+	char	*tmp;
+
+	tmp = NULL;
+	if (*s >= '0' && *s <= '9')
+	{
+		if (!(*f)->size)
+		{
+			(*f)->size = ft_memalloc(1);
+			(*f)->size[0] = s[0];
+		}
+		else
+			(*f)->size = ft_stradd_char(&(*f)->size, s[0]);
 		return (1);
 	}
 	return (0);
@@ -143,6 +165,7 @@ void	ft_print_format(t_format *format)
 	printf("j  : %d\n", format->j);
 	printf("z  : %d\n", format->z);
 	printf("prec  : %s\n", format->prec);
+	printf("size  : %s\n", format->prec);
 	printf("conv  : %c\n", format->conv);
 	printf("len  : %d\n", format->len);
 	printf("str  : %s\n", format->str);

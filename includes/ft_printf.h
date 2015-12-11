@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/10 23:48:50 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/11 00:59:23 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_format
 	char		j;
 	char		z;
 	char		*prec;
+	char		*size;
 	int			len;
 	char		conv;
 	char		*str;
@@ -74,6 +75,7 @@ void			ft_format_init(t_format **format);
 int				ft_check_flag(t_format **format, char *s);
 int				ft_check_modifier(t_format **format, char *s);
 int				ft_check_precision(t_format **format, char *s);
+int				ft_check_size(t_format **format, char *s);
 void			ft_print_format(t_format *format);
 int				ft_check_conv(t_format **format, char *s);
 char			*ft_strjoin(char const *s, char const *s2);
