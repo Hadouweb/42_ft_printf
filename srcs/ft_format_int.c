@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:44:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/11 06:34:47 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/11 07:14:51 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ int     ft_format_int(va_list ap, t_format *f)
 void	ft_strsize(char **str, t_format *f, int size)
 {
 	int		i;
+	int		rest;
 	char	*c;
 
-	i = size - ft_strlen(*str);
+	rest = size - ft_strlen(*str);
+	i = rest;
 	if (f->space || (f->size && !f->zero) || (f->less && f->zero))
 		c = " ";
 	else
@@ -71,8 +73,10 @@ void	ft_strsize(char **str, t_format *f, int size)
 	else
 		while (i-- > 0)
 			*str = ft_strjoin(c, *str);
-	if (f->more && size > 0 && c[0] == '0' && !f->sharp)
+	if (f->more && rest > 0 && c[0] == '0')
 		*str[0] = '+';
-	else if (f->more && size > 0 && c[0] == '0' && f->prec && f->less)
+	else if (f->more && rest > 0 && c[0] == '0' && f->prec && f->less)
+		*str = ft_strjoin("+", *str);
+	else if (f->more && size > 0 && rest <= 0 && f->zero)
 		*str = ft_strjoin("+", *str);
 }
