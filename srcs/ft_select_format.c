@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:47:22 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/11 00:59:40 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/11 01:24:09 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,8 @@ int		ft_check_conv(t_format **format, char *s)
 
 int		ft_check_precision(t_format **f, char *s)
 {
-	char	*tmp;
-
-	tmp = NULL;
-	if (*s != '.')
-		return (0);
+	if (*s == '.')
+		return (1);
 	if (*s >= '0' && *s <= '9')
 	{
 		if (!(*f)->prec)
@@ -106,9 +103,8 @@ int		ft_check_precision(t_format **f, char *s)
 
 int		ft_check_size(t_format **f, char *s)
 {
-	char	*tmp;
-
-	tmp = NULL;
+	if (*s == '.')
+		return (0);
 	if (*s >= '0' && *s <= '9')
 	{
 		if (!(*f)->size)
@@ -165,7 +161,7 @@ void	ft_print_format(t_format *format)
 	printf("j  : %d\n", format->j);
 	printf("z  : %d\n", format->z);
 	printf("prec  : %s\n", format->prec);
-	printf("size  : %s\n", format->prec);
+	printf("size  : %s\n", format->size);
 	printf("conv  : %c\n", format->conv);
 	printf("len  : %d\n", format->len);
 	printf("str  : %s\n", format->str);
