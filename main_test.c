@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/11 06:54:23 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 05:30:03 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int     main(void)
 	int     n2;
 
 	setlocale (LC_ALL, "");
-
-	n1 = ft_printf("%lo, %lo", 0, ULONG_MAX);
-	n2 = printf("%lo, %lo", 0, ULONG_MAX);
+	
+	n1 = ft_printf("[%.012d]", 12345);
+	n2 = printf("[%.012d]", 12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 02:29:35 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 06:00:38 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,31 @@
 
 int     main(void)
 {
-	int     test;
 	int     n1;
 	int     n2;
 
 	setlocale (LC_ALL, "");
 
-	test = 10;
+	ft_printf("[10d] : ");
+	n1 = ft_printf("[%10d]", 12345);
+	n2 = printf("[%10d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[10d] : ");
+	n1 = ft_printf("[%10d]", -12345);
+	n2 = printf("[%10d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[+10d] : ");
+	n1 = ft_printf("[%+10d]", -12345);
+	n2 = printf("[%+10d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+	
+	ft_printf("[+10d] : ");
+	n1 = ft_printf("[%+10d]", -12345);
+	n2 = printf("[%+10d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
 	ft_printf("[010d] : ");
 	n1 = ft_printf("[%010d]", 12345);
 	n2 = printf("[%010d]", 12345);
@@ -46,7 +64,7 @@ int     main(void)
 	n1 = ft_printf("[%+0d]", 12345);
 	n2 = printf("[%+0d]", 12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
-
+	
 	ft_printf("[+0d] : ");
 	n1 = ft_printf("[%+0d]", -12345);
 	n2 = printf("[%+0d]", -12345);
@@ -71,10 +89,85 @@ int     main(void)
 	n1 = ft_printf("[%-010d]", -12345);
 	n2 = printf("[%-010d]", -12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
-exit(1);
-	ft_printf("[-010d] : ");
-	n1 = ft_printf("[%-010d]", 12345);
-	n2 = printf("[%-010d]", 12345);
+
+	ft_printf("[-.10d] : ");
+	n1 = ft_printf("[%-.10d]", 12345);
+	n2 = printf("[%-.10d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+	
+	ft_printf("[-.10d] : ");
+	n1 = ft_printf("[%-.10d]", -12345);
+	n2 = printf("[%-.10d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[.10d] : ");
+	n1 = ft_printf("[%.10d]", 12345);
+	n2 = printf("[%.10d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[.10d] : ");
+	n1 = ft_printf("[%.10d]", -12345);
+	n2 = printf("[%.10d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[+.10d] : ");
+	n1 = ft_printf("[%+.10d]", 12345);
+	n2 = printf("[%+.10d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[+.10d] : ");
+	n1 = ft_printf("[%+.10d]", -12345);
+	n2 = printf("[%+.10d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[-.010d] : ");
+	n1 = ft_printf("[%-.010d]", 12345);
+	n2 = printf("[%-.010d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[-.010d] : ");
+	n1 = ft_printf("[%-.010d]", -12345);
+	n2 = printf("[%-.010d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[+.010d] : ");
+	n1 = ft_printf("[%+.010d]", 12345);
+	n2 = printf("[%+.010d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[+.010d] : ");
+	n1 = ft_printf("[%+.010d]", -12345);
+	n2 = printf("[%+.010d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[.+10d] : ");
+	n1 = ft_printf("[%.+10d]", 12345);
+	n2 = printf("[%.+10d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[.+10d] : ");
+	n1 = ft_printf("[%.+10d]", -12345);
+	n2 = printf("[%.+10d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[.-10d] : ");
+	n1 = ft_printf("[%.-10d]", 12345);
+	n2 = printf("[%.-10d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[.-10d] : ");
+	n1 = ft_printf("[%.-10d]", -12345);
+	n2 = printf("[%.-10d]", -12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[+.10d] : ");
+	n1 = ft_printf("[%+.10d]", 12345);
+	n2 = printf("[%+.10d]", 12345);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[+.10d] : ");
+	n1 = ft_printf("[%+.10d]", -12345);
+	n2 = printf("[%+.10d]", -12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
 	ft_printf("[-.10d] : ");
@@ -82,29 +175,9 @@ exit(1);
 	n2 = printf("[%-.10d]", 12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
-	ft_printf("[- 10d] : ");
-	n1 = ft_printf("[%- 10d]", 12345);
-	n2 = printf("[%- 10d]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
-
-	ft_printf("[+-010d] : ");
-	n1 = ft_printf("[%+-010d]", 12345);
-	n2 = printf("[%+-010d]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
-
-	ft_printf("[+-#.10d] : ");
-	n1 = ft_printf("[%+-#.10d]", 12345);
-	n2 = printf("[%+-#.10d]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
-
-	ft_printf("[++010d] : ");
-	n1 = ft_printf("[%++010d]", 12345);
-	n2 = printf("[%++010d]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
-
-	ft_printf("[-- 10d] : ");
-	n1 = ft_printf("[%-- 10d]", 12345);
-	n2 = printf("[%-- 10d]", 12345);
+	ft_printf("[-.10d] : ");
+	n1 = ft_printf("[%-.10d]", -12345);
+	n2 = printf("[%-.10d]", -12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
 	ft_printf("[d] : ");
@@ -231,8 +304,6 @@ exit(1);
 	n1 = ft_printf("[%jd]", -12345);
 	n2 = printf("[%jd]", -12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
-
-
 
 	return (0);
 }

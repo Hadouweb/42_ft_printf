@@ -6,60 +6,75 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:46:42 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/11 06:51:58 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 05:47:31 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_save_string(char *str, t_format **format, va_list ap)
+void	ft_save_string(char *str, t_format **f, va_list ap)
 {
 	size_t	i;
 	size_t	cnt;
-	int		ret;
 
 	i = 0;
 	cnt = 0;
-	ret = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '%' && str[i + 1])
+		if (*str == '%' && str++)
 		{
-			i++;
-			while ((ret = ft_check_flag(format, &str[i])) != 0)
-				i += ret;
-			while ((ret = ft_check_modifier(format, &str[i])) != 0)
-				i += ret;
-			while ((ret = ft_check_size(format, &str[i])) != 0)
-				i += ret;
-			while ((ret = ft_check_precision(format, &str[i])) != 0)
-				i += ret;
-			ft_check_conv(format, &str[i]);
-			cnt += ft_select_format(ap, format);
+			str += ft_parse_percent(str, f) - 1;
+			cnt += ft_select_format(ap, f);
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			ft_putchar(*str);
 			cnt++;
 		}
-		i++;
+		str++;
 	}
-	//ft_print_format(*format);
-	(*format)->len = cnt;
+	//ft_print_format(*f);
+	(*f)->len = cnt;
 }
 
-int     ft_printf(const char *f, ...)
+int		ft_parse_percent(char *str, t_format **f)
+{
+	int		i;
+	int		ret;
+
+	i = 0;
+	ret = 0;
+	while (*str && (*f)->conv == 0)
+	{
+		//printf("\n[DEBUG %s]\n", str);
+		ft_check_flag(f, str);
+		ft_check_modifier(f, str);
+		ft_check_precision(f, str);
+		ft_check_conv(f, str);
+		ret = ft_check_size(f, str);
+		if (ret > 0)
+		{
+			str += ret;
+			i += ret;
+		}
+		str++;
+		i++;
+	}
+	return (i);
+}
+
+int     ft_printf(const char *tmp, ...)
 {
 	va_list     ap;
 	char        *str;
-	t_format	*format;
+	t_format	*f;
 
-	va_start(ap, f);
-	format = (t_format *)malloc(sizeof(t_format));
-	ft_format_init(&format);
-	str = (char *)malloc(sizeof(char) * (strlen(f)) + 1);
-	str = strcpy(str, f);
-	ft_save_string(str, &format, ap);
+	va_start(ap, tmp);
+	f = (t_format *)malloc(sizeof(t_format));
+	ft_format_init(&f);
+	str = (char *)malloc(sizeof(char) * (strlen(tmp)) + 1);
+	str = strcpy(str, tmp);
+	ft_save_string(str, &f, ap);
 	va_end(ap);
-	return (format->len);
+	return (f->len);
 }

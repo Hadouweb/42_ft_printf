@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 01:28:25 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 05:35:54 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,11 @@ typedef struct	s_format
 	char		less;
 	char		more;
 	char		space;
-	char		hh;
 	char		h;
 	char		l;
-	char		ll;
 	char		j;
 	char		z;
-	char		*prec;
+	char		prec;
 	char		*size;
 	int			len;
 	char		conv;
@@ -71,14 +69,14 @@ int				ft_format_percent(char *t);
 char			*ft_strcpy(char *dst, const char *src);
 size_t			ft_strlen(const char *s);
 
-void			ft_save_string(char *str, t_format **format, va_list ap);
-void			ft_format_init(t_format **format);
-int				ft_check_flag(t_format **format, char *s);
-int				ft_check_modifier(t_format **format, char *s);
-int				ft_check_precision(t_format **format, char *s);
-int				ft_check_size(t_format **format, char *s);
-void			ft_print_format(t_format *format);
-int				ft_check_conv(t_format **format, char *s);
+void			ft_save_string(char *str, t_format **f, va_list ap);
+void			ft_format_init(t_format **f);
+void			ft_check_flag(t_format **f, char *s);
+void			ft_check_modifier(t_format **f, char *s);
+void			ft_check_precision(t_format **f, char *s);
+int				ft_check_size(t_format **f, char *s);
+void			ft_check_conv(t_format **f, char *s);
+void			ft_print_format(t_format *f);
 char			*ft_strjoin(char const *s, char const *s2);
 char			*ft_strdup(const char *s1);
 void			*ft_memalloc(size_t size);
@@ -89,5 +87,7 @@ int				ft_atoi(const char *str);
 char			*ft_strsize(t_format *f, int size);
 void			ft_check_flag_int(t_format **f);
 void			ft_join_all(t_format *f, char *align, char **str);
+int				ft_parse_percent(char *str, t_format **f);
+int				ft_isdigit(int c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:44:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 02:30:34 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 05:56:33 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 void	ft_modif_type(t_format *f, long long *n)
 {
-	if (f->hh)
-		*n = (signed char)*n;
-	else if (f->h)
-		*n = (short)*n;
-	else if (f->l)
-		*n = (long)*n;
-	else if (f->ll)
+	if (f->l % 2 == 0 && f->l > 0)
 		*n = (long long)*n;
+	else if (f->l % 2 != 0)
+		*n = (long)*n;
 	else if (f->j)
 		*n = (intmax_t)*n;
+	else if (f->z)
+		*n = (size_t)*n;
+	else if (f->h % 2 != 0)
+		*n = (short)*n;
+	else if (f->h % 2 == 0 && f->h > 0)
+		*n = (signed char)*n;
 	else
 		*n = (int)*n;
 }
@@ -56,8 +58,6 @@ int     ft_format_int(va_list ap, t_format **f)
 		str = ft_strdup(&str[1]);
 	}
 	(*f)->sign = (!(*f)->sign && (*f)->more) ? '+' : (*f)->sign;
-	if ((*f)->prec)
-		size = ft_atoi((*f)->prec) - ft_strlen(str);
 	if ((*f)->size)
 		size = ft_atoi((*f)->size) - ft_strlen(str);
 	align = ft_strsize(*f, size);
@@ -81,6 +81,12 @@ void	ft_join_all(t_format *f, char *align, char **str)
 		if (f->sign)
 			*str = ft_strjoin(&f->sign, *str);
 	}
+	else if (align && !f->prec)
+	{
+		if (f->sign)
+			*str = ft_strjoin(&f->sign, *str);
+		*str = ft_strjoin(align, *str);
+	}
 	else if (f->sign)
 		*str = ft_strjoin(&f->sign, *str);	
 }
@@ -95,7 +101,7 @@ char 	*ft_strsize(t_format *f, int size)
 		size--;
 	else if (f->sign == '-' && !f->prec)
 		size--;
-	if ((f->space || f->size) && !f->zero)
+	if ((f->space || f->size) && !f->zero && !f->prec)
 		c = ' ';
 	else
 		c = '0';
