@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:44:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/11 07:14:51 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 02:30:34 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int     ft_format_int(va_list ap, t_format **f)
 	long long	n;
 	char		*str;
 	int			size;
+	char		*align;
 
 	size = 0;
 	ft_check_flag_int(f);
@@ -49,42 +50,59 @@ int     ft_format_int(va_list ap, t_format **f)
 	else
 		ft_modif_type(*f, &n);
 	str = ft_itoa_base(n, 10, 0);
-	if (!(*f)->prec && (*f)->more && (*f)->size && !(*f)->zero)
-		str = ft_strjoin("+", str);
-	if ((*f)->space)
-		str = ft_strjoin(" ", str);
+	if (n < 0)
+	{
+		(*f)->sign = '-';
+		str = ft_strdup(&str[1]);
+	}
+	(*f)->sign = (!(*f)->sign && (*f)->more) ? '+' : (*f)->sign;
 	if ((*f)->prec)
 		size = ft_atoi((*f)->prec) - ft_strlen(str);
 	if ((*f)->size)
 		size = ft_atoi((*f)->size) - ft_strlen(str);
-	if (size > 0)
-		ft_strsize(&str, *f, size);
-	if ((*f)->more && !(*f)->size && n > 0)
-		str = ft_strjoin("+", str);
+	align = ft_strsize(*f, size);
+	//printf("%d\n", size);
+	ft_join_all(*f, align, &str);
 	ft_putstr(str);
 	return (ft_strlen(str));
 }
 
-void	ft_strsize(char **str, t_format *f, int size)
+void	ft_join_all(t_format *f, char *align, char **str)
 {
-	char	*c;
-	int		i;
-	int		rest;
+	if (align && (f->zero || f->prec))
+	{
+		*str = ft_strjoin(align, *str);
+		if (f->sign)
+			*str = ft_strjoin(&f->sign, *str);
+	}
+	else if (align && f->less)
+	{
+		*str = ft_strjoin(*str, align);
+		if (f->sign)
+			*str = ft_strjoin(&f->sign, *str);
+	}
+	else if (f->sign)
+		*str = ft_strjoin(&f->sign, *str);	
+}
 
-	rest = size;
+char 	*ft_strsize(t_format *f, int size)
+{
+	char	c;
+	char	*align;
+
+	align = NULL;
+	if ((!f->prec && f->more))
+		size--;
+	else if (f->sign == '-' && !f->prec)
+		size--;
 	if ((f->space || f->size) && !f->zero)
-		c = " ";
+		c = ' ';
 	else
-		c = "0";
-	i = 0;
-	if (*str[0] == '+')
-		i++;
-	if (f->less && !f->prec)
-		while (size-- > 0)
-			*str = ft_strjoin(*str, c);
-	else
-		while (size-- > 0)
-			*str = ft_strjoin(c, *str);
-	if (f->more && f->zero && rest > 0)
-		*str[0] = '+';
+		c = '0';
+	if (size > 0)
+	{
+		align = ft_memalloc(size);
+		align = (char *)ft_memset(align, c, size);
+	}
+	return (align);
 }

@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:47:22 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/11 01:24:09 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 00:23:29 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_format_init(t_format **format)
 	(*format)->prec = NULL;
 	(*format)->size = NULL;
 	(*format)->conv = 0;
+	(*format)->sign = 0;
 	(*format)->str = NULL;
 }
 
