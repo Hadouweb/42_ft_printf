@@ -5,21 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:44:43 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 03:31:46 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/13 00:28:40 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/13 00:28:48 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_format_hexaup(va_list ap, t_format **f)
+int		ft_format_hexaup(va_list ap, t_format **f)
 {
-    unsigned int	n;
-   	char			*str;
+	unsigned int	n;
+	char			*str;
 	int				len;
 
 	n = va_arg(ap, unsigned int);
-    str = ft_itoa_base(n, 16, '0' - 32);
+	str = ft_itoa_base(n, 16, '0' - 32);
 	len = ft_nbrlen_u(n, 16);
 	if ((*f)->sharp && str)
 	{
@@ -27,7 +27,7 @@ int     ft_format_hexaup(va_list ap, t_format **f)
 		len += 2;
 	}
 	ft_putstr(str);
-    if (n == 0)
-        return (1);
-    return (len);
+	if (n == 0)
+		return (1);
+	return (len);
 }

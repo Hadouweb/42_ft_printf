@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:44:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 08:43:38 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/13 00:29:24 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/13 00:31:57 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_modif_type(t_format *f, long long *n)
 	else if (f->l % 2 != 0)
 		*n = (long)*n;
 	else if (f->j)
-		*n = (intmax_t)*n;
+		*n = (intmax_t) * n;
 	else if (f->z)
 		*n = (size_t)*n;
 	else if (f->h % 2 != 0)
@@ -37,7 +37,7 @@ void	ft_check_flag_int(t_format **f)
 	(*f)->zero = ((*f)->less) ? 0 : (*f)->zero;
 }
 
-int     ft_format_int(va_list ap, t_format **f)
+int		ft_format_int(va_list ap, t_format **f)
 {
 	long long	n;
 	char		*str;
@@ -88,10 +88,10 @@ void	ft_join_all(t_format *f, char *align, char **str)
 		*str = ft_strjoin(align, *str);
 	}
 	else if (f->sign)
-		*str = ft_strjoin(&f->sign, *str);	
+		*str = ft_strjoin(&f->sign, *str);
 }
 
-char 	*ft_strsize(t_format *f, int size)
+char	*ft_strsize(t_format *f, int size)
 {
 	char	c;
 	char	*align;

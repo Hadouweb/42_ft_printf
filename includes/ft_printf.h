@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 08:51:55 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 00:41:29 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,12 @@ int				ft_wconvert(char *str, wchar_t w);
 
 int				ft_select_format(va_list ap, t_format **f);
 int				ft_format_int(va_list ap, t_format **f);
-int				ft_format_D(va_list ap, t_format **f);
 int				ft_format_byte(va_list ap, t_format **f);
 int				ft_format_char(va_list ap, t_format **f);
 int				ft_format_uint(va_list ap, t_format **f);
 int				ft_format_hexa(va_list ap, t_format **f);
-int				ft_format_hexaup(va_list ap, t_format **);
-int				ft_format_str(va_list ap, t_format **);
+int				ft_format_hexaup(va_list ap, t_format **f);
+int				ft_format_str(va_list ap, t_format **f);
 int				ft_format_uni_one(va_list ap, t_format **f);
 int				ft_format_uni_many(va_list ap, t_format **f);
 int				ft_format_ptr(va_list ap, t_format **f);

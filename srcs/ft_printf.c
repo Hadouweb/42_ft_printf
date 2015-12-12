@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:46:42 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 08:38:39 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/13 00:36:54 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/13 00:37:09 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ int		ft_parse_percent(char *str, t_format **f)
 	return (i);
 }
 
-int     ft_printf(const char *tmp, ...)
+int		ft_printf(const char *tmp, ...)
 {
-	va_list     ap;
-	char        *str;
+	va_list		ap;
+	char		*str;
 	t_format	*f;
 
 	va_start(ap, tmp);

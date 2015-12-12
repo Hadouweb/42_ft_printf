@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:47:22 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 08:35:45 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/13 00:37:59 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_check_modifier(t_format **f, char *s)
 void	ft_check_conv(t_format **f, char *s)
 {
 	if (*s == 'd' || *s == 'D' || *s == 'i' || *s == 'u' || *s == 'U'
-			|| *s == 'o' || *s == 'O' || *s == 'x' || *s == 'X' || *s == 'c' 
+			|| *s == 'o' || *s == 'O' || *s == 'x' || *s == 'X' || *s == 'c'
 			|| *s == 'C' || *s == 's' || *s == 'S' || *s == 'p')
 		(*f)->conv = *s;
 }
@@ -85,7 +85,7 @@ int		ft_check_size(t_format **f, char *s)
 			{
 				(*f)->size = ft_memalloc(2);
 				(*f)->size[0] = *s;
-				(*f)->size[1] = '\0'; 
+				(*f)->size[1] = '\0';
 			}
 			else
 				(*f)->size = ft_stradd_char(&(*f)->size, *s);
@@ -98,7 +98,7 @@ int		ft_check_size(t_format **f, char *s)
 	return (i);
 }
 
-int     ft_select_format(va_list ap, t_format **f)
+int		ft_select_format(va_list ap, t_format **f)
 {
 	if ((*f)->conv == 'd' || (*f)->conv == 'i' || (*f)->conv == 'D')
 		return (ft_format_int(ap, f));
