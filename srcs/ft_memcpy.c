@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 08:40:21 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/11/24 01:49:34 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/12 08:53:35 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <locale.h>
-#include <limits.h>
 
-int     main(void)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int     n1;
-	int     n2;
+	char		*d;
+	const char	*s;
+	size_t		i;
 
-	setlocale (LC_ALL, "");
-
-	//ft_printf("[-12-50.0d] : ");
-	n1 = ft_printf("[%-12-50.0d]", 88);
-	//n2 = printf("[%-12-50.0d]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
-
-	return (0);
+	d = (char*)dst;
+	s = (const char*)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dst);
 }

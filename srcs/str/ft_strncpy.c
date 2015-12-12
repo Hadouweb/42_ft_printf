@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 08:40:21 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/11/24 02:40:16 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/12 08:48:39 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <locale.h>
-#include <limits.h>
 
-int     main(void)
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	int     n1;
-	int     n2;
+	size_t	i;
 
-	setlocale (LC_ALL, "");
-
-	//ft_printf("[-12-50.0d] : ");
-	n1 = ft_printf("[%-12-50.0d]", 88);
-	//n2 = printf("[%-12-50.0d]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
-
-	return (0);
+	i = 0;
+	while (src[i] && i < n)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	while (i < n)
+		dst[i++] = '\0';
+	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 05:35:54 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 08:51:55 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,7 @@ void			ft_check_flag_int(t_format **f);
 void			ft_join_all(t_format *f, char *align, char **str);
 int				ft_parse_percent(char *str, t_format **f);
 int				ft_isdigit(int c);
+char			*ft_strncpy(char *dst, const char *src, size_t n);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:46:42 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 07:11:52 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 08:38:39 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_save_string(char *str, t_format **f, va_list ap)
 		}
 		str++;
 	}
-	//ft_print_format(*f);
+//	ft_print_format(*f);
 	(*f)->len = cnt;
 }
 

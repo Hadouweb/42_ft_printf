@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:44:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 06:57:50 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 08:43:38 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ char 	*ft_strsize(t_format *f, int size)
 	{
 		align = ft_memalloc(size);
 		align = (char *)ft_memset(align, c, size);
+		align[size] = '\0';
 	}
 	return (align);
 }

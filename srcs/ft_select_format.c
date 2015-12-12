@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:47:22 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 07:25:15 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 08:35:45 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,15 @@ int		ft_check_size(t_format **f, char *s)
 		{
 			if (!(*f)->size)
 			{
-				(*f)->size = ft_memalloc(1);
+				(*f)->size = ft_memalloc(2);
 				(*f)->size[0] = *s;
+				(*f)->size[1] = '\0'; 
 			}
 			else
 				(*f)->size = ft_stradd_char(&(*f)->size, *s);
 			s++;
 			i++;
 		}
-		printf("|%s|\n", (*f)->size);
 	}
 	if (i > 0)
 		i--;

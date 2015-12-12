@@ -23,11 +23,13 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(STRPATH)ft_stradd_char.c\
 	  $(STRPATH)ft_strdel.c\
 	  $(STRPATH)ft_strcpy.c\
+	  $(STRPATH)ft_strncpy.c\
 	  $(STRPATH)ft_strjoin.c\
 	  $(STRPATH)ft_strdup.c\
 	  $(SRCPATH)ft_memalloc.c\
 	  $(SRCPATH)ft_atoi.c\
 	  $(SRCPATH)ft_memset.c\
+	  $(SRCPATH)ft_memcpy.c\
 	  $(SRCPATH)ft_isdigit.c
 
 OBJ = $(SRC:.c=.o)
