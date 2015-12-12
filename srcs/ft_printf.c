@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:46:42 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 05:47:31 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 07:11:52 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_save_string(char *str, t_format **f, va_list ap)
 	{
 		if (*str == '%' && str++)
 		{
+			ft_format_init(f);
 			str += ft_parse_percent(str, f) - 1;
 			cnt += ft_select_format(ap, f);
 		}
@@ -71,7 +72,6 @@ int     ft_printf(const char *tmp, ...)
 
 	va_start(ap, tmp);
 	f = (t_format *)malloc(sizeof(t_format));
-	ft_format_init(&f);
 	str = (char *)malloc(sizeof(char) * (strlen(tmp)) + 1);
 	str = strcpy(str, tmp);
 	ft_save_string(str, &f, ap);

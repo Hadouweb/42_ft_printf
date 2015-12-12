@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:47:22 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 05:53:07 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/12 07:25:15 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int		ft_check_size(t_format **f, char *s)
 	i = 0;
 	if (*s >= '1' && *s <= '9')
 	{
+		ft_strdel(&(*f)->size);
 		while (*s && ft_isdigit(*s))
 		{
 			if (!(*f)->size)
@@ -90,6 +91,7 @@ int		ft_check_size(t_format **f, char *s)
 			s++;
 			i++;
 		}
+		printf("|%s|\n", (*f)->size);
 	}
 	if (i > 0)
 		i--;
