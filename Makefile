@@ -30,6 +30,8 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)ft_atoi.c\
 	  $(SRCPATH)ft_memset.c\
 	  $(SRCPATH)ft_memcpy.c\
+	  $(SRCPATH)ft_memdel.c\
+	  $(SRCPATH)ft_strcat.c\
 	  $(SRCPATH)ft_isdigit.c
 
 OBJ = $(SRC:.c=.o)

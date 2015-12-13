@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:36:54 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 00:37:09 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 01:25:29 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int		ft_printf(const char *tmp, ...)
 {
 	va_list		ap;
 	char		*str;
+	int			rep;
 	t_format	*f;
 
 	va_start(ap, tmp);
@@ -76,5 +77,6 @@ int		ft_printf(const char *tmp, ...)
 	str = strcpy(str, tmp);
 	ft_save_string(str, &f, ap);
 	va_end(ap);
-	return (f->len);
+	rep = f->len;
+	return (rep);
 }

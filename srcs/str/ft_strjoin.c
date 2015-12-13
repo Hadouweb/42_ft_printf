@@ -6,13 +6,13 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 15:35:16 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/12 08:54:48 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 02:31:57 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
@@ -20,8 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	if ((str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)) == NULL)
-		return (NULL);
+	str = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	while (s1[i])
 	{
 		str[i] = s1[i];
