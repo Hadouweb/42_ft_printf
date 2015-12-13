@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 05:45:08 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 06:36:41 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_format_init(t_format **format)
 	(*format)->less = 0;
 	(*format)->more = 0;
 	(*format)->space = 0;
-	(*format)->len = 0;
 	(*format)->h = 0;
 	(*format)->l = 0;
 	(*format)->j = 0;
@@ -114,27 +113,29 @@ int		ft_check_size(t_format **f, char *s)
 int		ft_select_format(va_list ap, t_format **f)
 {
 	if ((*f)->conv == 'd' || (*f)->conv == 'i' || (*f)->conv == 'D')
-		return (ft_format_int(ap, f));
+		ft_format_int(ap, f);
 	else if ((*f)->conv == 'o' || (*f)->conv == 'O')
-		return (ft_format_byte(ap, f));
+		ft_format_byte(ap, f);
 	else if ((*f)->conv == 'u' || (*f)->conv == 'U')
-		return (ft_format_uint(ap, f));
+		ft_format_uint(ap, f);
 	else if ((*f)->conv == 'x')
-		return (ft_format_hexa(ap, f));
+		ft_format_hexa(ap, f);
 	else if ((*f)->conv == 'X')
-		return (ft_format_hexaup(ap, f));
+		ft_format_hexaup(ap, f);
 	else if ((*f)->conv == 'c')
-		return (ft_format_char(ap, f));
+		ft_format_char(ap, f);
 	else if ((*f)->conv == 's')
-		return (ft_format_str(ap, f));
+		ft_format_str(ap, f);
 	else if ((*f)->conv == 'S')
-		return (ft_format_uni_many(ap, f));
+		ft_format_uni_many(ap, f);
 	else if ((*f)->conv == 'C')
-		return (ft_format_uni_one(ap, f));
+		ft_format_uni_one(ap, f);
 	else if ((*f)->conv == 'p')
-		return (ft_format_ptr(ap, f));
+		ft_format_ptr(ap, f);
 	else if ((*f)->conv == '%' || (*f)->conv == '}' || (*f)->conv == ' ')
-		return (ft_format_percent(f));
+		ft_format_percent(f);
+	if ((*f)->len > 0)
+		return (1);
 	return (0);
 }
 

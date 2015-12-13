@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:39:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 00:39:28 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 06:23:31 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+int		ft_putchar_len(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
 void	ft_putstr(char *str)
 {
 	size_t	i;
@@ -37,4 +43,17 @@ void	ft_putstr(char *str)
 		ft_putchar(str[i]);
 		i++;
 	}
+}
+
+int		ft_putstr_len(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
 }

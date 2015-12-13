@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:36:54 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 05:46:42 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 06:44:21 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	ft_save_string(char *str, t_format **f, va_list ap)
 {
 	size_t	i;
-	size_t	cnt;
 
-	cnt = 0;
 	while (*str)
 	{
 		i = 0;
@@ -28,23 +26,17 @@ void	ft_save_string(char *str, t_format **f, va_list ap)
 			if (ft_check_conv(f, str) || (i = ft_parse_percent(str, f)) > 0)
 			{
 				str += i;
-				cnt += ft_select_format(ap, f);
+				if (!ft_select_format(ap, f))
+					(*f)->len += ft_putchar_len(*str);
 			}
 			else if (*str)
-			{
-				ft_putchar(*str);
-				cnt++;
-			}
+				(*f)->len += ft_putchar_len(*str);
 		}
 		else
-		{
-			ft_putchar(*str);
-			cnt++;
-		}
+			(*f)->len += ft_putchar_len(*str);
 		str++;
 	}
 //	ft_print_format(*f);
-	(*f)->len = cnt;
 }
 
 int		ft_parse_percent(char *str, t_format **f)
@@ -78,15 +70,14 @@ int		ft_printf(const char *tmp, ...)
 {
 	va_list		ap;
 	char		*str;
-	int			rep;
 	t_format	*f;
 
 	va_start(ap, tmp);
 	f = (t_format *)malloc(sizeof(t_format));
+	f->len = 0;
 	str = (char *)malloc(sizeof(char) * (strlen(tmp)) + 1);
 	str = strcpy(str, tmp);
 	ft_save_string(str, &f, ap);
 	va_end(ap);
-	rep = f->len;
-	return (rep);
+	return (f->len);
 }

@@ -6,18 +6,17 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:26:57 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 00:27:25 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 06:24:31 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_format_char(va_list ap, t_format **f)
+void	ft_format_char(va_list ap, t_format **f)
 {
 	int		c;
 
 	(*f)->conv = 0;
 	c = va_arg(ap, int);
-	ft_putchar(c);
-	return (1);
+	(*f)->len += ft_putchar_len(c);
 }

@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:29:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 03:33:23 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 06:26:36 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_check_flag_int(t_format **f)
 	(*f)->zero = ((*f)->less) ? 0 : (*f)->zero;
 }
 
-int		ft_format_int(va_list ap, t_format **f)
+void	ft_format_int(va_list ap, t_format **f)
 {
 	long long	n;
 	char		*str;
@@ -63,9 +63,7 @@ int		ft_format_int(va_list ap, t_format **f)
 	align = ft_strsize(*f, size);
 	//printf("%d\n", size);
 	ft_join_all(*f, align, &str);
-	ft_putstr(str);
-	(*f)->len = ft_strlen(str);
-	return ((*f)->len);
+	(*f)->len += ft_putstr_len(str);
 }
 
 void	ft_join_all(t_format *f, char *align, char **str)

@@ -6,13 +6,13 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 00:28:18 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 06:25:30 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_format_hexa(va_list ap, t_format **f)
+void	ft_format_hexa(va_list ap, t_format **f)
 {
 	unsigned int	n;
 	char			*str;
@@ -29,8 +29,5 @@ int		ft_format_hexa(va_list ap, t_format **f)
 		str = ft_strjoin("0x", str);
 		len += 2;
 	}
-	ft_putstr(str);
-	if (n == 0)
-		return (1);
-	return (len);
+	(*f)->len += ft_putstr_len(str);
 }

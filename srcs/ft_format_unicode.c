@@ -6,13 +6,13 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 00:36:00 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 06:41:50 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_format_uni_many(va_list ap, t_format **f)
+void	ft_format_uni_many(va_list ap, t_format **f)
 {
 	char	*str;
 	wchar_t *wstr;
@@ -25,21 +25,20 @@ int		ft_format_uni_many(va_list ap, t_format **f)
 	wstr = va_arg(ap, wchar_t*);
 	str = NULL;
 	if (wstr == NULL)
+		(*f)->len += ft_putstr_len("(null)");
+	else
 	{
-		ft_putstr("(null)");
-		return (6);
+		str = (char *)malloc(ft_wlen(wstr) * sizeof(wchar_t) + 1);
+		while (wstr[i])
+		{
+			cnt += ft_wconvert(str + cnt, wstr[i]);
+			i++;
+		}
+		(*f)->len += ft_putstr_len(str);
 	}
-	str = (char *)malloc(ft_wlen(wstr) * sizeof(wchar_t) + 1);
-	while (wstr[i])
-	{
-		cnt += ft_wconvert(str + cnt, wstr[i]);
-		i++;
-	}
-	ft_putstr(str);
-	return (cnt);
 }
 
-int		ft_format_uni_one(va_list ap, t_format **f)
+void	ft_format_uni_one(va_list ap, t_format **f)
 {
 	wchar_t w;
 	char	*str;
@@ -50,6 +49,5 @@ int		ft_format_uni_one(va_list ap, t_format **f)
 	str = NULL;
 	str = (char*)malloc(sizeof(wchar_t) + 1);
 	cnt = ft_wconvert(str, w);
-	ft_putstr(str);
-	return (cnt);
+	(*f)->len += ft_putstr_len(str);
 }
