@@ -6,24 +6,19 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:32:20 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 00:32:38 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 03:51:27 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_format_percent(char *t)
+int		ft_format_percent(t_format **f)
 {
-	if (*t == ' ')
+	if ((*f)->conv == '%')
 	{
-		if (*(t + 1) == '%')
-			ft_putchar('%');
-		else
-			return (0);
-	}
-	else if (*t == '}')
-		ft_putchar('}');
-	else
 		ft_putchar('%');
+	}
+	else
+		return (0);
 	return (1);
 }

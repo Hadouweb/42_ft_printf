@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 03:26:07 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 05:45:08 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,44 +31,59 @@ void	ft_format_init(t_format **format)
 	(*format)->str = NULL;
 }
 
-void	ft_check_flag(t_format **f, char *s)
+int		ft_check_flag(t_format **f, char *s)
 {
 	if (*s == '#')
 		(*f)->sharp++;
-	if (*s == '0')
+	else if (*s == '0')
 		(*f)->zero++;
-	if (*s == '-')
+	else if (*s == '-')
 		(*f)->less++;
-	if (*s == '+')
+	else if (*s == '+')
 		(*f)->more++;
-	if (*s == ' ')
+	else if (*s == ' ')
 		(*f)->space++;
+	else
+		return (0);
+	return (1);
 }
 
-void	ft_check_modifier(t_format **f, char *s)
+int		ft_check_modifier(t_format **f, char *s)
 {
 	if (*s == 'h')
 		(*f)->h++;
-	if (*s == 'l')
+	else if (*s == 'l')
 		(*f)->l++;
-	if (*s == 'j')
+	else if (*s == 'j')
 		(*f)->j++;
-	if (*s == 'z')
+	else if (*s == 'z')
 		(*f)->z++;
+	else
+		return (0);
+	return (1);
 }
 
-void	ft_check_conv(t_format **f, char *s)
+int		ft_check_conv(t_format **f, char *s)
 {
 	if (*s == 'd' || *s == 'D' || *s == 'i' || *s == 'u' || *s == 'U'
 			|| *s == 'o' || *s == 'O' || *s == 'x' || *s == 'X' || *s == 'c'
-			|| *s == 'C' || *s == 's' || *s == 'S' || *s == 'p')
+			|| *s == 'C' || *s == 's' || *s == 'S' || *s == 'p' || *s == '%')
 		(*f)->conv = *s;
+	else
+		return (0);
+	return (1);
 }
 
-void	ft_check_precision(t_format **f, char *s)
+int		ft_check_precision(t_format **f, char *s)
 {
-	if (*s == '.' && ft_isdigit(*(s + 1)))
-		(*f)->prec++;
+	if (*s == '.')
+	{
+		if (ft_isdigit(*(s + 1)))
+			(*f)->prec++;
+	}
+	else
+		return (0);
+	return (1);
 }
 
 int		ft_check_size(t_format **f, char *s)
@@ -93,8 +108,6 @@ int		ft_check_size(t_format **f, char *s)
 			i++;
 		}
 	}
-	if (i > 0)
-		i--;
 	return (i);
 }
 
@@ -121,8 +134,8 @@ int		ft_select_format(va_list ap, t_format **f)
 	else if ((*f)->conv == 'p')
 		return (ft_format_ptr(ap, f));
 	else if ((*f)->conv == '%' || (*f)->conv == '}' || (*f)->conv == ' ')
-		return (ft_format_percent(&(*f)->conv));
-	return (-1);
+		return (ft_format_percent(f));
+	return (0);
 }
 
 void	ft_print_format(t_format *format)

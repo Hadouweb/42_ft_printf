@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 02:16:12 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 03:55:53 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int				ft_format_str(va_list ap, t_format **f);
 int				ft_format_uni_one(va_list ap, t_format **f);
 int				ft_format_uni_many(va_list ap, t_format **f);
 int				ft_format_ptr(va_list ap, t_format **f);
-int				ft_format_percent(char *t);
+int				ft_format_percent(t_format **f);
 //int			ft_format_float(va_list ap);
 //void			ft_putnbr_float(float n);
 
@@ -70,11 +70,11 @@ size_t			ft_strlen(const char *s);
 
 void			ft_save_string(char *str, t_format **f, va_list ap);
 void			ft_format_init(t_format **f);
-void			ft_check_flag(t_format **f, char *s);
-void			ft_check_modifier(t_format **f, char *s);
-void			ft_check_precision(t_format **f, char *s);
+int				ft_check_flag(t_format **f, char *s);
+int				ft_check_modifier(t_format **f, char *s);
+int				ft_check_precision(t_format **f, char *s);
 int				ft_check_size(t_format **f, char *s);
-void			ft_check_conv(t_format **f, char *s);
+int				ft_check_conv(t_format **f, char *s);
 void			ft_print_format(t_format *f);
 char			*ft_strjoin(char *s, char *s2);
 char			*ft_strdup(const char *s1);

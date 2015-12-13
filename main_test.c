@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 03:32:13 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 05:39:33 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ int     main(void)
 
 	setlocale (LC_ALL, "");
 
-	n1 = ft_printf("[% d]", 9999);
-	n2 = printf("[% d]", 9999);
+	n1 = ft_printf("[%-.10d]", 42);
+	n2 = printf("[%-.10d]", 42);
+	printf(" | RETURN : %d %d\n", n1, n2);
+	
+	n1 = ft_printf("% Zoooo");
+	n2 = printf("% Zoooo");
 	printf(" | RETURN : %d %d\n", n1, n2);
 
-	n1 = ft_printf("[% d]", -9999);
-	n2 = printf("[% d]", -9999);
-	printf(" | RETURN : %d %d\n", n1, n2);
-
-	n1 = ft_printf("[% +d]", 9999);
-	n2 = printf("[% +d]", 9999);
+	n1 = ft_printf("[%kaaad]");
+	n2 = printf("[%kaaad]");
 	printf(" | RETURN : %d %d\n", n1, n2);
 
 	return (0);

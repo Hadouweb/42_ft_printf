@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:36:54 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 01:25:29 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 05:46:42 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,24 @@ void	ft_save_string(char *str, t_format **f, va_list ap)
 	size_t	i;
 	size_t	cnt;
 
-	i = 0;
 	cnt = 0;
 	while (*str)
 	{
-		if (*str == '%' && str++)
+		i = 0;
+		if (*str == '%')
 		{
 			ft_format_init(f);
-			str += ft_parse_percent(str, f) - 1;
-			cnt += ft_select_format(ap, f);
+			str++;
+			if (ft_check_conv(f, str) || (i = ft_parse_percent(str, f)) > 0)
+			{
+				str += i;
+				cnt += ft_select_format(ap, f);
+			}
+			else if (*str)
+			{
+				ft_putchar(*str);
+				cnt++;
+			}
 		}
 		else
 		{
@@ -42,24 +51,25 @@ int		ft_parse_percent(char *str, t_format **f)
 {
 	int		i;
 	int		ret;
+	int		size;
 
 	i = 0;
 	ret = 0;
-	while (*str && (*f)->conv == 0)
+	while (*str)
 	{
-		//printf("\n[DEBUG %s]\n", str);
-		ft_check_flag(f, str);
-		ft_check_modifier(f, str);
-		ft_check_precision(f, str);
-		ft_check_conv(f, str);
-		ret = ft_check_size(f, str);
-		if (ret > 0)
-		{
-			str += ret;
-			i += ret;
-		}
-		str++;
-		i++;
+		if (ft_check_conv(f, str))
+			return (i);
+		ret = 0;
+		size = 0;
+		ret += ft_check_flag(f, str);
+		ret += ft_check_modifier(f, str);
+		ret += ft_check_precision(f, str);
+		if ((size = ft_check_size(f, str)) > 0)
+			ret += size;
+		if (!ret)
+			return (i);
+		str += ret;
+		i += ret;
 	}
 	return (i);
 }
