@@ -6,13 +6,13 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:29:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 06:26:36 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 07:40:54 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_modif_type(t_format *f, long long *n)
+void	ft_modif_type_int(t_format *f, long long *n)
 {
 	if (f->l % 2 == 0 && f->l > 0)
 		*n = (long long)*n;
@@ -50,7 +50,7 @@ void	ft_format_int(va_list ap, t_format **f)
 	if ((*f)->conv == 'D')
 		(*f)->l = 1;
 	else
-		ft_modif_type(*f, &n);
+		ft_modif_type_int(*f, &n);
 	str = ft_itoa_base(n, 10, 0);
 	if (n < 0)
 	{
