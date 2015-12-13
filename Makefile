@@ -10,7 +10,6 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)ft_itoa_base.c\
 	  $(SRCPATH)ft_select_format.c\
 	  $(SRCPATH)ft_format_byte.c\
-	  $(SRCPATH)ft_format_char.c\
 	  $(SRCPATH)ft_format_hexa.c\
 	  $(SRCPATH)ft_format_int.c\
 	  $(SRCPATH)ft_format_ptr.c\

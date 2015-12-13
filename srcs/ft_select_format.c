@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 07:39:44 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 08:14:58 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,7 @@ int		ft_select_format(va_list ap, t_format **f)
 		ft_format_hexa(ap, f);
 	else if ((*f)->conv == 'X')
 		ft_format_hexaup(ap, f);
-	else if ((*f)->conv == 'c')
-		ft_format_char(ap, f);
-	else if ((*f)->conv == 's')
+	else if ((*f)->conv == 'c' || (*f)->conv == 's')
 		ft_format_str(ap, f);
 	else if ((*f)->conv == 'S')
 		ft_format_uni_many(ap, f);

@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 08:01:53 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 08:19:10 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int     main(void)
 	c = 0;
 	setlocale (LC_ALL, "");
 
-	n1 = ft_printf("[%hhU, %hhU]", 0, USHRT_MAX);
-	n2 = printf("[%hhU, %hhU]", 0, USHRT_MAX);
+	n1 = ft_printf("[%c]", 'c');
+	n2 = printf("[%c]", 'c');
 	printf(" | RETURN : %d %d\n", n1, n2);
 
 	return (0);
