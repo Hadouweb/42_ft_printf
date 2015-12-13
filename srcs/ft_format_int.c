@@ -6,7 +6,7 @@
 /*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:29:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 02:31:39 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/13 03:33:23 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	ft_join_all(t_format *f, char *align, char **str)
 			*str = ft_strjoin(f->sign, *str);
 		*str = ft_strjoin(align, *str);
 	}
+	else if (f->space && !f->sign)
+		*str = ft_strjoin(" ", *str);
 	else if (f->sign)
 		*str = ft_strjoin(f->sign, *str);
 }
