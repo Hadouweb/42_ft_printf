@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 06:25:58 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/14 06:52:38 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void			ft_check_flag_int(t_format **f);
 void			ft_join_all(t_format *f, char *align, char **str);
 void			ft_join_all_ptr(t_format *f, char *align, char **str);
 void			ft_join_all_wchar(t_format *f, char *align, char **str);
+char			*ft_join_all_char(t_format *f, char *align, char c);
 int				ft_parse_percent(char *str, t_format **f);
 int				ft_isdigit(int c);
 char			*ft_strncpy(char *dst, const char *src, size_t n);

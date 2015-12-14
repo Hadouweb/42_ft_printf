@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 06:26:46 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/14 07:52:45 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,23 @@ void	ft_format_uni_one(va_list ap, t_format **f)
 	wchar_t w;
 	char	*str;
 	size_t	cnt;
+	int		size;
 
+	size = 0;
+	str = NULL;
 	w = va_arg(ap, wchar_t);
 	ft_modif_type_wchar(*f, &w);
+	str = (char*)malloc(sizeof(wchar_t) + 1);
+	cnt = ft_wconvert(str, w);
 	if (!w)
-		(*f)->len += 1;
+		(*f)->len += ft_putchar_len(0);
 	else
 	{
-		str = NULL;
-		str = (char*)malloc(sizeof(wchar_t) + 1);
-		cnt = ft_wconvert(str, w);
+		if ((*f)->size)
+		{
+			size = ft_atoi((*f)->size);
+			ft_join_all_wchar(*f, ft_strsize(*f, size), &str);
+		}
 		(*f)->len += ft_putstr_len(str);
 	}
 }

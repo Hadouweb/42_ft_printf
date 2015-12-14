@@ -6,11 +6,28 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:36:54 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 06:21:00 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/14 07:50:51 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int 	ft_print_size(t_format **f, char *str)
+{
+	int 	size;
+	char 	*align;
+	int 	i;
+	char	*news;
+	
+	i = ft_strlen(str) - 1;
+	news = ft_memalloc(i + 1);
+	news = ft_strncpy(news, str, i);
+	size = ft_atoi((*f)->size) - 1;
+	align = ft_strsize(*f, size);
+	ft_join_all(*f, align, &news);
+	(*f)->len += ft_putstr_len(news);
+	return (i);
+}
 
 void	ft_save_string(char *str, t_format **f, va_list ap)
 {
@@ -29,7 +46,7 @@ void	ft_save_string(char *str, t_format **f, va_list ap)
 				if (!ft_select_format(ap, f))
 				{
 					if ((*f)->size)
-						(*f)->len += ft_putstr_len(ft_strsize(*f, ft_atoi((*f)->size) - 1));
+						str += ft_print_size(f, str);
 					(*f)->len += ft_putchar_len(*str);
 				}
 			}

@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:32:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 06:03:57 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/14 06:59:28 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	ft_format_ptr(va_list ap, t_format **f)
 
 void	ft_join_all_ptr(t_format *f, char *align, char **str)
 {
-	if (align && !f->less)
+	if (align && !f->less && !f->zero)
 		*str = ft_strjoin(align, *str);
-	else if (align && f->less)
+	else if (align && (f->less || f->zero))
 		*str = ft_strjoin(*str, align);
 }
