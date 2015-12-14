@@ -3,14 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_unicode.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 07:21:23 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/14 06:26:46 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_modif_type_wchar(t_format *f, wchar_t *n)
+{
+	if (f->l % 2 == 0 && f->l > 0)
+		*n = (unsigned long long)*n;
+	else if (f->l % 2 != 0)
+		*n = (unsigned long)*n;
+	else if (f->j)
+		*n = (uintmax_t) * n;
+	else if (f->z)
+		*n = (size_t)*n;
+	else if (f->h % 2 != 0)
+		*n = (unsigned short)*n;
+	else if (f->h % 2 == 0 && f->h > 0)
+		*n = (unsigned char)*n;
+	else
+		*n = (wchar_t)*n;
+}
 
 void	ft_format_uni_many(va_list ap, t_format **f)
 {
@@ -18,6 +36,7 @@ void	ft_format_uni_many(va_list ap, t_format **f)
 	wchar_t *wstr;
 	size_t	cnt;
 	size_t	i;
+	int		size;
 
 	i = 0;
 	cnt = 0;
@@ -33,8 +52,22 @@ void	ft_format_uni_many(va_list ap, t_format **f)
 			cnt += ft_wconvert(str + cnt, wstr[i]);
 			i++;
 		}
+		if ((*f)->size)
+		{
+			size = ft_atoi((*f)->size) - ft_strlen(str);
+			ft_join_all_wchar(*f, ft_strsize(*f, size), &str);
+		}
 		(*f)->len += ft_putstr_len(str);
 	}
+}
+
+void	ft_join_all_wchar(t_format *f, char *align, char **str)
+{
+	if (align && !f->less)
+		*str = ft_strjoin(align, *str);
+	else if (align && f->less)
+		*str = ft_strjoin(*str, align);
+
 }
 
 void	ft_format_uni_one(va_list ap, t_format **f)
@@ -43,8 +76,8 @@ void	ft_format_uni_one(va_list ap, t_format **f)
 	char	*str;
 	size_t	cnt;
 
-	(*f)->conv = 0;
 	w = va_arg(ap, wchar_t);
+	ft_modif_type_wchar(*f, &w);
 	if (!w)
 		(*f)->len += 1;
 	else

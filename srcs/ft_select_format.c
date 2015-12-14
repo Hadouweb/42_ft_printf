@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_select_format.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 08:14:58 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/14 06:19:08 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,9 +132,9 @@ int		ft_select_format(va_list ap, t_format **f)
 		ft_format_ptr(ap, f);
 	else if ((*f)->conv == '%' || (*f)->conv == '}' || (*f)->conv == ' ')
 		ft_format_percent(f);
-	if ((*f)->len > 0)
-		return (1);
-	return (0);
+	else
+		return (0);
+	return (1);
 }
 
 void	ft_print_format(t_format *format)

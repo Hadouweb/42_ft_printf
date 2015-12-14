@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:33:29 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 08:27:57 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/14 05:47:51 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,25 @@ void	ft_format_str(va_list ap, t_format **f)
 
 void	ft_format_char(va_list ap, t_format **f)
 {
-	char	c;
+	char 	c;
+	char 	*str;
+	char 	*align;
 
 	c = 0;
+	str = NULL;
+	align = NULL;
 	if ((*f)->l)
 		ft_format_uni_one(ap, f);
 	else
 	{
 		c = va_arg(ap, int);
-		(*f)->len += ft_putchar_len(c);
+		if ((*f)->size)
+		{
+			align = ft_strsize(*f, ft_atoi((*f)->size) - 1);
+			(*f)->len += ft_putstr_len(align);
+			(*f)->len += ft_putchar_len(c);
+		}
+		else
+			(*f)->len += ft_putchar_len(c);
 	}
 }

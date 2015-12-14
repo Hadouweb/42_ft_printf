@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:36:54 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 06:44:21 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/14 06:21:00 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ void	ft_save_string(char *str, t_format **f, va_list ap)
 			{
 				str += i;
 				if (!ft_select_format(ap, f))
+				{
+					if ((*f)->size)
+						(*f)->len += ft_putstr_len(ft_strsize(*f, ft_atoi((*f)->size) - 1));
 					(*f)->len += ft_putchar_len(*str);
+				}
 			}
 			else if (*str)
 				(*f)->len += ft_putchar_len(*str);
@@ -36,7 +40,7 @@ void	ft_save_string(char *str, t_format **f, va_list ap)
 			(*f)->len += ft_putchar_len(*str);
 		str++;
 	}
-//	ft_print_format(*f);
+	//ft_print_format(*f);
 }
 
 int		ft_parse_percent(char *str, t_format **f)
