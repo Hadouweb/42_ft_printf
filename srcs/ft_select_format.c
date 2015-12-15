@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 06:19:08 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 02:08:10 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,91 +23,108 @@ void	ft_format_init(t_format **format)
 	(*format)->l = 0;
 	(*format)->j = 0;
 	(*format)->z = 0;
-	(*format)->prec = 0;
+	(*format)->prec = NULL;
 	(*format)->size = NULL;
 	(*format)->conv = 0;
 	(*format)->sign = 0;
 	(*format)->str = NULL;
 }
 
-int		ft_check_flag(t_format **f, char *s)
+int		ft_check_flag(t_format **f, char **s)
 {
-	if (*s == '#')
+	if (**s == '#')
 		(*f)->sharp++;
-	else if (*s == '0')
+	else if (**s == '0')
 		(*f)->zero++;
-	else if (*s == '-')
+	else if (**s == '-')
 		(*f)->less++;
-	else if (*s == '+')
+	else if (**s == '+')
 		(*f)->more++;
-	else if (*s == ' ')
+	else if (**s == ' ')
 		(*f)->space++;
 	else
 		return (0);
+	(*s)++;
 	return (1);
 }
 
-int		ft_check_modifier(t_format **f, char *s)
+int		ft_check_modifier(t_format **f, char **s)
 {
-	if (*s == 'h')
+	if (**s == 'h')
 		(*f)->h++;
-	else if (*s == 'l')
+	else if (**s == 'l')
 		(*f)->l++;
-	else if (*s == 'j')
+	else if (**s == 'j')
 		(*f)->j++;
-	else if (*s == 'z')
+	else if (**s == 'z')
 		(*f)->z++;
 	else
 		return (0);
+	(*s)++;
 	return (1);
 }
 
-int		ft_check_conv(t_format **f, char *s)
+int		ft_check_conv(t_format **f, char **s)
 {
-	if (*s == 'd' || *s == 'D' || *s == 'i' || *s == 'u' || *s == 'U'
-			|| *s == 'o' || *s == 'O' || *s == 'x' || *s == 'X' || *s == 'c'
-			|| *s == 'C' || *s == 's' || *s == 'S' || *s == 'p' || *s == '%')
-		(*f)->conv = *s;
-	else
-		return (0);
-	return (1);
-}
-
-int		ft_check_precision(t_format **f, char *s)
-{
-	if (*s == '.')
+	if (**s == 'd' || **s == 'D' || **s == 'i' || **s == 'u' || **s == 'U'
+		|| **s == 'o' || **s == 'O' || **s == 'x' || **s == 'X' || **s == 'c'
+		|| **s == 'C' || **s == 's' || **s == 'S' || **s == 'p' || **s == '%')
 	{
-		if (ft_isdigit(*(s + 1)))
-			(*f)->prec++;
+		(*f)->conv = **s;
+		return (1);
 	}
-	else
-		return (0);
-	return (1);
+	return (0);
 }
 
-int		ft_check_size(t_format **f, char *s)
+int		ft_check_precision(t_format **f, char **s)
 {
-	int		i;
+	if (**s == '.')
+	{
+		if (ft_isdigit(*(*s + 1)))
+		{
+			ft_strdel(&(*f)->prec);
+			(*s)++;
+			while (**s && ft_isdigit(**s))
+			{
+				if (!(*f)->prec)
+				{
+					(*f)->prec = ft_memalloc(2);
+					(*f)->prec[0] = **s;
+					(*f)->prec[1] = '\0';
+				}
+				else
+					(*f)->prec = ft_stradd_char(&(*f)->prec, **s);
+				(*s)++;
+				//printf("[%s\n]", *s);
+			}
+		}
+		else
+			(*s)++;
+		return (1);
+	}
+	return (0);
+}
 
-	i = 0;
-	if (*s >= '1' && *s <= '9')
+int		ft_check_size(t_format **f, char **s)
+{
+	if (**s >= '1' && **s <= '9')
 	{
 		ft_strdel(&(*f)->size);
-		while (*s && ft_isdigit(*s))
+		while (**s && ft_isdigit(**s))
 		{
 			if (!(*f)->size)
 			{
 				(*f)->size = ft_memalloc(2);
-				(*f)->size[0] = *s;
+				(*f)->size[0] = **s;
 				(*f)->size[1] = '\0';
 			}
 			else
-				(*f)->size = ft_stradd_char(&(*f)->size, *s);
-			s++;
-			i++;
+				(*f)->size = ft_stradd_char(&(*f)->size, **s);
+			(*s)++;
 		}
+		return (1);
 	}
-	return (i);
+	return (0);
 }
 
 int		ft_select_format(va_list ap, t_format **f)
@@ -149,7 +166,7 @@ void	ft_print_format(t_format *format)
 	printf("l  : %d\n", format->l);
 	printf("j  : %d\n", format->j);
 	printf("z  : %d\n", format->z);
-	printf("prec  : %d\n", format->prec);
+	printf("prec  : %s\n", format->prec);
 	printf("size  : %s\n", format->size);
 	printf("conv  : %c\n", format->conv);
 	printf("len  : %d\n", format->len);

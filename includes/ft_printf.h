@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 06:52:38 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 01:27:34 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct	s_format
 	char		l;
 	char		j;
 	char		z;
-	char		prec;
+	char		*prec;
 	char		*size;
 	int			len;
 	char		conv;
@@ -71,13 +71,13 @@ void			ft_format_percent(t_format **f);
 char			*ft_strcpy(char *dst, const char *src);
 size_t			ft_strlen(const char *s);
 
-void			ft_save_string(char *str, t_format **f, va_list ap);
+void			ft_save_string(char **str, t_format **f, va_list ap);
 void			ft_format_init(t_format **f);
-int				ft_check_flag(t_format **f, char *s);
-int				ft_check_modifier(t_format **f, char *s);
-int				ft_check_precision(t_format **f, char *s);
-int				ft_check_size(t_format **f, char *s);
-int				ft_check_conv(t_format **f, char *s);
+int				ft_check_flag(t_format **f, char **s);
+int				ft_check_modifier(t_format **f, char **s);
+int				ft_check_precision(t_format **f, char **s);
+int				ft_check_size(t_format **f, char **s);
+int				ft_check_conv(t_format **f, char **s);
 void			ft_print_format(t_format *f);
 char			*ft_strjoin(char *s, char *s2);
 char			*ft_strdup(const char *s1);
@@ -92,10 +92,11 @@ void			ft_join_all(t_format *f, char *align, char **str);
 void			ft_join_all_ptr(t_format *f, char *align, char **str);
 void			ft_join_all_wchar(t_format *f, char *align, char **str);
 char			*ft_join_all_char(t_format *f, char *align, char c);
-int				ft_parse_percent(char *str, t_format **f);
+int				ft_parse_percent(char **str, t_format **f);
 int				ft_isdigit(int c);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			ft_memdel(void **);
 char			*ft_strcat(char *s1, const char *s2);
+int 			ft_print_size(t_format **f, char **str);
 #endif

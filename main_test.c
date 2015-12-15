@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_test.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 08:19:10 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 02:41:29 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,37 @@ int     main(void)
 	c = 0;
 	setlocale (LC_ALL, "");
 
-	n1 = ft_printf("[%c]", 'c');
-	n2 = printf("[%c]", 'c');
-	printf(" | RETURN : %d %d\n", n1, n2);
+	//n1 = ft_printf("[%03.2d]", 0);
+	n1 = ft_printf("[%-15Z]", 123);
+	n2 = printf("[%-15Z]", 123);
+	printf("\n%d %d\n", n1, n2);
 
+	/*n1 = ft_printf("[%10d]", -42);
+	n2 = printf("[%10d]", -42);
+	printf("\n%d %d\n", n1, n2);
+
+	n1 = ft_printf("[%+10d]", -42);
+	n2 = printf("[%+10d]", -42);
+	printf("\n%d %d\n", n1, n2);
+
+	n1 = ft_printf("[%+010d]", -42);
+	n2 = printf("[%+010d]", -42);
+	printf("\n%d %d\n", n1, n2);
+
+	n1 = ft_printf("[%010d]", 42);
+	n2 = printf("[%010d]", 42);
+	printf("\n%d %d\n", n1, n2);
+
+	n1 = ft_printf("[%010d]", 42);
+	n2 = printf("[%010d]", 42);
+	printf("\n%d %d\n", n1, n2);
+
+	n1 = ft_printf("[%+10d]", 42);
+	n2 = printf("[%+10d]", 42);
+	printf("\n%d %d\n", n1, n2);
+
+	n1 = ft_printf("[%+010d]", 42);
+	n2 = printf("[%+010d]", 42);
+	printf("\n%d %d\n", n1, n2);*/
 	return (0);
 }

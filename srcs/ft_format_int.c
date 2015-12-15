@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:29:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 07:40:54 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 02:44:28 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_modif_type_int(t_format *f, long long *n)
 void	ft_check_flag_int(t_format **f)
 {
 	(*f)->sharp = 0;
-	(*f)->space = ((*f)->more) ? 0 : (*f)->space;
+	//(*f)->space = ((*f)->more) ? 0 : (*f)->space;
 	(*f)->zero = ((*f)->less) ? 0 : (*f)->zero;
 }
 
@@ -61,34 +61,34 @@ void	ft_format_int(va_list ap, t_format **f)
 	if ((*f)->size)
 		size = ft_atoi((*f)->size) - ft_strlen(str);
 	align = ft_strsize(*f, size);
-	//printf("%d\n", size);
 	ft_join_all(*f, align, &str);
 	(*f)->len += ft_putstr_len(str);
 }
 
 void	ft_join_all(t_format *f, char *align, char **str)
 {
-	if (align && (f->zero || f->prec))
+	if (align && f->less)
 	{
-		*str = ft_strjoin(align, *str);
 		if (f->sign)
 			*str = ft_strjoin(f->sign, *str);
-	}
-	else if (align && f->less)
-	{
 		*str = ft_strjoin(*str, align);
-		if (f->sign)
-			*str = ft_strjoin(f->sign, *str);
 	}
-	else if (align && !f->prec)
+	else if (align)
 	{
-		if (f->sign)
-			*str = ft_strjoin(f->sign, *str);
-		*str = ft_strjoin(align, *str);
+		if (f->zero)
+		{
+			*str = ft_strjoin(align, *str);
+			if (f->sign)
+				*str = ft_strjoin(f->sign, *str);
+		}
+		else
+		{
+			if (f->sign)
+				*str = ft_strjoin(f->sign, *str);
+			*str = ft_strjoin(align, *str);
+		}
 	}
-	else if (f->space && !f->sign)
-		*str = ft_strjoin(" ", *str);
-	else if (f->sign)
+	if (!align && f->sign)
 		*str = ft_strjoin(f->sign, *str);
 }
 
@@ -100,7 +100,7 @@ char	*ft_strsize(t_format *f, int size)
 	align = NULL;
 	if ((!f->prec && f->more))
 		size--;
-	else if (f->sign && f->sign[0] == '-' && !f->prec)
+	else if ((f->sign && !f->prec) || f->space)
 		size--;
 	if ((f->space || f->size) && !f->zero && !f->prec)
 		c = ' ';
