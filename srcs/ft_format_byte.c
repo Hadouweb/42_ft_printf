@@ -48,6 +48,6 @@ void	ft_format_byte(va_list ap, t_format **f)
 		str = ft_uitoa_base(n, 8, '0');
 		if ((*f)->sharp && str[0] != '0')
 			str = ft_strjoin("0", str);
-		(*f)->len += ft_putstr_len(str);
+		ft_print_all(f, str);
 	}
 }

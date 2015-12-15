@@ -46,12 +46,12 @@ void	ft_format_int(va_list ap, t_format **f)
 	size = 0;
 	//ft_check_flag_int(f);
 	n = va_arg(ap, long long);
+	(*f)->nbr = n;
 	if ((*f)->conv == 'D')
 		(*f)->l = 1;
 	else
 		ft_modif_type_int(*f, &n);
 	str = ft_itoa_base(n, 10, 0);
-	(*f)->nbr = n;
 	if (n < 0)
 	{
 		(*f)->sign = ft_strdup("-");
@@ -158,7 +158,8 @@ void	ft_print_default(t_format **f, char *str)
 		(*f)->len += ft_putstr_len((*f)->sign);
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
 		(*f)->len += ft_putstr_len(" ");
-	(*f)->len += ft_putstr_len(str);
+	if (!((*f)->nbr == 0 && (*f)->pnt))
+		(*f)->len += ft_putstr_len(str);
 }
 
 void 	ft_print_all(t_format **f, char *str)

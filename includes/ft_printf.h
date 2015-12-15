@@ -31,6 +31,7 @@ typedef struct	s_format
 	char		j;
 	char		z;
 	int 		prec;
+	int 		pnt;
 	int 		size;
 	int			len;
 	long long 	nbr;

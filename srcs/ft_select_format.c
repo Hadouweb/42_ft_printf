@@ -24,6 +24,7 @@ void	ft_format_init(t_format **format)
 	(*format)->j = 0;
 	(*format)->z = 0;
 	(*format)->prec = 0;
+	(*format)->pnt = 0;
 	(*format)->size = 0;
 	(*format)->conv = 0;
 	(*format)->sign = 0;
@@ -84,6 +85,7 @@ int		ft_check_precision(t_format **f, char **s)
 	prec = NULL;
 	if (**s == '.')
 	{
+		(*f)->pnt++;
 		if (ft_isdigit(*(*s + 1)))
 		{
 			(*s)++;
@@ -175,6 +177,7 @@ void	ft_print_format(t_format *format)
 	printf("j  : %d\n", format->j);
 	printf("z  : %d\n", format->z);
 	printf("prec  : %d\n", format->prec);
+	printf("point  : %d\n", format->pnt);
 	printf("nbr  : %lld\n", format->nbr);
 	printf("size  : %d\n", format->size);
 	printf("conv  : %c\n", format->conv);

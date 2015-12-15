@@ -38,13 +38,13 @@ void	ft_format_uint(va_list ap, t_format **f)
 	char					*str;
 
 	n = va_arg(ap, unsigned long long);
-	if (n == 0)
+	if (n == 0 && !(*f)->pnt)
 		(*f)->len += ft_putchar_len('0');
 	else
 	{
+		(*f)->space = 0;
 		ft_modif_type_uint(*f, &n);
 		str = ft_uitoa_base(n, 10, 0);
-		(*f)->len += ft_putstr_len(str);
+		ft_print_all(f, str);
 	}
-
 }
