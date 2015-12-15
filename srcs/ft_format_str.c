@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:33:29 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 05:06:47 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 06:16:44 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void	ft_format_str(va_list ap, t_format **f)
 			str = va_arg(ap, char*);
 			if (!str)
 				str = "(null)";
-			ft_join_all(*f, &str);
-			(*f)->len += ft_putstr_len(str);
+			ft_print_all(f, str);
 		}
 	}
 	else if ((*f)->conv == 'c')

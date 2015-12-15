@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 04:04:45 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 06:00:09 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ void	ft_format_hexa(va_list ap, t_format **f)
 			str = ft_strjoin("0x", str);
 			len += 2;
 		}
-		ft_join_all(*f, &str);
-		(*f)->len += ft_putstr_len(str);
+		ft_print_all(f, str);
 	}
 }
 
@@ -76,7 +75,6 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 			str = ft_strjoin("0X", str);
 			len += 2;
 		}
-		ft_join_all(*f, &str);
-		(*f)->len += ft_putstr_len(str);
+		ft_print_all(f, str);
 	}
 }

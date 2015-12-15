@@ -23,6 +23,7 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(STRPATH)ft_strcpy.c\
 	  $(STRPATH)ft_strncpy.c\
 	  $(STRPATH)ft_strjoin.c\
+	  $(STRPATH)ft_strcmp.c\
 	  $(STRPATH)ft_strdup.c\
 	  $(SRCPATH)ft_memalloc.c\
 	  $(SRCPATH)ft_atoi.c\

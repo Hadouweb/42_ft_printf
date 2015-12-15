@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 04:48:22 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 07:54:28 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_format
 	int 		prec;
 	int 		size;
 	int			len;
+	long long 	nbr;
 	char		conv;
 	char		*sign;
 	char		*str;
@@ -100,4 +101,6 @@ void			ft_memdel(void **);
 char			*ft_strcat(char *s1, const char *s2);
 int 			ft_print_size(t_format **f, char **str);
 char			*ft_adj(t_format *f, char *str, char c);
+void 			ft_print_all(t_format **f, char *str);
+int				ft_strcmp(const char *s1, const char *s2);
 #endif

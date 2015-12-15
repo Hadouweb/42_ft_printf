@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:36:54 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 04:07:08 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 08:03:31 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int 	ft_print_size(t_format **f, char **str)
 	i = ft_strlen(*str) - 1;
 	news = ft_memalloc(i + 1);
 	news = ft_strncpy(news, *str, i);
-	ft_join_all(*f, &news);
-	(*f)->len += ft_putstr_len(news);
+	ft_print_all(f, news);
 	(*str) += i;
 	return (0);
 }

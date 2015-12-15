@@ -1,63 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools_str.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 00:39:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 07:43:11 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/11/24 02:53:13 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/15 06:18:08 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	while ((unsigned char)s1[i] == (unsigned char)s2[i] && s1[i])
 		i++;
-	return (i);
-}
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-int		ft_putchar_len(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-void	ft_putstr(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
-
-int		ft_putstr_len(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	return (i);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
