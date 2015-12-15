@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 07:52:45 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 05:01:28 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_format_uni_many(va_list ap, t_format **f)
 	wchar_t *wstr;
 	size_t	cnt;
 	size_t	i;
-	int		size;
 
 	i = 0;
 	cnt = 0;
@@ -52,11 +51,7 @@ void	ft_format_uni_many(va_list ap, t_format **f)
 			cnt += ft_wconvert(str + cnt, wstr[i]);
 			i++;
 		}
-		if ((*f)->size)
-		{
-			size = ft_atoi((*f)->size) - ft_strlen(str);
-			ft_join_all_wchar(*f, ft_strsize(*f, size), &str);
-		}
+		ft_join_all(*f, &str);
 		(*f)->len += ft_putstr_len(str);
 	}
 }
@@ -89,8 +84,8 @@ void	ft_format_uni_one(va_list ap, t_format **f)
 	{
 		if ((*f)->size)
 		{
-			size = ft_atoi((*f)->size);
-			ft_join_all_wchar(*f, ft_strsize(*f, size), &str);
+			//size = ft_atoi((*f)->size);
+			//ft_join_all_wchar(*f, ft_strsize(*f, size), &str);
 		}
 		(*f)->len += ft_putstr_len(str);
 	}

@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:29:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 02:44:28 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 05:19:44 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_check_flag_int(t_format **f)
 {
 	(*f)->sharp = 0;
 	//(*f)->space = ((*f)->more) ? 0 : (*f)->space;
-	(*f)->zero = ((*f)->less) ? 0 : (*f)->zero;
+	//(*f)->zero = ((*f)->less) ? 0 : (*f)->zero;
 }
 
 void	ft_format_int(va_list ap, t_format **f)
@@ -42,7 +42,6 @@ void	ft_format_int(va_list ap, t_format **f)
 	long long	n;
 	char		*str;
 	int			size;
-	char		*align;
 
 	size = 0;
 	ft_check_flag_int(f);
@@ -58,59 +57,73 @@ void	ft_format_int(va_list ap, t_format **f)
 		str = ft_strdup(&str[1]);
 	}
 	(*f)->sign = (!(*f)->sign && (*f)->more) ? ft_strdup("+") : (*f)->sign;
-	if ((*f)->size)
-		size = ft_atoi((*f)->size) - ft_strlen(str);
-	align = ft_strsize(*f, size);
-	ft_join_all(*f, align, &str);
+
+	ft_join_all(*f, &str);
 	(*f)->len += ft_putstr_len(str);
 }
 
-void	ft_join_all(t_format *f, char *align, char **str)
+char	*ft_adj(t_format *f, char *str, char c)
 {
-	if (align && f->less)
+	char	*adj;
+	int 	size;
+
+	size = f->size - ft_strlen(str);
+	if (f->sign)
+		size -= ft_strlen(f->sign);
+	adj = NULL;
+	if (size > 0)
+	{
+		adj = ft_memalloc(size + 1);
+		ft_memset(adj, c, size);
+		adj[size] = '\0';
+	}
+	else
+	{
+		f->size = 0;
+	}
+	return (adj);
+}
+
+void	ft_join_zero(t_format *f, char *adj, char **str)
+{
+	//if (f->zero)
+	if (f->prec || f->zero)
+	{
+		*str = ft_strjoin(adj, *str);
+		if (f->sign)
+			*str = ft_strjoin(f->sign, *str);
+	}
+}
+
+void	ft_join_space(t_format *f, char *adj, char **str)
+{
+	if (f->space)
+		*str = ft_strjoin(" ", *str);
+	else
 	{
 		if (f->sign)
 			*str = ft_strjoin(f->sign, *str);
-		*str = ft_strjoin(*str, align);
+		if (!f->less)
+			*str = ft_strjoin(adj, *str);
+		if (f->less)
+			*str = ft_strjoin(*str, adj);
+
 	}
-	else if (align)
-	{
-		if (f->zero)
-		{
-			*str = ft_strjoin(align, *str);
-			if (f->sign)
-				*str = ft_strjoin(f->sign, *str);
-		}
-		else
-		{
-			if (f->sign)
-				*str = ft_strjoin(f->sign, *str);
-			*str = ft_strjoin(align, *str);
-		}
-	}
-	if (!align && f->sign)
-		*str = ft_strjoin(f->sign, *str);
 }
 
-char	*ft_strsize(t_format *f, int size)
+void	ft_join_all(t_format *f, char **str)
 {
-	char	c;
-	char	*align;
+	char 	*adj;
 
-	align = NULL;
-	if ((!f->prec && f->more))
-		size--;
-	else if ((f->sign && !f->prec) || f->space)
-		size--;
-	if ((f->space || f->size) && !f->zero && !f->prec)
-		c = ' ';
-	else
-		c = '0';
-	if (size > 0)
+	adj = NULL;
+	if ((adj = ft_adj(f, *str, ' ')) && f->size && !f->zero)
 	{
-		align = ft_memalloc(size + 1);
-		align = (char *)ft_memset(align, c, size);
-		align[size] = '\0';
+		ft_join_space(f, adj, str);
 	}
-	return (align);
+	if ((adj = ft_adj(f, *str, '0')) && (f->prec || f->zero))
+	{
+		ft_join_zero(f, adj, str);
+	}
+	if (f->sign && !f->prec && !f->size)
+		*str = ft_strjoin(f->sign, *str);
 }

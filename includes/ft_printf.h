@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 01:27:34 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 04:48:22 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct	s_format
 	char		l;
 	char		j;
 	char		z;
-	char		*prec;
-	char		*size;
+	int 		prec;
+	int 		size;
 	int			len;
 	char		conv;
 	char		*sign;
@@ -88,10 +88,10 @@ char			*ft_stradd_char(char **s, char c);
 int				ft_atoi(const char *str);
 char			*ft_strsize(t_format *f, int size);
 void			ft_check_flag_int(t_format **f);
-void			ft_join_all(t_format *f, char *align, char **str);
+void			ft_join_all(t_format *f, char **str);
 void			ft_join_all_ptr(t_format *f, char *align, char **str);
 void			ft_join_all_wchar(t_format *f, char *align, char **str);
-char			*ft_join_all_char(t_format *f, char *align, char c);
+int 			ft_join_all_char(t_format **f, char c);
 int				ft_parse_percent(char **str, t_format **f);
 int				ft_isdigit(int c);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
@@ -99,4 +99,5 @@ void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			ft_memdel(void **);
 char			*ft_strcat(char *s1, const char *s2);
 int 			ft_print_size(t_format **f, char **str);
+char			*ft_adj(t_format *f, char *str, char c);
 #endif

@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 02:08:10 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 03:38:19 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_format_init(t_format **format)
 	(*format)->l = 0;
 	(*format)->j = 0;
 	(*format)->z = 0;
-	(*format)->prec = NULL;
-	(*format)->size = NULL;
+	(*format)->prec = 0;
+	(*format)->size = 0;
 	(*format)->conv = 0;
 	(*format)->sign = 0;
 	(*format)->str = NULL;
@@ -78,25 +78,28 @@ int		ft_check_conv(t_format **f, char **s)
 
 int		ft_check_precision(t_format **f, char **s)
 {
+	char 	*prec;
+
+	prec = NULL;
 	if (**s == '.')
 	{
 		if (ft_isdigit(*(*s + 1)))
 		{
-			ft_strdel(&(*f)->prec);
 			(*s)++;
 			while (**s && ft_isdigit(**s))
 			{
-				if (!(*f)->prec)
+				if (!prec)
 				{
-					(*f)->prec = ft_memalloc(2);
-					(*f)->prec[0] = **s;
-					(*f)->prec[1] = '\0';
+					prec = ft_memalloc(2);
+					prec[0] = **s;
+					prec[1] = '\0';
 				}
 				else
-					(*f)->prec = ft_stradd_char(&(*f)->prec, **s);
+					prec = ft_stradd_char(&prec, **s);
 				(*s)++;
-				//printf("[%s\n]", *s);
 			}
+			(*f)->prec = ft_atoi(prec);
+			ft_strdel(&prec);
 		}
 		else
 			(*s)++;
@@ -107,21 +110,25 @@ int		ft_check_precision(t_format **f, char **s)
 
 int		ft_check_size(t_format **f, char **s)
 {
+	char 	*size;
+
+	size = NULL;
 	if (**s >= '1' && **s <= '9')
 	{
-		ft_strdel(&(*f)->size);
 		while (**s && ft_isdigit(**s))
 		{
-			if (!(*f)->size)
+			if (!size)
 			{
-				(*f)->size = ft_memalloc(2);
-				(*f)->size[0] = **s;
-				(*f)->size[1] = '\0';
+				size = ft_memalloc(2);
+				size[0] = **s;
+				size[1] = '\0';
 			}
 			else
-				(*f)->size = ft_stradd_char(&(*f)->size, **s);
+				size = ft_stradd_char(&size, **s);
 			(*s)++;
 		}
+		(*f)->size = ft_atoi(size);
+		ft_strdel(&size);
 		return (1);
 	}
 	return (0);
@@ -166,8 +173,8 @@ void	ft_print_format(t_format *format)
 	printf("l  : %d\n", format->l);
 	printf("j  : %d\n", format->j);
 	printf("z  : %d\n", format->z);
-	printf("prec  : %s\n", format->prec);
-	printf("size  : %s\n", format->size);
+	printf("prec  : %d\n", format->prec);
+	printf("size  : %d\n", format->size);
 	printf("conv  : %c\n", format->conv);
 	printf("len  : %d\n", format->len);
 	printf("str  : %s\n", format->str);

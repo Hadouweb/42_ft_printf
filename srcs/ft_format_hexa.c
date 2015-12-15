@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 06:42:33 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/15 04:04:45 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ void	ft_format_hexa(va_list ap, t_format **f)
 	char				*str;
 	int					len;
 	int					i;
-	int					size;
 
 	len = 0;
-	size = 0;
 	i = 0;
 	n = va_arg(ap, unsigned long long);
 	if (n == 0)
@@ -54,11 +52,7 @@ void	ft_format_hexa(va_list ap, t_format **f)
 			str = ft_strjoin("0x", str);
 			len += 2;
 		}
-		if ((*f)->size)
-		{
-			size = ft_atoi((*f)->size) - ft_strlen(str);
-			ft_join_all(*f, ft_strsize(*f, size), &str);
-		}
+		ft_join_all(*f, &str);
 		(*f)->len += ft_putstr_len(str);
 	}
 }
@@ -68,9 +62,7 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 	unsigned long long	n;
 	char				*str;
 	int					len;
-	int					size;
 
-	size = 0;
 	n = va_arg(ap, unsigned long long);
 	if (n == 0)
 		(*f)->len += ft_putchar_len('0');
@@ -84,11 +76,7 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 			str = ft_strjoin("0X", str);
 			len += 2;
 		}
-		if ((*f)->size)
-		{
-			size = ft_atoi((*f)->size) - ft_strlen(str);
-			ft_join_all(*f, ft_strsize(*f, size), &str);
-		}
+		ft_join_all(*f, &str);
 		(*f)->len += ft_putstr_len(str);
 	}
 }
