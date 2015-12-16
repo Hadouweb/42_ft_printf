@@ -6,136 +6,11 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 03:06:18 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 05:52:19 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_format_init(t_format **format)
-{
-	(*format)->sharp = 0;
-	(*format)->zero = 0;
-	(*format)->less = 0;
-	(*format)->more = 0;
-	(*format)->space = 0;
-	(*format)->h = 0;
-	(*format)->l = 0;
-	(*format)->j = 0;
-	(*format)->z = 0;
-	(*format)->prec = 0;
-	(*format)->pnt = 0;
-	(*format)->size = 0;
-	(*format)->conv = 0;
-	(*format)->sign = 0;
-	(*format)->nbr = -1;
-	(*format)->str = NULL;
-}
-
-int		ft_check_flag(t_format **f, char **s)
-{
-	if (**s == '#')
-		(*f)->sharp++;
-	else if (**s == '0')
-		(*f)->zero++;
-	else if (**s == '-')
-		(*f)->less++;
-	else if (**s == '+')
-		(*f)->more++;
-	else if (**s == ' ')
-		(*f)->space++;
-	else
-		return (0);
-	(*s)++;
-	return (1);
-}
-
-int		ft_check_modifier(t_format **f, char **s)
-{
-	if (**s == 'h')
-		(*f)->h++;
-	else if (**s == 'l')
-		(*f)->l++;
-	else if (**s == 'j')
-		(*f)->j++;
-	else if (**s == 'z')
-		(*f)->z++;
-	else
-		return (0);
-	(*s)++;
-	return (1);
-}
-
-int		ft_check_conv(t_format **f, char **s)
-{
-	if (**s == 'd' || **s == 'D' || **s == 'i' || **s == 'u' || **s == 'U'
-		|| **s == 'o' || **s == 'O' || **s == 'x' || **s == 'X' || **s == 'c'
-		|| **s == 'C' || **s == 's' || **s == 'S' || **s == 'p')
-	{
-		(*f)->conv = **s;
-		return (1);
-	}
-	return (0);
-}
-
-int		ft_check_precision(t_format **f, char **s)
-{
-	char 	*prec;
-
-	prec = NULL;
-	if (**s == '.')
-	{
-		(*f)->pnt = 1;
-		if (ft_isdigit(*(*s + 1)))
-		{
-			(*s)++;
-			while (**s && ft_isdigit(**s))
-			{
-				if (!prec)
-				{
-					prec = ft_memalloc(2);
-					prec[0] = **s;
-					prec[1] = '\0';
-				}
-				else
-					prec = ft_stradd_char(&prec, **s);
-				(*s)++;
-			}
-			(*f)->prec = ft_atoi(prec);
-			ft_strdel(&prec);
-		}
-		else
-			(*s)++;
-		return (1);
-	}
-	return (0);
-}
-
-int		ft_check_size(t_format **f, char **s)
-{
-	char 	*size;
-
-	size = NULL;
-	if (**s >= '1' && **s <= '9')
-	{
-		while (**s && ft_isdigit(**s))
-		{
-			if (!size)
-			{
-				size = ft_memalloc(2);
-				size[0] = **s;
-				size[1] = '\0';
-			}
-			else
-				size = ft_stradd_char(&size, **s);
-			(*s)++;
-		}
-		(*f)->size = ft_atoi(size);
-		ft_strdel(&size);
-		return (1);
-	}
-	return (0);
-}
 
 int		ft_select_format(va_list ap, t_format **f)
 {
@@ -164,23 +39,35 @@ int		ft_select_format(va_list ap, t_format **f)
 	return (1);
 }
 
-void	ft_print_format(t_format *format)
+int 	ft_print_size(t_format **f, char **str)
 {
-	printf("FORMAT\n");
-	printf("#  : %d\n", format->sharp);
-	printf("0  : %d\n", format->zero);
-	printf("-  : %d\n", format->less);
-	printf("+  : %d\n", format->more);
-	printf("   : %d\n", format->space);
-	printf("h  : %d\n", format->h);
-	printf("l  : %d\n", format->l);
-	printf("j  : %d\n", format->j);
-	printf("z  : %d\n", format->z);
-	printf("prec  : %d\n", format->prec);
-	printf("point  : %d\n", format->pnt);
-	printf("nbr  : %lld\n", format->nbr);
-	printf("size  : %d\n", format->size);
-	printf("conv  : %c\n", format->conv);
-	printf("len  : %d\n", format->len);
-	printf("str  : %s\n", format->str);
+	int 	i;
+	char	*news;
+
+	i = ft_strlen(*str) - 1;
+	news = ft_memalloc(i + 1);
+	news = ft_strncpy(news, *str, i);
+	ft_print_all(f, news);
+	(*str) += i;
+	return (0);
+}
+
+int 	ft_parse_percent(char **str, t_format **f)
+{
+	int		ret;
+
+	ret = 0;
+	while (**str)
+	{
+		ret = 0;
+		ret += ft_check_flag(f, str);
+		ret += ft_check_modifier(f, str);
+		ret += ft_check_precision(f, str);
+		ret += ft_check_size(f, str);
+		if (ft_check_conv(f, str))
+			return (1);
+		if (!ret)
+			return (0);
+	}
+	return (0);
 }

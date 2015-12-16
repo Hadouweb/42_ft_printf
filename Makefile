@@ -1,37 +1,48 @@
 CFLAGS = -Wall -Werror -Wextra
+
 NAME = libftprintf.a
+
 SRCPATH = ./srcs/
-STRPATH = $(SRCPATH)/str/
+
+UTILSPATH = $(SRCPATH)/utils/
+
+FORMATPATH = $(SRCPATH)/format/
+
 INCPATH =./includes
+
 SRC = $(SRCPATH)ft_printf.c\
-	  $(SRCPATH)tools_str.c\
-	  $(SRCPATH)tools_nbr.c\
-	  $(SRCPATH)tools_unicode.c\
-	  $(SRCPATH)ft_itoa_base.c\
+	  $(SRCPATH)ft_save_flags.c\
 	  $(SRCPATH)ft_select_format.c\
-	  $(SRCPATH)ft_format_byte.c\
-	  $(SRCPATH)ft_format_hexa.c\
-	  $(SRCPATH)ft_format_int.c\
-	  $(SRCPATH)ft_format_ptr.c\
-	  $(SRCPATH)ft_format_str.c\
-	  $(SRCPATH)ft_format_unicode.c\
-	  $(SRCPATH)ft_format_uint.c\
-	  $(SRCPATH)ft_format_percent.c\
-	  $(STRPATH)ft_strlen.c\
-	  $(STRPATH)ft_stradd_char.c\
-	  $(STRPATH)ft_strdel.c\
-	  $(STRPATH)ft_strcpy.c\
-	  $(STRPATH)ft_strncpy.c\
-	  $(STRPATH)ft_strjoin.c\
-	  $(STRPATH)ft_strcmp.c\
-	  $(STRPATH)ft_strdup.c\
-	  $(SRCPATH)ft_memalloc.c\
-	  $(SRCPATH)ft_atoi.c\
-	  $(SRCPATH)ft_memset.c\
-	  $(SRCPATH)ft_memcpy.c\
-	  $(SRCPATH)ft_memdel.c\
-	  $(SRCPATH)ft_strcat.c\
-	  $(SRCPATH)ft_isdigit.c
+	  $(SRCPATH)ft_struct_format.c\
+	  $(FORMATPATH)ft_format_int.c\
+	  $(FORMATPATH)ft_format_ptr.c\
+	  $(FORMATPATH)ft_format_str.c\
+	  $(FORMATPATH)ft_format_uint.c\
+	  $(FORMATPATH)ft_format_hexa.c\
+	  $(FORMATPATH)ft_format_byte.c\
+	  $(FORMATPATH)ft_format_unicode.c\
+	  $(FORMATPATH)ft_format_percent.c\
+	  $(FORMATPATH)ft_print_all.c\
+	  $(FORMATPATH)ft_print_final.c\
+	  $(UTILSPATH)tools_str.c\
+	  $(UTILSPATH)tools_nbr.c\
+	  $(UTILSPATH)tools_unicode.c\
+	  $(UTILSPATH)ft_itoa_base.c\
+	  $(UTILSPATH)ft_strlen.c\
+	  $(UTILSPATH)ft_stradd_char.c\
+	  $(UTILSPATH)ft_strdel.c\
+	  $(UTILSPATH)ft_strcpy.c\
+	  $(UTILSPATH)ft_strncpy.c\
+	  $(UTILSPATH)ft_strjoin.c\
+	  $(UTILSPATH)ft_strcmp.c\
+	  $(UTILSPATH)ft_strdup.c\
+	  $(UTILSPATH)ft_memalloc.c\
+	  $(UTILSPATH)ft_atoi.c\
+	  $(UTILSPATH)ft_memset.c\
+	  $(UTILSPATH)ft_memcpy.c\
+	  $(UTILSPATH)ft_memdel.c\
+	  $(UTILSPATH)ft_strcat.c\
+	  $(UTILSPATH)ft_isdigit.c
 
 OBJ = $(SRC:.c=.o)
 
