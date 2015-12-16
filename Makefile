@@ -21,7 +21,6 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(FORMATPATH)ft_format_hexa.c\
 	  $(FORMATPATH)ft_format_byte.c\
 	  $(FORMATPATH)ft_format_unicode.c\
-	  $(FORMATPATH)ft_format_percent.c\
 	  $(FORMATPATH)ft_print_all.c\
 	  $(FORMATPATH)ft_print_final.c\
 	  $(UTILSPATH)tools_str.c\

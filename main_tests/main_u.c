@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 21:27:41 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 21:27:53 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/16 23:02:00 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,412 +24,527 @@ int     main(void)
 	ft_printf("[10u] : ");
 	n1 = ft_printf("[%10u]", 12345);
 	n2 = printf("[%10u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[10u] : ");
 	n1 = ft_printf("[%10u]", -12345);
 	n2 = printf("[%10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+10u] : ");
 	n1 = ft_printf("[%+10u]", -12345);
 	n2 = printf("[%+10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[+10u] : ");
 	n1 = ft_printf("[%+10u]", -12345);
 	n2 = printf("[%+10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[010u] : ");
 	n1 = ft_printf("[%010u]", 12345);
 	n2 = printf("[%010u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[010u] : ");
 	n1 = ft_printf("[%010u]", -12345);
 	n2 = printf("[%010u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+010u] : ");
 	n1 = ft_printf("[%+010u]", 12345);
 	n2 = printf("[%+010u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[+010u] : ");
 	n1 = ft_printf("[%+010u]", -12345);
 	n2 = printf("[%+010u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[+0u] : ");
 	n1 = ft_printf("[%+0u]", 12345);
 	n2 = printf("[%+0u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[+0u] : ");
 	n1 = ft_printf("[%+0u]", -12345);
 	n2 = printf("[%+0u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.010u] : ");
 	n1 = ft_printf("[%.010u]", 12345);
 	n2 = printf("[%.010u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.010u] : ");
 	n1 = ft_printf("[%.010u]", -12345);
 	n2 = printf("[%.010u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-010u] : ");
 	n1 = ft_printf("[%-010u]", 12345);
 	n2 = printf("[%-010u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-010u] : ");
 	n1 = ft_printf("[%-010u]", -12345);
 	n2 = printf("[%-010u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.10u] : ");
 	n1 = ft_printf("[%-.10u]", 12345);
 	n2 = printf("[%-.10u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[-.10u] : ");
 	n1 = ft_printf("[%-.10u]", -12345);
 	n2 = printf("[%-.10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.10u] : ");
 	n1 = ft_printf("[%.10u]", 12345);
 	n2 = printf("[%.10u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.10u] : ");
 	n1 = ft_printf("[%.10u]", -12345);
 	n2 = printf("[%.10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.10u] : ");
 	n1 = ft_printf("[%+.10u]", 12345);
 	n2 = printf("[%+.10u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.10u] : ");
 	n1 = ft_printf("[%+.10u]", -12345);
 	n2 = printf("[%+.10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.010u] : ");
 	n1 = ft_printf("[%-.010u]", 12345);
 	n2 = printf("[%-.010u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.010u] : ");
 	n1 = ft_printf("[%-.010u]", -12345);
 	n2 = printf("[%-.010u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.010u] : ");
 	n1 = ft_printf("[%+.010u]", 12345);
 	n2 = printf("[%+.010u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.010u] : ");
 	n1 = ft_printf("[%+.010u]", -12345);
 	n2 = printf("[%+.010u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.+10u] : ");
 	n1 = ft_printf("[%.+10u]", 12345);
 	n2 = printf("[%.+10u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.+10u] : ");
 	n1 = ft_printf("[%.+10u]", -12345);
 	n2 = printf("[%.+10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.-10u] : ");
 	n1 = ft_printf("[%.-10u]", 12345);
 	n2 = printf("[%.-10u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.-10u] : ");
 	n1 = ft_printf("[%.-10u]", -12345);
 	n2 = printf("[%.-10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.10u] : ");
 	n1 = ft_printf("[%+.10u]", 12345);
 	n2 = printf("[%+.10u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.10u] : ");
 	n1 = ft_printf("[%+.10u]", -12345);
 	n2 = printf("[%+.10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.10u] : ");
 	n1 = ft_printf("[%-.10u]", 12345);
 	n2 = printf("[%-.10u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.10u] : ");
 	n1 = ft_printf("[%-.10u]", -12345);
 	n2 = printf("[%-.10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[before d after] : ");
 	n1 = ft_printf("[before %d after]", 12345);
 	n2 = printf("[before %d after]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[before d after] : ");
 	n1 = ft_printf("[before %d after]", -12345);
 	n2 = printf("[before %d after]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[a d b\\n] : ");
 	n1 = ft_printf("[a %db \n]", 12345);
 	n2 = printf("[a %d b\n]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[a d b\\n] : ");
 	n1 = ft_printf("[a %d b\n]", -12345);
 	n2 = printf("[a %d b\n]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#u] : ");
 	n1 = ft_printf("[%#u]", 12345);
 	n2 = printf("[%#u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#u] : ");
 	n1 = ft_printf("[%#u]", -12345);
 	n2 = printf("[%#u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[lu] : ");
 	n1 = ft_printf("[%lu]", 12345);
 	n2 = printf("[%lu]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[lu] : ");
 	n1 = ft_printf("[%lu]", -12345);
 	n2 = printf("[%lu]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[llu] : ");
 	n1 = ft_printf("[%llu]", 12345);
 	n2 = printf("[%llu]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[llu] : ");
 	n1 = ft_printf("[%llu]", -12345);
 	n2 = printf("[%llu]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[lllllu] : ");
 	n1 = ft_printf("[%lllllu]", 12345);
 	n2 = printf("[%lllllu]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[llllllu] : ");
 	n1 = ft_printf("[%llllllu]", -12345);
 	n2 = printf("[%llllllu]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hu] : ");
 	n1 = ft_printf("[%hu]", 12345);
 	n2 = printf("[%hu]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[hu] : ");
 	n1 = ft_printf("[%hu]", -12345);
 	n2 = printf("[%hu]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[hhhu] : ");
 	n1 = ft_printf("[%hhu]", 12345);
 	n2 = printf("[%hhu]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hhhhu] : ");
 	n1 = ft_printf("[%hhu]", -12345);
 	n2 = printf("[%hhu]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hhu] : ");
 	n1 = ft_printf("[%hhu]", -12345);
 	n2 = printf("[%hhu]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[ju] : ");
 	n1 = ft_printf("[%ju]", 12345);
 	n2 = printf("[%ju]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[jjju] : ");
 	n1 = ft_printf("[%jjju]", -12345);
 	n2 = printf("[%jjju]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[jjju] : ");
 	n1 = ft_printf("[%jjjju]", 12345);
 	n2 = printf("[%jjjju]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+u] : ");
 	n1 = ft_printf("[%+u]", -12345);
 	n2 = printf("[%+u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#u] : ");
 	n1 = ft_printf("[%#u]", 12345);
 	n2 = printf("[%#u]", 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#u] : ");
 	n1 = ft_printf("[%#u]", -12345);
 	n2 = printf("[%#u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+-#.10u] : ");
 	n1 = ft_printf("[%+-#.10u]", -12345);
 	n2 = printf("[%+-#.10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[++010u] : ");
 	n1 = ft_printf("[%++010u]", -12345);
 	n2 = printf("[%++010u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-- 10u] : ");
 	n1 = ft_printf("[%-- 10u]", -12345);
 	n2 = printf("[%-- 10u]", -12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[u][u] : ");
 	n1 = ft_printf("[%u][%u]", 88, 12345);
 	n2 = printf("[%u][%u]", 88, 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[u][u] : ");
 	n1 = ft_printf("[%u][%u]", -88, 12345);
 	n2 = printf("[%u][%u]", -88, 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[u][u] : ");
 	n1 = ft_printf("[%u][%u]", 0, 12345);
 	n2 = printf("[%u][%u]", 0, 12345);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.+-hjl10.4u] : ");
 	n1 = ft_printf("[%.+-hjl10.4u]", 88);
 	n2 = printf("[%.+-hjl10.4u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.10+8u] : ");
 	n1 = ft_printf("[%.10+8u]", 88);
 	n2 = printf("[%.10+8u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.3.4.8u] : ");
 	n1 = ft_printf("[%.3.4.8u]", 88);
 	n2 = printf("[%.3.4.8u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+7+8+9u] : ");
 	n1 = ft_printf("[%+7+8+9u]", 88);
 	n2 = printf("[%+7+8+9u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-12-50.0u] : ");
 	n1 = ft_printf("[%-12-50.0u]", 88);
 	n2 = printf("[%-12-50.0u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
-	ft_printf("[01000u] : ");
-	n1 = ft_printf("[%01000u]", 88);
-	n2 = printf("[%01000u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	ft_printf("[0100u] : ");
+	n1 = ft_printf("[%0100u]", 88);
+	n2 = printf("[%0100u]", 88);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[##10.4+lhlhlh16.7-13jjjhhll0u] : ");
 	n1 = ft_printf("[%##10.4+lhlhlh16.7-13jjjhhll0u]", 88);
 	n2 = printf("[%##10.4+lhlhlh16.7-13jjjhhll0u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[qu] : ");
 	n1 = ft_printf("[%qu]", 88);
 	n2 = printf("[%qu]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[llu] : ");
 	n1 = ft_printf("[%llu]", 10.00);
 	n2 = printf("[%llu]", 10.00);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[lhlu] : ");
 	n1 = ft_printf("[%lhlu]", 11234);
 	n2 = printf("[%lhlu]", 11234);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hlhu] : ");
 	n1 = ft_printf("[%hlhu]", 11234);
 	n2 = printf("[%hlhu]", 11234);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hlhu] : ");
 	n1 = ft_printf("[%hlhu]", LONG_MAX);
 	n2 = printf("[%hlhu]", LONG_MAX);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hu] : ");
 	n1 = ft_printf("[%hu]", LONG_MAX);
 	n2 = printf("[%hu]", LONG_MAX);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hlhu] : ");
 	n1 = ft_printf("[%hlhu]", LONG_MIN);
 	n2 = printf("[%hlhu]", LONG_MIN);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[ +u] : ");
 	n1 = ft_printf("[% +u]", LONG_MIN);
 	n2 = printf("[% +u]", LONG_MIN);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("+-10.4u] : ");
 	n1 = ft_printf("[%+-10.4u]", 12);
 	n2 = printf("[%+-10.4u]", 12);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#hlhu] : ");
 	n1 = ft_printf("[%#hlhu]", LONG_MIN);
 	n2 = printf("[%#hlhu]", LONG_MIN);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[# +u] : ");
 	n1 = ft_printf("[%# +u]", LONG_MIN);
 	n2 = printf("[%# +u]", LONG_MIN);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("#+-10.4u] : ");
 	n1 = ft_printf("[%#+-10.4u]", 12);
 	n2 = printf("[%#+-10.4u]", 12);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.7-13u] : ");
 	n1 = ft_printf("[%.7-13u]", 88);
 	n2 = printf("[%.7-13u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-12.5+3u] : ");
 	n1 = ft_printf("[%-12.5+3u]", 88);
 	n2 = printf("[%-12.5+3u]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010hu] : ");
+	n1 = ft_printf("[%010hu]", LONG_MIN);
+	n2 = printf("[%010hu]", LONG_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010hhu] : ");
+	n1 = ft_printf("[%010hhu]", LONG_MIN);
+	n2 = printf("[%010hhu]", LONG_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010lu] : ");
+	n1 = ft_printf("[%010lu]", LONG_MIN);
+	n2 = printf("[%010lu]", LONG_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010llu] : ");
+	n1 = ft_printf("[%010llu]", LONG_MIN);
+	n2 = printf("[%010llu]", LONG_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010ju] : ");
+	n1 = ft_printf("[%010ju]", LONG_MIN);
+	n2 = printf("[%010ju]", LONG_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010zu] : ");
+	n1 = ft_printf("[%010zu]", LONG_MIN);
+	n2 = printf("[%010zu]", LONG_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", CHAR_BIT);
+	n2 = printf("[%010u]", CHAR_BIT);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", SCHAR_MIN);
+	n2 = printf("[%010u]", SCHAR_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", SCHAR_MAX);
+	n2 = printf("[%010u]", SCHAR_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", UCHAR_MAX);
+	n2 = printf("[%010u]", UCHAR_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", CHAR_MIN);
+	n2 = printf("[%010u]", CHAR_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", CHAR_MAX);
+	n2 = printf("[%010u]", CHAR_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", LONG_MIN);
+	n2 = printf("[%010u]", LONG_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", MB_LEN_MAX);
+	n2 = printf("[%010u]", MB_LEN_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", SHRT_MIN);
+	n2 = printf("[%010u]", SHRT_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", SHRT_MAX);
+	n2 = printf("[%010u]", SHRT_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", USHRT_MAX);
+	n2 = printf("[%010u]", USHRT_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", INT_MIN);
+	n2 = printf("[%010u]", INT_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", INT_MAX);
+	n2 = printf("[%010u]", INT_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", UINT_MAX);
+	n2 = printf("[%010u]", UINT_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", LONG_MIN);
+	n2 = printf("[%010u]", LONG_MIN);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", LONG_MAX);
+	n2 = printf("[%010u]", LONG_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[010u] : ");
+	n1 = ft_printf("[%010u]", ULONG_MAX);
+	n2 = printf("[%010u]", ULONG_MAX);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	return (0);
 }
