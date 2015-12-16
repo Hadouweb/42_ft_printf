@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 06:45:00 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 23:46:55 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 00:42:38 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void 	ft_print_less_size(t_format **f, char *str)
 		(*f)->len += ft_putstr_len(ft_adj_zero(*f, str));
 		(*f)->size -= ft_strlen(ft_adj_zero(*f, str));
 	}
+	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
+		(*f)->len += ft_putstr_len(" ");
 	(*f)->len += ft_putstr_len(str);
 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
 }

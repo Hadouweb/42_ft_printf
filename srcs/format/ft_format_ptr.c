@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:32:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 22:39:06 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 00:39:39 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	ft_format_ptr(va_list ap, t_format **f)
 	n = va_arg(ap, unsigned long);
 	//ft_modif_type_ptr(*f, &n);
 	//(*f)->size = 0;
-	str = ft_uitoa_base(n, 16, '0');
+	str = ft_itoa_base(n, 16, '0');
 	(*f)->sign = "0x";
 	if (n == 0 && !(*f)->prec && (*f)->pnt)
-		(*f)->sign = "0x";
+		(*f)->len += ft_putstr_len("0x");
 	else
 		ft_print_all(f, str);
 }
