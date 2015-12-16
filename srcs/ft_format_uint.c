@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_uint.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:05 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 08:12:31 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 03:31:24 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_modif_type_uint(t_format *f, unsigned long long *n)
 	else if (f->h % 2 == 0 && f->h > 0)
 		*n = (unsigned char)*n;
 	else
-		*n = (unsigned long long)*n;
+		*n = (unsigned int)*n;
 }
 
 void	ft_format_uint(va_list ap, t_format **f)

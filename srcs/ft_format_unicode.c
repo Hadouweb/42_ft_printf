@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 02:29:10 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 03:43:54 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	ft_modif_type_wchar(t_format *f, wchar_t *n)
 	else if (f->z)
 		*n = (size_t)*n;
 	else if (f->h % 2 != 0)
-		*n = (unsigned short)*n;
+		*n = (unsigned long)*n;
 	else if (f->h % 2 == 0 && f->h > 0)
-		*n = (unsigned char)*n;
+		*n = (unsigned long)*n;
 	else
 		*n = (wchar_t)*n;
 }
@@ -49,6 +49,7 @@ void	ft_format_uni_many(va_list ap, t_format **f)
 		while (wstr[i])
 		{
 			cnt += ft_wconvert(str + cnt, wstr[i]);
+			str[cnt] = '\0';
 			i++;
 		}
 		ft_print_all_char(f, str);
@@ -77,15 +78,9 @@ void	ft_format_uni_one(va_list ap, t_format **f)
 	ft_modif_type_wchar(*f, &w);
 	str = (char*)malloc(sizeof(wchar_t) + 1);
 	cnt = ft_wconvert(str, w);
-	if (!w)
-		(*f)->len += ft_putchar_len(0);
-	else
-	{
-		if ((*f)->size)
-		{
-			//size = ft_atoi((*f)->size);
-			//ft_join_all_wchar(*f, ft_strsize(*f, size), &str);
-		}
+	str[cnt] = '\0';
+	if (w)
 		(*f)->len += ft_putstr_len(str);
-	}
+	else
+		(*f)->len += ft_putchar_len(0);
 }

@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:33:29 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 03:04:25 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 04:25:56 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,28 @@ char	*ft_check_str(t_format *f, char *str)
 	if (size > 0)
 	{
 		adj = ft_memalloc(size + 1);
-		ft_strncpy(adj, str, size);
+		if (f->conv != 'S')
+			ft_strncpy(adj, str, size);
+		if (f->conv == 'S')
+			ft_strncpy_wchar(adj, str, size);
 		adj[size] = '\0';
 	}
 	return (adj);
 }
 
-void 	ft_print_less_size_char(t_format **f, char *str)
+void 	ft_print_size_char(t_format **f, char *str)
 {// Si less et size
 	//printf("|1|\n");
-	if ((*f)->sign)
-		(*f)->len += ft_putstr_len((*f)->sign);
-	(*f)->len += ft_putstr_len(str);
-	(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
+	if (!(*f)->less)
+	{
+		(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
+		(*f)->len += ft_putstr_len(str);
+	}
+	if ((*f)->less)
+	{
+		(*f)->len += ft_putstr_len(str);
+		(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
+	}
 }
 
 void 	ft_print_zero_size_char(t_format **f, char *str)
@@ -91,11 +100,16 @@ void	ft_print_size_prec_char(t_format **f, char *str)
 		(*f)->len += ft_putstr_len(" ");
 	//printf("%d %d\n", (*f)->size, (*f)->prec);
 	if (ft_strlen(str) > (size_t)(*f)->prec)
+	{
+		//printf("[%d %lu]", (*f)->size, (*f)->prec - ft_strlen(ft_check_str(*f, str)));
 		(*f)->size += (ft_strlen(str) - (size_t)(*f)->prec);
+		if ((*f)->conv == 'S')
+			(*f)->size += ((*f)->prec - ft_strlen(ft_check_str(*f, str)));
+	}
 	if ((*f)->zero)
 		(*f)->len += ft_putstr_len(ft_adj_zero(*f, str));
 	else
- 		(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
+		(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
 	(*f)->len += ft_putstr_len(ft_check_str(*f, str));
 }
 
@@ -119,21 +133,16 @@ void	ft_print_default_char(t_format **f, char *str)
 
 void 	ft_print_all_char(t_format **f, char *str)
 {
-	if (!(*f)->less)
-	{
-		if ((!(*f)->prec && !(*f)->zero && !(*f)->pnt && !(*f)->size))
-			ft_print_default_char(f, str);
-		else if ((*f)->prec && !(*f)->size)
-			ft_print_prec_char(f, str);
-		else if ((*f)->pnt && (*f)->size)
-			ft_print_size_prec_char(f, str);
-		else if ((*f)->zero && (*f)->size)
-			ft_print_zero_size_char(f, str);
-	}
-	if ((*f)->less)
-	{
-
-	}
+	if ((!(*f)->prec && !(*f)->zero && !(*f)->pnt && !(*f)->size))
+		ft_print_default_char(f, str);
+	else if ((*f)->prec && !(*f)->size)
+		ft_print_prec_char(f, str);
+	else if ((*f)->pnt && (*f)->size)
+		ft_print_size_prec_char(f, str);
+	else if ((*f)->zero && (*f)->size)
+		ft_print_zero_size_char(f, str);
+	else if ((*f)->size && !(*f)->prec)
+		ft_print_size_char(f, str);
 }
 
 char	*ft_adj_char(t_format *f, char c)

@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 01:50:51 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 03:48:29 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,5 @@ int				ft_strcmp(const char *s1, const char *s2);
 void 			ft_print_all_char(t_format **f, char *str);
 char			*ft_adj_zero(t_format *f, char *str);
 char			*ft_adj_space(t_format *f, char *str);
+char			*ft_strncpy_wchar(char *dst, const char *src, size_t n);
 #endif
