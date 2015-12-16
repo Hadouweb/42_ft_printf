@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 03:18:27 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 21:46:08 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_modif_type_hexa(t_format *f, unsigned long long *n)
 	else if (f->h % 2 == 0 && f->h > 0)
 		*n = (unsigned char)*n;
 	else
-		*n = (unsigned long long)*n;
+		*n = (unsigned int)*n;
 }
 
 void	ft_format_hexa(va_list ap, t_format **f)
@@ -48,7 +48,7 @@ void	ft_format_hexa(va_list ap, t_format **f)
 	if (n == 0 && !(*f)->pnt)
 		(*f)->len += ft_putchar_len('0');
 	else if ((*f)->sharp && str && n != 0)
-		(*f)->len += ft_putstr_len("0x");
+		(*f)->sign = "0x";
 	ft_print_all(f, str);
 }
 
@@ -67,7 +67,7 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 	if (n == 0 && !(*f)->pnt)
 		(*f)->len += ft_putchar_len('0');
 	else if ((*f)->sharp && str)
-		(*f)->len += ft_putstr_len("0X");
+		(*f)->sign = "0X";
 	ft_print_all(f, str);
 
 }

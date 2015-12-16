@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_all.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 06:45:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 06:45:31 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 21:23:23 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ void 	ft_print_all(t_format **f, char *str)
 	{
 		if ((!(*f)->prec && !(*f)->zero))
 			ft_print_default(f, str);
-		if (((*f)->zero || (*f)->prec) && !((*f)->size && (*f)->prec))
+		else if (((*f)->zero || (*f)->prec) && !((*f)->size && (*f)->prec))
 			ft_print_zero_prec(f, str);
-		if ((*f)->prec && (*f)->size)
+		else if ((*f)->prec && (*f)->size)
 			ft_print_size_prec(f, str);
 	}
 	if ((*f)->less)
 	{
 		if ((*f)->size)
 			ft_print_less_size(f, str);
-		if (!(*f)->size && (!(*f)->zero || (*f)->prec))
+		else if (!(*f)->size && (!(*f)->zero || (*f)->prec))
 			ft_print_less_prec(f, str);
 	}
 }

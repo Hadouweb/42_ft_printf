@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_d_min.c                                       :+:      :+:    :+:   */
+/*   main_d_low.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/14 05:13:33 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 21:23:54 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <locale.h>
+#include <limits.h>
 
 int     main(void)
 {
@@ -320,8 +321,6 @@ int     main(void)
 	n2 = printf("[%d][%d]", -88, 12345);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
-	ft_printf("_____________HARD RANDOM____________");
-
 	ft_printf("[d][d] : ");
 	n1 = ft_printf("[%d][%d]", 0, 12345);
 	n2 = printf("[%d][%d]", 0, 12345);
@@ -342,11 +341,6 @@ int     main(void)
 	n2 = printf("[%.3.4.8d]", 88);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
-	ft_printf("[-12.5+3d] : ");
-	n1 = ft_printf("[%-12.5+3d]", 88);
-	n2 = printf("[%-12.5+3d]", 88);
-	printf(" | RETURN : %d %d\n", n1, n2);
-
 	ft_printf("[+7+8+9d] : ");
 	n1 = ft_printf("[%+7+8+9d]", 88);
 	n2 = printf("[%+7+8+9d]", 88);
@@ -360,6 +354,81 @@ int     main(void)
 	ft_printf("[01000d] : ");
 	n1 = ft_printf("[%01000d]", 88);
 	n2 = printf("[%01000d]", 88);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[##10.4+lhlhlh16.7-13jjjhhll0d] : ");
+	n1 = ft_printf("[%##10.4+lhlhlh16.7-13jjjhhll0d]", 88);
+	n2 = printf("[%##10.4+lhlhlh16.7-13jjjhhll0d]", 88);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[qd] : ");
+	n1 = ft_printf("[%qd]", 88);
+	n2 = printf("[%qd]", 88);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[lld] : ");
+	n1 = ft_printf("[%lld]", 10.00);
+	n2 = printf("[%lld]", 10.00);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[lhld] : ");
+	n1 = ft_printf("[%lhld]", 11234);
+	n2 = printf("[%lhld]", 11234);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[hlhd] : ");
+	n1 = ft_printf("[%hlhd]", 11234);
+	n2 = printf("[%hlhd]", 11234);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[hlhd] : ");
+	n1 = ft_printf("[%hlhd]", LONG_MAX);
+	n2 = printf("[%hlhd]", LONG_MAX);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[hd] : ");
+	n1 = ft_printf("[%hd]", LONG_MAX);
+	n2 = printf("[%hd]", LONG_MAX);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[hlhd] : ");
+	n1 = ft_printf("[%hlhd]", LONG_MIN);
+	n2 = printf("[%hlhd]", LONG_MIN);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[ +d] : ");
+	n1 = ft_printf("[% +d]", LONG_MIN);
+	n2 = printf("[% +d]", LONG_MIN);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("+-10.4d] : ");
+	n1 = ft_printf("[%+-10.4d]", 12);
+	n2 = printf("[%+-10.4d]", 12);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[#hlhd] : ");
+	n1 = ft_printf("[%#hlhd]", LONG_MIN);
+	n2 = printf("[%#hlhd]", LONG_MIN);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[# +d] : ");
+	n1 = ft_printf("[%# +d]", LONG_MIN);
+	n2 = printf("[%# +d]", LONG_MIN);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("#+-10.4d] : ");
+	n1 = ft_printf("[%#+-10.4d]", 12);
+	n2 = printf("[%#+-10.4d]", 12);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[.7-13d] : ");
+	n1 = ft_printf("[%.7-13d]", 88);
+	n2 = printf("[%.7-13d]", 88);
+	printf(" | RETURN : %d %d\n", n1, n2);
+
+	ft_printf("[-12.5+3d] : ");
+	n1 = ft_printf("[%-12.5+3d]", 88);
+	n2 = printf("[%-12.5+3d]", 88);
 	printf(" | RETURN : %d %d\n", n1, n2);
 
 	return (0);
