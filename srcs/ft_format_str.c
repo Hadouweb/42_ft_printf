@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:33:29 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 02:30:29 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 03:04:25 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void 	ft_print_less_size_char(t_format **f, char *str)
 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
 }
 
-void 	ft_print_less_prec_char(t_format **f, char *str)
+void 	ft_print_zero_size_char(t_format **f, char *str)
 {// Si less et prec
 	//printf("|2|\n");
 	if ((*f)->sign)
@@ -92,7 +92,10 @@ void	ft_print_size_prec_char(t_format **f, char *str)
 	//printf("%d %d\n", (*f)->size, (*f)->prec);
 	if (ft_strlen(str) > (size_t)(*f)->prec)
 		(*f)->size += (ft_strlen(str) - (size_t)(*f)->prec);
- 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
+	if ((*f)->zero)
+		(*f)->len += ft_putstr_len(ft_adj_zero(*f, str));
+	else
+ 		(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
 	(*f)->len += ft_putstr_len(ft_check_str(*f, str));
 }
 
@@ -120,10 +123,12 @@ void 	ft_print_all_char(t_format **f, char *str)
 	{
 		if ((!(*f)->prec && !(*f)->zero && !(*f)->pnt && !(*f)->size))
 			ft_print_default_char(f, str);
-		if ((*f)->prec && !(*f)->size)
+		else if ((*f)->prec && !(*f)->size)
 			ft_print_prec_char(f, str);
-		if ((*f)->pnt && (*f)->size)
+		else if ((*f)->pnt && (*f)->size)
 			ft_print_size_prec_char(f, str);
+		else if ((*f)->zero && (*f)->size)
+			ft_print_zero_size_char(f, str);
 	}
 	if ((*f)->less)
 	{

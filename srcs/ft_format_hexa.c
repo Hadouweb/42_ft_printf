@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 01:46:15 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 03:18:27 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,11 @@ void	ft_format_hexa(va_list ap, t_format **f)
 	(*f)->nbr = n;
 	ft_modif_type_hexa(*f, &n);
 	str = ft_uitoa_base(n, 16, '0');
+	(*f)->space = 0;
 	len = ft_nbrlen(n, 16);
 	if (n == 0 && !(*f)->pnt)
 		(*f)->len += ft_putchar_len('0');
-	else if ((*f)->sharp && str)
+	else if ((*f)->sharp && str && n != 0)
 		(*f)->len += ft_putstr_len("0x");
 	ft_print_all(f, str);
 }
@@ -61,6 +62,7 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 	(*f)->nbr = n;
 	ft_modif_type_hexa(*f, &n);
 	str = ft_uitoa_base(n, 16, '0' - 32);
+	(*f)->space = 0;
 	len = ft_nbrlen_u(n, 16);
 	if (n == 0 && !(*f)->pnt)
 		(*f)->len += ft_putchar_len('0');
