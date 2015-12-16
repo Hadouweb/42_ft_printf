@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 06:00:09 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 01:46:15 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,15 @@ void	ft_format_hexa(va_list ap, t_format **f)
 	len = 0;
 	i = 0;
 	n = va_arg(ap, unsigned long long);
-	if (n == 0)
+	(*f)->nbr = n;
+	ft_modif_type_hexa(*f, &n);
+	str = ft_uitoa_base(n, 16, '0');
+	len = ft_nbrlen(n, 16);
+	if (n == 0 && !(*f)->pnt)
 		(*f)->len += ft_putchar_len('0');
-	else
-	{
-		ft_modif_type_hexa(*f, &n);
-		str = ft_uitoa_base(n, 16, '0');
-		len = ft_nbrlen(n, 16);
-		if ((*f)->sharp && str)
-		{
-			str = ft_strjoin("0x", str);
-			len += 2;
-		}
-		ft_print_all(f, str);
-	}
+	else if ((*f)->sharp && str)
+		(*f)->len += ft_putstr_len("0x");
+	ft_print_all(f, str);
 }
 
 void	ft_format_hexaup(va_list ap, t_format **f)
@@ -63,18 +58,14 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 	int					len;
 
 	n = va_arg(ap, unsigned long long);
-	if (n == 0)
+	(*f)->nbr = n;
+	ft_modif_type_hexa(*f, &n);
+	str = ft_uitoa_base(n, 16, '0' - 32);
+	len = ft_nbrlen_u(n, 16);
+	if (n == 0 && !(*f)->pnt)
 		(*f)->len += ft_putchar_len('0');
-	else
-	{
-		ft_modif_type_hexa(*f, &n);
-		str = ft_uitoa_base(n, 16, '0' - 32);
-		len = ft_nbrlen_u(n, 16);
-		if ((*f)->sharp && str)
-		{
-			str = ft_strjoin("0X", str);
-			len += 2;
-		}
-		ft_print_all(f, str);
-	}
+	else if ((*f)->sharp && str)
+		(*f)->len += ft_putstr_len("0X");
+	ft_print_all(f, str);
+
 }

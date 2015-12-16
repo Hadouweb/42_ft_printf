@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/15 07:59:05 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 02:26:30 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int		ft_check_precision(t_format **f, char **s)
 	prec = NULL;
 	if (**s == '.')
 	{
-		(*f)->pnt++;
+		(*f)->pnt = 1;
 		if (ft_isdigit(*(*s + 1)))
 		{
 			(*s)++;
