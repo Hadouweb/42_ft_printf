@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:36:54 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 05:51:52 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 23:45:57 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_save_string(char **str, t_format **f, va_list ap)
 			(*f)->len += ft_putchar_len(**str);
 		(*str)++;
 	}
+//	ft_print_format(*f);
 }
 
 int		ft_printf(const char *tmp, ...)

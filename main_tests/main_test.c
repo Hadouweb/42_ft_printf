@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 07:35:05 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/16 23:48:49 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int     main(void)
 	setlocale (LC_ALL, "");
 
 	//n1 = ft_printf("[%03.2d]", 0);
-	n1 = ft_printf("%#08x", 42);
-	n2 = printf("%#08x", 42);
-	printf("\n%d %d\n", n1, n2);
+	ft_printf("[qd] : ");
+	n1 = ft_printf("[%qd]", 88);
+	n2 = printf("[%qd]", 88);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	/*n1 = ft_printf("[%10d]", -42);
 	n2 = printf("[%10d]", -42);
