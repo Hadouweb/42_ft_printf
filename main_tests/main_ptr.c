@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 23:00:10 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 01:41:05 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[10p] : ");
-	n1 = ft_printf("[%10p]", (voir *)-1);
-	n2 = printf("[%10p]", (voir *)-1);
+	n1 = ft_printf("[%10p]", (void *)-1);
+	n2 = printf("[%10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+10p] : ");
-	n1 = ft_printf("[%+10p]", (voir *)-1);
-	n2 = printf("[%+10p]", (voir *)-1);
+	n1 = ft_printf("[%+10p]", (void *)-1);
+	n2 = printf("[%+10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[+10p] : ");
-	n1 = ft_printf("[%+10p]", (voir *)-1);
-	n2 = printf("[%+10p]", (voir *)-1);
+	n1 = ft_printf("[%+10p]", (void *)-1);
+	n2 = printf("[%+10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[010p] : ");
@@ -47,8 +47,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[010p] : ");
-	n1 = ft_printf("[%010p]", (voir *)-1);
-	n2 = printf("[%010p]", (voir *)-1);
+	n1 = ft_printf("[%010p]", (void *)-1);
+	n2 = printf("[%010p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+010p] : ");
@@ -57,18 +57,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[+010p] : ");
-	n1 = ft_printf("[%+010p]", (voir *)-1);
-	n2 = printf("[%+010p]", (voir *)-1);
-	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
-	
-	ft_printf("[+0p] : ");
-	n1 = ft_printf("[%+0p]", 12345);
-	n2 = printf("[%+0p]", 12345);
-	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
-	
-	ft_printf("[+0p] : ");
-	n1 = ft_printf("[%+0p]", (voir *)-1);
-	n2 = printf("[%+0p]", (voir *)-1);
+	n1 = ft_printf("[%+010p]", (void *)-1);
+	n2 = printf("[%+010p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.010p] : ");
@@ -77,8 +67,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.010p] : ");
-	n1 = ft_printf("[%.010p]", (voir *)-1);
-	n2 = printf("[%.010p]", (voir *)-1);
+	n1 = ft_printf("[%.010p]", (void *)-1);
+	n2 = printf("[%.010p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-010p] : ");
@@ -87,8 +77,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-010p] : ");
-	n1 = ft_printf("[%-010p]", (voir *)-1);
-	n2 = printf("[%-010p]", (voir *)-1);
+	n1 = ft_printf("[%-010p]", (void *)-1);
+	n2 = printf("[%-010p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.10p] : ");
@@ -97,8 +87,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[-.10p] : ");
-	n1 = ft_printf("[%-.10p]", (voir *)-1);
-	n2 = printf("[%-.10p]", (voir *)-1);
+	n1 = ft_printf("[%-.10p]", (void *)-1);
+	n2 = printf("[%-.10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.10p] : ");
@@ -107,8 +97,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.10p] : ");
-	n1 = ft_printf("[%.10p]", (voir *)-1);
-	n2 = printf("[%.10p]", (voir *)-1);
+	n1 = ft_printf("[%.10p]", (void *)-1);
+	n2 = printf("[%.10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.10p] : ");
@@ -117,8 +107,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.10p] : ");
-	n1 = ft_printf("[%+.10p]", (voir *)-1);
-	n2 = printf("[%+.10p]", (voir *)-1);
+	n1 = ft_printf("[%+.10p]", (void *)-1);
+	n2 = printf("[%+.10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.010p] : ");
@@ -127,8 +117,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.010p] : ");
-	n1 = ft_printf("[%-.010p]", (voir *)-1);
-	n2 = printf("[%-.010p]", (voir *)-1);
+	n1 = ft_printf("[%-.010p]", (void *)-1);
+	n2 = printf("[%-.010p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.010p] : ");
@@ -137,8 +127,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.010p] : ");
-	n1 = ft_printf("[%+.010p]", (voir *)-1);
-	n2 = printf("[%+.010p]", (voir *)-1);
+	n1 = ft_printf("[%+.010p]", (void *)-1);
+	n2 = printf("[%+.010p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.+10p] : ");
@@ -147,8 +137,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.+10p] : ");
-	n1 = ft_printf("[%.+10p]", (voir *)-1);
-	n2 = printf("[%.+10p]", (voir *)-1);
+	n1 = ft_printf("[%.+10p]", (void *)-1);
+	n2 = printf("[%.+10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.-10p] : ");
@@ -157,8 +147,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[.-10p] : ");
-	n1 = ft_printf("[%.-10p]", (voir *)-1);
-	n2 = printf("[%.-10p]", (voir *)-1);
+	n1 = ft_printf("[%.-10p]", (void *)-1);
+	n2 = printf("[%.-10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.10p] : ");
@@ -167,8 +157,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+.10p] : ");
-	n1 = ft_printf("[%+.10p]", (voir *)-1);
-	n2 = printf("[%+.10p]", (voir *)-1);
+	n1 = ft_printf("[%+.10p]", (void *)-1);
+	n2 = printf("[%+.10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.10p] : ");
@@ -177,8 +167,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-.10p] : ");
-	n1 = ft_printf("[%-.10p]", (voir *)-1);
-	n2 = printf("[%-.10p]", (voir *)-1);
+	n1 = ft_printf("[%-.10p]", (void *)-1);
+	n2 = printf("[%-.10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[before d after] : ");
@@ -187,8 +177,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[before d after] : ");
-	n1 = ft_printf("[before %d after]", (voir *)-1);
-	n2 = printf("[before %d after]", (voir *)-1);
+	n1 = ft_printf("[before %d after]", (void *)-1);
+	n2 = printf("[before %d after]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[a d b\\n] : ");
@@ -197,8 +187,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[a d b\\n] : ");
-	n1 = ft_printf("[a %d b\n]", (voir *)-1);
-	n2 = printf("[a %d b\n]", (voir *)-1);
+	n1 = ft_printf("[a %d b\n]", (void *)-1);
+	n2 = printf("[a %d b\n]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#p] : ");
@@ -207,8 +197,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#p] : ");
-	n1 = ft_printf("[%#p]", (voir *)-1);
-	n2 = printf("[%#p]", (voir *)-1);
+	n1 = ft_printf("[%#p]", (void *)-1);
+	n2 = printf("[%#p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[lp] : ");
@@ -217,8 +207,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[lp] : ");
-	n1 = ft_printf("[%lp]", (voir *)-1);
-	n2 = printf("[%lp]", (voir *)-1);
+	n1 = ft_printf("[%lp]", (void *)-1);
+	n2 = printf("[%lp]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[llp] : ");
@@ -227,8 +217,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[llp] : ");
-	n1 = ft_printf("[%llp]", (voir *)-1);
-	n2 = printf("[%llp]", (voir *)-1);
+	n1 = ft_printf("[%llp]", (void *)-1);
+	n2 = printf("[%llp]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[lllllp] : ");
@@ -237,8 +227,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[llllllp] : ");
-	n1 = ft_printf("[%llllllp]", (voir *)-1);
-	n2 = printf("[%llllllp]", (voir *)-1);
+	n1 = ft_printf("[%llllllp]", (void *)-1);
+	n2 = printf("[%llllllp]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hp] : ");
@@ -247,8 +237,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[hp] : ");
-	n1 = ft_printf("[%hp]", (voir *)-1);
-	n2 = printf("[%hp]", (voir *)-1);
+	n1 = ft_printf("[%hp]", (void *)-1);
+	n2 = printf("[%hp]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	ft_printf("[hhhp] : ");
@@ -257,13 +247,13 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hhhhp] : ");
-	n1 = ft_printf("[%hhp]", (voir *)-1);
-	n2 = printf("[%hhp]", (voir *)-1);
+	n1 = ft_printf("[%hhp]", (void *)-1);
+	n2 = printf("[%hhp]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[hhp] : ");
-	n1 = ft_printf("[%hhp]", (voir *)-1);
-	n2 = printf("[%hhp]", (voir *)-1);
+	n1 = ft_printf("[%hhp]", (void *)-1);
+	n2 = printf("[%hhp]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[jp] : ");
@@ -272,8 +262,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[jjjp] : ");
-	n1 = ft_printf("[%jjjp]", (voir *)-1);
-	n2 = printf("[%jjjp]", (voir *)-1);
+	n1 = ft_printf("[%jjjp]", (void *)-1);
+	n2 = printf("[%jjjp]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[jjjp] : ");
@@ -282,8 +272,8 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+p] : ");
-	n1 = ft_printf("[%+p]", (voir *)-1);
-	n2 = printf("[%+p]", (voir *)-1);
+	n1 = ft_printf("[%+p]", (void *)-1);
+	n2 = printf("[%+p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#p] : ");
@@ -292,23 +282,23 @@ int     main(void)
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[#p] : ");
-	n1 = ft_printf("[%#p]", (voir *)-1);
-	n2 = printf("[%#p]", (voir *)-1);
+	n1 = ft_printf("[%#p]", (void *)-1);
+	n2 = printf("[%#p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[+-#.10p] : ");
-	n1 = ft_printf("[%+-#.10p]", (voir *)-1);
-	n2 = printf("[%+-#.10p]", (voir *)-1);
+	n1 = ft_printf("[%+-#.10p]", (void *)-1);
+	n2 = printf("[%+-#.10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[++010p] : ");
-	n1 = ft_printf("[%++010p]", (voir *)-1);
-	n2 = printf("[%++010p]", (voir *)-1);
+	n1 = ft_printf("[%++010p]", (void *)-1);
+	n2 = printf("[%++010p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[-- 10p] : ");
-	n1 = ft_printf("[%-- 10p]", (voir *)-1);
-	n2 = printf("[%-- 10p]", (voir *)-1);
+	n1 = ft_printf("[%-- 10p]", (void *)-1);
+	n2 = printf("[%-- 10p]", (void *)-1);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[p][p] : ");
@@ -356,14 +346,9 @@ int     main(void)
 	n2 = printf("[%0100p]", 88);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
-	ft_printf("[##10.4+lhlhlh16.7-13jjjhhll0p] : ");
-	n1 = ft_printf("[%##10.4+lhlhlh16.7-13jjjhhll0p]", 88);
-	n2 = printf("[%##10.4+lhlhlh16.7-13jjjhhll0p]", 88);
-	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
-
-	ft_printf("[qp] : ");
-	n1 = ft_printf("[%qp]", 88);
-	n2 = printf("[%qp]", 88);
+	ft_printf("[kp] : ");
+	n1 = ft_printf("[%kp]", 88);
+	n2 = printf("[%kp]", 88);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	ft_printf("[llp] : ");

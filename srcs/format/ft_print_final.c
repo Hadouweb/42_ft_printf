@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 06:45:00 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 00:42:38 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 01:38:03 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void 	ft_print_less_size(t_format **f, char *str)
 		(*f)->len += ft_putstr_len((*f)->sign);
 	if ((*f)->prec)
 	{
-		if ((*f)->sign && (ft_strcmp((*f)->sign, "0X") == 0 || ft_strcmp((*f)->sign, "0x") == 0))
+		if ((*f)->sign && (*f)->conv != 'p' && (ft_strcmp((*f)->sign, "0X") == 0 
+			|| ft_strcmp((*f)->sign, "0x") == 0))
 			 (*f)->prec += 2;
 		(*f)->len += ft_putstr_len(ft_adj_zero(*f, str));
 		(*f)->size -= ft_strlen(ft_adj_zero(*f, str));
