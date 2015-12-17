@@ -23,6 +23,8 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(FORMATPATH)ft_format_unicode.c\
 	  $(FORMATPATH)ft_print_all.c\
 	  $(FORMATPATH)ft_print_final.c\
+	  $(FORMATPATH)ft_print_all_char.c\
+	  $(FORMATPATH)ft_print_final_char.c\
 	  $(UTILSPATH)tools_str.c\
 	  $(UTILSPATH)tools_nbr.c\
 	  $(UTILSPATH)tools_unicode.c\

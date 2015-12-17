@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 06:46:49 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 11:35:39 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,14 @@ void 			ft_print_less_prec(t_format **f, char *str);
 void			ft_print_zero_prec(t_format **f, char *str);
 void			ft_print_size_prec(t_format **f, char *str);
 void			ft_print_default(t_format **f, char *str);
+void 			ft_print_size_char(t_format **f, char *str);
+void 			ft_print_zero_size_char(t_format **f, char *str);
+void			ft_print_size_prec_char(t_format **f, char *str);
+void			ft_print_prec_char(t_format **f, char *str);
+void			ft_print_default_char(t_format **f, char *str);
+char			*ft_adj_char(t_format *f, char c);
+int 			ft_join_all_char(t_format **f, char c);
+void 			ft_print_all_char(t_format **f, char *str);
+char			*ft_check_str(t_format *f, char *str);
 
 #endif
