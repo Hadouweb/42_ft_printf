@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 11:55:54 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 14:01:02 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ft_format_uni_one(va_list ap, t_format **f)
 	cnt = ft_wconvert(str, w);
 	str[cnt] = '\0';
 	if (w)
-		(*f)->len += ft_putstr_len(str);
+		ft_print_all_char(f, str);
 	else
 		(*f)->len += ft_putchar_len(0);
 }
