@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 11:50:09 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 11:55:54 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	ft_format_uni_many(va_list ap, t_format **f)
 	cnt = 0;
 	wstr = va_arg(ap, wchar_t*);
 	str = NULL;
-	printf("%zu\n", ft_wlen(wstr));
 	if (wstr == NULL)
 		(*f)->len += ft_putstr_len("(null)");
 	else

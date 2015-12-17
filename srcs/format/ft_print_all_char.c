@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_all_char.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:28:23 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 11:28:24 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 13:09:56 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ int 	ft_join_all_char(t_format **f, char c)
 void 	ft_print_all_char(t_format **f, char *str)
 {
 	if ((!(*f)->prec && !(*f)->zero && !(*f)->pnt && !(*f)->size))
-		ft_print_default_char(f, str);
-	else if ((*f)->prec && !(*f)->size)
-		ft_print_prec_char(f, str);
+		ft_print_noprec_nosize_char(f, str);
 	else if ((*f)->pnt && (*f)->size)
 		ft_print_size_prec_char(f, str);
 	else if ((*f)->zero && (*f)->size)
 		ft_print_zero_size_char(f, str);
 	else if ((*f)->size && !(*f)->prec)
 		ft_print_size_char(f, str);
+	else
+		ft_print_default_char(f, str);
 }
 
 char	*ft_check_str(t_format *f, char *str)
@@ -70,7 +70,7 @@ char	*ft_check_str(t_format *f, char *str)
 
 	adj = NULL;
 	size = f->prec;
-	if (size > 0)
+	if (size > 0 && f->conv != 'c')
 	{
 		adj = ft_memalloc(size + 1);
 		if (f->conv != 'S')

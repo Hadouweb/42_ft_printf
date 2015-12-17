@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_final_char.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:29:48 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 11:29:50 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/17 13:06:50 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,16 @@ void	ft_print_size_prec_char(t_format **f, char *str)
 	(*f)->len += ft_putstr_len(ft_check_str(*f, str));
 }
 
-void	ft_print_prec_char(t_format **f, char *str)
+void	ft_print_default_char(t_format **f, char *str)
 {// Si prec
 	//printf("|4|\n");
-	(*f)->len += ft_putstr_len(ft_check_str(*f, str));
+	if ((*f)->prec)
+		(*f)->len += ft_putstr_len(ft_check_str(*f, str));
+	else
+		(*f)->len += ft_putstr_len(str);
 }
 
-void	ft_print_default_char(t_format **f, char *str)
+void	ft_print_noprec_nosize_char(t_format **f, char *str)
 {// Si pas de prec ni de 0
 	//printf("|5|\n");
 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
