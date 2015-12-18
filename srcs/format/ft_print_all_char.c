@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:28:23 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 06:45:15 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 08:51:48 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*ft_check_str(t_format *f, char *str)
 		if (f->conv != 'S')
 			ft_strncpy(adj, str, size);
 		if (f->conv == 'S')
-			ft_strncpy_wchar(adj, str, size);
+			ft_strncpy_wchar(adj, size, f);
 		adj[size] = '\0';
 	}
 	return (adj);

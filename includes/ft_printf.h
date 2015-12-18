@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 12:37:27 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 08:56:46 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct	s_format
 	char		conv;
 	char		*sign;
 	char		*str;
+	wchar_t		*wstr;
 }				t_format;
 
 int				ft_printf(const char *f, ...);
@@ -107,7 +108,7 @@ int				ft_strcmp(const char *s1, const char *s2);
 void 			ft_print_all_char(t_format **f, char *str);
 char			*ft_adj_zero(t_format *f, char *str);
 char			*ft_adj_space(t_format *f, char *str);
-char			*ft_strncpy_wchar(char *dst, const char *src, size_t n);
+char			*ft_strncpy_wchar(char *dst, size_t n, t_format *f);
 void 			ft_print_less_size(t_format **f, char *str);
 void 			ft_print_less_prec(t_format **f, char *str);
 void			ft_print_zero_prec(t_format **f, char *str);
@@ -123,5 +124,7 @@ char			*ft_adj_char(t_format *f, char c);
 int 			ft_join_all_char(t_format **f, char c);
 void 			ft_print_all_char(t_format **f, char *str);
 char			*ft_check_str(t_format *f, char *str);
-
+int				ft_size_wchar(wchar_t w);
+int				ft_wcharlen(wchar_t *w);
+char 			*ft_wconvert_str(char *str, wchar_t *wstr);
 #endif

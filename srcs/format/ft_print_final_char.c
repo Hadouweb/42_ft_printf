@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:29:48 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 06:51:58 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 09:42:54 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ void	ft_print_size_prec_char(t_format **f, char *str)
 	if (ft_strlen(str) > (size_t)(*f)->prec)
 	{
 		//printf("[%d %lu]", (*f)->size, (*f)->prec - ft_strlen(ft_check_str(*f, str)));
+		//printf("%d\n", (*f)->size);
 		(*f)->size += (ft_strlen(str) - (size_t)(*f)->prec);
 		if ((*f)->conv == 'S')
 			(*f)->size += ((*f)->prec - ft_strlen(ft_check_str(*f, str)));
+		//printf("%d %d %zu\n", (*f)->size, (*f)->prec, ft_strlen(ft_check_str(*f, str)));
 	}
 	if ((*f)->zero)
 		(*f)->len += ft_putstr_len(ft_adj_zero(*f, str));

@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 05:45:16 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 05:49:00 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 08:13:24 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_format_init(t_format **format)
 	(*format)->conv = 0;
 	(*format)->sign = 0;
 	(*format)->nbr = -1;
+	(*format)->wstr = NULL;;
 	(*format)->str = NULL;
 }
 
@@ -51,4 +52,5 @@ void	ft_print_format(t_format *format)
 	printf("conv  : %c\n", format->conv);
 	printf("len  : %d\n", format->len);
 	printf("str  : %s\n", format->str);
+	printf("wstr  : %S\n", format->wstr);
 }
