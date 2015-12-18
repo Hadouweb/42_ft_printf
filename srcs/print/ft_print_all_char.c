@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:28:23 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 10:23:11 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 13:49:21 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_adj_char(t_format *f, char c)
 {
 	char	*adj;
-	int 	size;
+	int		size;
 
 	size = f->size - 1;
 	if (f->sign)
@@ -30,10 +30,10 @@ char	*ft_adj_char(t_format *f, char c)
 	return (adj);
 }
 
-int 	ft_join_all_char(t_format **f, char c)
+int		ft_join_all_char(t_format **f, char c)
 {
-	char 	*adj;
-	char 	l;
+	char	*adj;
+	char	l;
 
 	if ((*f)->zero)
 		l = '0';
@@ -49,9 +49,8 @@ int 	ft_join_all_char(t_format **f, char c)
 	return (1);
 }
 
-void 	ft_print_all_char(t_format **f, char *str)
+void	ft_print_all_char(t_format **f, char *str)
 {
-	//printf("ok\n");
 	if ((!(*f)->prec && !(*f)->zero && !(*f)->pnt && !(*f)->size))
 		ft_print_noprec_nosize_char(f, str);
 	else if ((*f)->pnt && (*f)->size)
@@ -67,7 +66,7 @@ void 	ft_print_all_char(t_format **f, char *str)
 char	*ft_check_str(t_format *f, char *str)
 {
 	char	*adj;
-	int 	size;
+	int		size;
 
 	adj = NULL;
 	size = f->prec;

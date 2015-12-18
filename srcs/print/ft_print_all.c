@@ -6,13 +6,13 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 06:45:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 10:14:56 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 11:01:54 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void 	ft_print_all(t_format **f, char *str)
+void	ft_print_all(t_format **f, char *str)
 {
 	if (!(*f)->less)
 	{
@@ -35,7 +35,7 @@ void 	ft_print_all(t_format **f, char *str)
 char	*ft_adj_zero(t_format *f, char *str)
 {
 	char	*adj;
-	int 	size;
+	int		size;
 
 	if (f->size && f->zero)
 		size = f->size - ft_strlen(str);
@@ -56,7 +56,7 @@ char	*ft_adj_zero(t_format *f, char *str)
 char	*ft_adj_space(t_format *f, char *str)
 {
 	char	*adj;
-	int 	size;
+	int		size;
 
 	size = f->size - ft_strlen(str);
 	if (f->conv == 'S' && size == 1)

@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:39:43 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 09:11:18 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 10:58:49 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ size_t	ft_wlen(wchar_t *wstr)
 
 int		ft_wcharlen(wchar_t *w)
 {
-	int 	i;
-	int 	count;
+	int		i;
+	int		count;
 
 	i = 0;
 	count = 0;
 	while (w[i])
-	{	
+	{
 		i++;
 		count += ft_size_wchar(w[i]);
 	}
@@ -52,10 +52,10 @@ int		ft_size_wchar(wchar_t w)
 	return (0);
 }
 
-char 	*ft_wconvert_str(char *str, wchar_t *wstr)
+char	*ft_wconvert_str(char *str, wchar_t *wstr)
 {
-	int 	i;
-	int 	cnt;
+	int		i;
+	int		cnt;
 
 	i = 0;
 	cnt = 0;

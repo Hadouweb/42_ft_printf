@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools_nbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:38:25 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 02:01:34 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 12:42:26 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,28 +38,4 @@ char	ft_nbrlen_u(unsigned long long n, int base)
 		i++;
 	}
 	return (i);
-}
-
-void	ft_putnbr(long long n)
-{
-	if (n < 0)
-	{
-		ft_putchar('-');
-		if (n <= -10)
-			ft_putnbr(n / 10 * -1);
-		ft_putchar(n % 10 * -1 + '0');
-	}
-	else
-	{
-		if (n >= 10)
-			ft_putnbr(n / 10);
-		ft_putchar(n % 10 + '0');
-	}
-}
-
-void	ft_putnbr_u(unsigned long long n)
-{
-	if (n >= 10)
-		ft_putnbr_u(n / 10);
-	ft_putchar(n % 10 + '0');
 }

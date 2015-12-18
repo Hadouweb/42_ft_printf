@@ -5,8 +5,8 @@ NAME = libftprintf.a
 SRCPATH = ./srcs/
 
 UTILSPATH = $(SRCPATH)/utils/
-
 FORMATPATH = $(SRCPATH)/format/
+PRINTPATH = $(SRCPATH)/print/
 
 INCPATH =./includes
 
@@ -17,14 +17,12 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(FORMATPATH)ft_format_int.c\
 	  $(FORMATPATH)ft_format_ptr.c\
 	  $(FORMATPATH)ft_format_str.c\
-	  $(FORMATPATH)ft_format_uint.c\
 	  $(FORMATPATH)ft_format_hexa.c\
 	  $(FORMATPATH)ft_format_byte.c\
-	  $(FORMATPATH)ft_format_unicode.c\
-	  $(FORMATPATH)ft_print_all.c\
-	  $(FORMATPATH)ft_print_final.c\
-	  $(FORMATPATH)ft_print_all_char.c\
-	  $(FORMATPATH)ft_print_final_char.c\
+	  $(PRINTPATH)ft_print_all.c\
+	  $(PRINTPATH)ft_print_final.c\
+	  $(PRINTPATH)ft_print_all_char.c\
+	  $(PRINTPATH)ft_print_final_char.c\
 	  $(UTILSPATH)tools_str.c\
 	  $(UTILSPATH)tools_nbr.c\
 	  $(UTILSPATH)tools_unicode.c\

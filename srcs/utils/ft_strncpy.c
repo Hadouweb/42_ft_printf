@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 02:40:16 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 09:45:30 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 10:57:54 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ char	*ft_strncpy(char *dst, const char *src, size_t n)
 
 char	*ft_strncpy_wchar(char *dst, size_t n, t_format *f)
 {
-	size_t	i;
-	size_t 	j;
-	wchar_t	*wstrdst;
+	size_t		i;
+	size_t		j;
+	wchar_t		*wstrdst;
 
 	i = 0;
 	j = 0;

@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 10:40:03 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 11:01:25 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,4 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 	else if ((*f)->sharp && str)
 		(*f)->sign = "0X";
 	ft_print_all(f, str);
-
 }

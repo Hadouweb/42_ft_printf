@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_float.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:44:12 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/09 21:44:21 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 11:09:13 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_format_float(va_list ap)
+int		ft_format_float(va_list ap)
 {
-    float   n;
+	float	n;
 
 	n = va_arg(ap, int);
-    //ft_putnbr_float(n);
-    return (ft_nbrlen(n, 10));
+	return (ft_nbrlen(n, 10));
 }
