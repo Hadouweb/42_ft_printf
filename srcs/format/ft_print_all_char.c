@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:28:23 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 13:09:56 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 06:45:15 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int 	ft_join_all_char(t_format **f, char c)
 
 void 	ft_print_all_char(t_format **f, char *str)
 {
+	//printf("ok\n");
 	if ((!(*f)->prec && !(*f)->zero && !(*f)->pnt && !(*f)->size))
 		ft_print_noprec_nosize_char(f, str);
 	else if ((*f)->pnt && (*f)->size)

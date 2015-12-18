@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/17 13:58:47 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 06:50:35 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,37 +23,15 @@ int     main(void)
 	c = 0;
 	setlocale (LC_ALL, "");
 
-	//n1 = ft_printf("[%03.2d]", 0);
-	ft_printf("[ls] : ");
-	n1 = ft_printf("[%s]",` 12343243);
-	n2 = printf("[%s]", 12343243);
+	ft_printf("[llc] : ");
+	n1 = ft_printf("[%llc]", L'Ḛ');
+	n2 = printf("[%llc]", L'Ḛ');
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
-	/*n1 = ft_printf("[%10d]", -42);
-	n2 = printf("[%10d]", -42);
-	printf("\n%d %d\n", n1, n2);
 
-	n1 = ft_printf("[%+10d]", -42);
-	n2 = printf("[%+10d]", -42);
-	printf("\n%d %d\n", n1, n2);
+	ft_printf("[.+hjl10.4c] : ");
+	n1 = ft_printf("[%.+hjl10.4c]", '\0');
+	n2 = printf("[%.+hjl10.4c]", '\0');
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
-	n1 = ft_printf("[%+010d]", -42);
-	n2 = printf("[%+010d]", -42);
-	printf("\n%d %d\n", n1, n2);
-
-	n1 = ft_printf("[%010d]", 42);
-	n2 = printf("[%010d]", 42);
-	printf("\n%d %d\n", n1, n2);
-
-	n1 = ft_printf("[%010d]", 42);
-	n2 = printf("[%010d]", 42);
-	printf("\n%d %d\n", n1, n2);
-
-	n1 = ft_printf("[%+10d]", 42);
-	n2 = printf("[%+10d]", 42);
-	printf("\n%d %d\n", n1, n2);
-
-	n1 = ft_printf("[%+010d]", 42);
-	n2 = printf("[%+010d]", 42);
-	printf("\n%d %d\n", n1, n2);*/
 	return (0);
 }
