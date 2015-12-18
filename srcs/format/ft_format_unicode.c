@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:35:55 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 09:16:00 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 10:14:27 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_format_uni_many(va_list ap, t_format **f)
 		str = (char *)malloc(ft_wlen(wstr) * sizeof(wchar_t) + 1);
 		(*f)->wstr = wstr;
 		str = ft_wconvert_str(str, wstr);
-		//printf("%zu\n", ft_strlen(str));
 		ft_print_all_char(f, str);
 	}
 }
