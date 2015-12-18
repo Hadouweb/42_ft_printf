@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools_unicode.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:39:43 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 00:40:15 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 07:00:40 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,33 @@ size_t	ft_wlen(wchar_t *wstr)
 	return (i);
 }
 
+int		ft_size_wchar(wchar_t w)
+{
+	if (w < 128)
+		return (1);
+	else if (w < 2048)
+		return (2);
+	else if (w < 65535)
+		return (3);
+	else if (w < 1114111)
+		return (4);
+	return (0);
+}
+
 int		ft_wconvert(char *str, wchar_t w)
 {
 	if (w < 128)
-	{
 		*(str++) = w;
-		return (1);
-	}
 	else if (w < 2048)
 	{
 		*(str++) = 0xC0 | ((w >> 6) & 0x3F);
 		*(str++) = 0x80 | (w & 0x3F);
-		return (2);
 	}
 	else if (w < 65535)
 	{
 		*(str++) = 0xE0 | ((w >> 12) & 0xFFF);
 		*(str++) = 0x80 | ((w >> 6) & 0x3F);
 		*(str++) = 0x80 | (w & 0x3F);
-		return (3);
 	}
 	else if (w < 1114111)
 	{
@@ -50,7 +58,6 @@ int		ft_wconvert(char *str, wchar_t w)
 		*(str++) = 0x80 | ((w >> 12) & 0xFFF);
 		*(str++) = 0x80 | ((w >> 6) & 0x3F);
 		*(str++) = 0x80 | (w & 0x3F);
-		return (4);
 	}
-	return (0);
+	return (ft_size_wchar(w));
 }

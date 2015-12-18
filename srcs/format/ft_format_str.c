@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:33:29 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 06:38:58 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 07:03:31 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_format_char(va_list ap, t_format **f)
 
 	c = 0;
 	str = NULL;
-	if ((*f)->l)
+	if ((*f)->l && (*f)->l % 2 != 0)
 		ft_format_uni_one(ap, f);
 	else
 	{
