@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 22:27:53 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 10:42:13 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int		ft_select_format(va_list ap, t_format **f)
 	return (1);
 }
 
-int 	ft_print_size(t_format **f, char **str)
+int		ft_print_size(t_format **f, char **str)
 {
-	int 	i;
+	int		i;
 	char	*news;
 
 	i = ft_strlen(*str) - 1;
@@ -50,9 +50,9 @@ int 	ft_print_size(t_format **f, char **str)
 	return (0);
 }
 
-int 	ft_parse_percent(char **str, t_format **f)
+int		ft_parse_percent(char **str, t_format **f)
 {
-	int		ret;
+	int	ret;
 
 	ret = 0;
 	while (**str)

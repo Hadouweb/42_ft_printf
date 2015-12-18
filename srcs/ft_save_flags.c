@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 05:46:45 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/16 05:47:23 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/18 10:37:42 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,18 @@ int		ft_check_conv(t_format **f, char **s)
 
 int		ft_check_precision(t_format **f, char **s)
 {
-	char 	*prec;
+	char	*prec;
 
 	prec = NULL;
-	if (**s == '.')
+	if (**s == '.' && ((*f)->pnt = 1 == 1))
 	{
-		(*f)->pnt = 1;
-		if (ft_isdigit(*(*s + 1)))
+		if (ft_isdigit(*(*s + 1)) && (*s)++)
 		{
-			(*s)++;
 			while (**s && ft_isdigit(**s))
 			{
-				if (!prec)
-				{
-					prec = ft_memalloc(2);
-					prec[0] = **s;
+				if (!prec && ((prec = ft_memalloc(2)) != NULL) &&
+					(prec[0] = **s) == **s)
 					prec[1] = '\0';
-				}
 				else
 					prec = ft_stradd_char(&prec, **s);
 				(*s)++;
@@ -93,7 +88,7 @@ int		ft_check_precision(t_format **f, char **s)
 
 int		ft_check_size(t_format **f, char **s)
 {
-	char 	*size;
+	char	*size;
 
 	size = NULL;
 	if (**s >= '1' && **s <= '9')
