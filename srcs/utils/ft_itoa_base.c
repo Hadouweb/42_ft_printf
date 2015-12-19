@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 23:15:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/13 07:05:15 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 15:31:23 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_itoa_base(long long n, int base, int print_v)
 	i = ft_intlen_base(n, base);
 	sign = (n < 0) ? -1 : 1;
 	if (n == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	if ((str = (char *)malloc(i * sizeof(char) + 1)) == NULL)
 		return (NULL);
 	if (n < 0)

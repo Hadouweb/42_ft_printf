@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:29:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 11:45:02 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 15:35:55 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void	ft_format_int(va_list ap, t_format **f)
 		str = ft_strdup(&str[1]);
 	}
 	(*f)->sign = (!(*f)->sign && (*f)->more) ? ft_strdup("+") : (*f)->sign;
-	if (n == 0 && !(*f)->less && !(*f)->more && !((*f)->size && (*f)->prec))
-		(*f)->size--;
 	ft_print_all(f, str);
 }
 
@@ -81,15 +79,11 @@ void	ft_format_uint(va_list ap, t_format **f)
 	char					*str;
 
 	n = va_arg(ap, unsigned long long);
-	if (n == 0 && !(*f)->pnt)
-		(*f)->len += ft_putchar_len('0');
-	else
-	{
-		(*f)->space = 0;
-		ft_modif_type_uint(*f, &n);
-		str = ft_uitoa_base(n, 10, 0);
-		if (n == 0 && !(*f)->pnt && !(*f)->size)
-			(*f)->len += ft_putchar_len('0');
-		ft_print_all(f, str);
-	}
+	(*f)->space = 0;
+	ft_modif_type_uint(*f, &n);
+	str = ft_uitoa_base(n, 10, 0);
+	if (n == 0)
+		str = ft_strdup("0");
+	ft_print_all(f, str);
+	
 }
