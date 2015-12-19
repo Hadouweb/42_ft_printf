@@ -42,9 +42,9 @@ char	*ft_adj_zero(t_format *f, char *str)
 		size = f->size - ft_strlen(str);
 	if (f->prec)
 		size = f->prec - ft_strlen(str);
-	if (f->sign && f->zero)
+	if (f->sign && !f->pnt && f->zero)
 		size -= ft_strlen(f->sign);
-	if (f->space)
+	if (f->space && !f->pnt)
 		size--;
 	adj = NULL;
 	if (size > 0)
@@ -66,6 +66,8 @@ char	*ft_adj_space(t_format *f, char *str)
 		size--;
 	if (f->sign)
 		size -= ft_strlen(f->sign);
+	if (f->space && f->pnt)
+		size--;
 	adj = NULL;
 	if (size > 0)
 	{

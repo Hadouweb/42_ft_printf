@@ -14,6 +14,8 @@
 
 void	ft_print_less_size(t_format **f, char *str)
 {//printf("ok1\n");
+	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
+		(*f)->len += ft_putstr_len(" ");
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign);
 	if ((*f)->prec)
@@ -24,14 +26,14 @@ void	ft_print_less_size(t_format **f, char *str)
 		(*f)->len += ft_putstr_len(ft_adj_zero(*f, str));
 		(*f)->size -= ft_strlen(ft_adj_zero(*f, str));
 	}
-	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
-		(*f)->len += ft_putstr_len(" ");
 	(*f)->len += ft_putstr_len(str);
 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
 }
 
 void	ft_print_less_prec(t_format **f, char *str)
 {//printf("ok2\n");
+	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
+		(*f)->len += ft_putstr_len(" ");
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign);
 	(*f)->len += ft_putstr_len(ft_adj_zero(*f, str));
@@ -67,11 +69,14 @@ void	ft_print_size_prec(t_format **f, char *str)
 
 void	ft_print_default(t_format **f, char *str)
 {//printf("ok5\n");
+	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
+	{
+		(*f)->len += ft_putstr_len(" ");
+		(*f)->size--;
+	}
 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign);
-	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
-		(*f)->len += ft_putstr_len(" ");
 	//printf("|%d|\n", (int)(*f)->nbr);
 	if (!((*f)->nbr == 0 && (*f)->pnt))
 		(*f)->len += ft_putstr_len(str);

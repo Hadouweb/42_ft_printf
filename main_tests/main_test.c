@@ -24,8 +24,18 @@ int     main(void)
 	setlocale (LC_ALL, "");
 
 	ft_printf("[b] : ");
-	n1 = ft_printf("[%b]", 42);
-	n2 = printf("[%2$d %1$d %d]", 10, 20, 30);
+	n1 = ft_printf("\n{%*c}", -15, 0);
+	n2 = printf("\n{%*c}", -15, 0);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	ft_printf("[b] : ");
+	n1 = ft_printf("{% -30.10d}", 0x7FFFFFFF);
+	n2 = printf("{% -30.10d}", 0x7FFFFFFF);
+	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+	
+	ft_printf("[b] : ");
+	n1 = ft_printf("{% 30lld}", __LONG_LONG_MAX__);
+	n2 = printf("{% 30lld}", __LONG_LONG_MAX__);
 	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 	
 	return (0);
