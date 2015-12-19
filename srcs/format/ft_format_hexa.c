@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 17:00:54 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 19:03:45 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ void	ft_format_hexa(va_list ap, t_format **f)
 {
 	unsigned long long	n;
 	char				*str;
-	int					len;
 	int					i;
 
-	len = 0;
 	i = 0;
 	n = va_arg(ap, unsigned long long);
 	(*f)->nbr = n;
@@ -46,9 +44,6 @@ void	ft_format_hexa(va_list ap, t_format **f)
 	if (n == 0)
 		str = ft_strdup("0");
 	(*f)->space = 0;
-	len = ft_nbrlen(n, 16);
-	//if (n == 0 && !(*f)->pnt && !(*f)->size)
-	//	(*f)->len += ft_putchar_len('0');
 	if ((*f)->sharp && str && n != 0)
 		(*f)->sign = "0x";
 	ft_print_all(f, str);
@@ -58,7 +53,6 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 {
 	unsigned long long	n;
 	char				*str;
-	int					len;
 
 	n = va_arg(ap, unsigned long long);
 	(*f)->nbr = n;
@@ -67,7 +61,6 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 	if (n == 0)
 		str = ft_strdup("0");
 	(*f)->space = 0;
-	len = ft_nbrlen_u(n, 16);
 	if ((*f)->sharp && str && n != 0)
 		(*f)->sign = "0X";
 	ft_print_all(f, str);

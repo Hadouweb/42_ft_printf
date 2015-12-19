@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_test.c                                        :+:      :+:    :+:   */
+/*   ft_format_bit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 21:49:13 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 19:12:27 by nle-bret         ###   ########.fr       */
+/*   Created: 2015/12/13 00:28:01 by nle-bret          #+#    #+#             */
+/*   Updated: 2015/12/19 19:12:09 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <locale.h>
-#include <limits.h>
 
-int     main(void)
+void	ft_format_bit(va_list ap, t_format **f)
 {
-	int     n1;
-	int     n2;
-	char	c;
+	unsigned long long	n;
+	char				*str;
+	int					i;
 
-	c = 0;
-	setlocale (LC_ALL, "");
-
-	ft_printf("[b] : ");
-	n1 = ft_printf("[%b]", 42);
-	n2 = printf("[%b]", 11);
-	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
-	
-	return (0);
+	i = 0;
+	n = va_arg(ap, unsigned long long);
+	(*f)->nbr = n;
+	ft_modif_type_hexa(*f, &n);
+	str = ft_uitoa_base(n, 2, '0');
+	if (n == 0)
+		str = ft_strdup("0");
+	(*f)->space = 0;
+	ft_print_all(f, str);
 }

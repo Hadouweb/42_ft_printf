@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 05:28:09 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 12:04:14 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 19:05:12 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int				ft_parse_percent(char **str, t_format **f, va_list ap);
 
 void			ft_format_init(t_format **f);
 void			ft_print_format(t_format *f);
+
+void			ft_format_bit(va_list ap, t_format **f);
 
 void			ft_modif_type_byte(t_format *f, unsigned long long *n);
 void			ft_format_byte(va_list ap, t_format **f);

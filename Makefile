@@ -15,6 +15,7 @@ SRC = $(SRCPATH)ft_printf.c\
 	  $(SRCPATH)ft_select_format.c\
 	  $(SRCPATH)ft_struct_format.c\
 	  $(FORMATPATH)ft_format_int.c\
+	  $(FORMATPATH)ft_format_bit.c\
 	  $(FORMATPATH)ft_format_ptr.c\
 	  $(FORMATPATH)ft_format_str.c\
 	  $(FORMATPATH)ft_format_hexa.c\
