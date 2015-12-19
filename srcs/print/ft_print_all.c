@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 06:45:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 15:50:11 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 17:04:13 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ char	*ft_adj_zero(t_format *f, char *str)
 		size = f->prec - ft_strlen(str);
 	if (f->sign && f->zero)
 		size -= ft_strlen(f->sign);
+	if (f->space)
+		size--;
 	adj = NULL;
 	if (size > 0)
 	{

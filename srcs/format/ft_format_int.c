@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:29:24 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 15:35:55 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 16:38:07 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,10 @@ void	ft_format_uint(va_list ap, t_format **f)
 	char					*str;
 
 	n = va_arg(ap, unsigned long long);
+	(*f)->nbr = n;
 	(*f)->space = 0;
 	ft_modif_type_uint(*f, &n);
 	str = ft_uitoa_base(n, 10, 0);
-	if (n == 0)
-		str = ft_strdup("0");
 	ft_print_all(f, str);
 	
 }

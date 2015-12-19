@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 06:45:00 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 15:43:07 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 17:02:41 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	ft_print_default(t_format **f, char *str)
 		(*f)->len += ft_putstr_len((*f)->sign);
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
 		(*f)->len += ft_putstr_len(" ");
+	//printf("|%d|\n", (int)(*f)->nbr);
 	if (!((*f)->nbr == 0 && (*f)->pnt))
 		(*f)->len += ft_putstr_len(str);
 }

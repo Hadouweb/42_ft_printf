@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 23:15:59 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 15:31:23 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 16:36:04 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ char	*ft_uitoa_base(unsigned long long n, int base, int print_v)
 	if (base < 2 || base > 16)
 		return (0);
 	i = ft_uintlen_base(n, base);
+	if (n == 0)
+		return (ft_strdup("0"));
 	if ((str = (char *)malloc(i * sizeof(char) + 1)) == NULL)
 		return (NULL);
 	str[i] = '\0';
