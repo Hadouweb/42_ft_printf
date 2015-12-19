@@ -6,14 +6,14 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 11:29:48 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 13:51:08 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 12:45:45 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 void	ft_print_size_char(t_format **f, char *str)
-{
+{//printf("ok1\n");
 	if (!(*f)->less)
 	{
 		(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
@@ -28,6 +28,7 @@ void	ft_print_size_char(t_format **f, char *str)
 
 void	ft_print_zero_size_char(t_format **f, char *str)
 {
+	//printf("ok2\n");
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign);
 	(*f)->len += ft_putstr_len(ft_adj_zero(*f, str));
@@ -35,7 +36,7 @@ void	ft_print_zero_size_char(t_format **f, char *str)
 }
 
 void	ft_print_size_prec_char(t_format **f, char *str)
-{
+{//printf("ok3\n");
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
 		(*f)->len += ft_putstr_len(" ");
 	if (ft_strlen(str) > (size_t)(*f)->prec)
@@ -52,15 +53,15 @@ void	ft_print_size_prec_char(t_format **f, char *str)
 }
 
 void	ft_print_default_char(t_format **f, char *str)
-{
-	if ((*f)->prec)
+{//printf("ok4\n");
+	if ((*f)->pnt)
 		(*f)->len += ft_putstr_len(ft_check_str(*f, str));
 	else
 		(*f)->len += ft_putstr_len(str);
 }
 
 void	ft_print_noprec_nosize_char(t_format **f, char *str)
-{
+{//printf("ok5\n");
 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str));
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign);

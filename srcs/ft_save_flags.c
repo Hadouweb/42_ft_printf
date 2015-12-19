@@ -6,11 +6,40 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 05:46:45 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 10:37:42 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 12:52:30 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		ft_check_star(t_format **f, char **s, va_list ap)
+{
+	int		n;
+
+	n = 0;
+	if (**s == '*')
+	{
+		(*s)++;
+		(*f)->star++;
+		n = va_arg(ap, int);
+		if ((*f)->pnt && n >= 0)
+			(*f)->prec = n;
+		else if ((*f)->pnt && n < 0)
+			(*f)->pnt--;
+		else if (!(*f)->pnt)
+		{
+			if (n < 0)
+			{
+				n = -n;
+				(*f)->less++;
+			}
+			(*f)->size = n;
+		}
+	}
+	else
+		return (0);
+	return (1);
+}
 
 int		ft_check_flag(t_format **f, char **s)
 {

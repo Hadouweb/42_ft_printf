@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:37:33 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/18 10:42:13 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 12:03:48 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		ft_print_size(t_format **f, char **str)
 	return (0);
 }
 
-int		ft_parse_percent(char **str, t_format **f)
+int		ft_parse_percent(char **str, t_format **f, va_list ap)
 {
 	int	ret;
 
@@ -62,6 +62,7 @@ int		ft_parse_percent(char **str, t_format **f)
 		ret += ft_check_modifier(f, str);
 		ret += ft_check_precision(f, str);
 		ret += ft_check_size(f, str);
+		ret += ft_check_star(f, str, ap);
 		if (ft_check_conv(f, str))
 			return (1);
 		if (!ret)
