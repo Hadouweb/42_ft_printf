@@ -6,7 +6,7 @@
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 00:33:29 by nle-bret          #+#    #+#             */
-/*   Updated: 2015/12/19 16:32:00 by nle-bret         ###   ########.fr       */
+/*   Updated: 2015/12/19 18:09:53 by nle-bret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,14 @@ void	ft_format_uni_one(va_list ap, t_format **f)
 	if (!w && !(*f)->size)
 		(*f)->len += ft_putchar_len(0);
 	else
+	{
+		if (!w && (*f)->size)
+		{
+			(*f)->len++;
+			(*f)->size--;
+		}
 		ft_print_all_char(f, str);
+	}
 }
 
 void	ft_format_uni_many(va_list ap, t_format **f)
