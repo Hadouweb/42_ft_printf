@@ -28,8 +28,8 @@ int     main(void)
 	fd = fopen("test2", "w+a+");
 
 
-	n1 = ft_fprintf(fd, "[%-2c]", 'a');
-	n2 = fprintf(fd, "[%-2c]", 'x');
+	n1 = ft_fprintf(fd, boldmagenta "[%-2c]" eoc, 'a');
+	n2 = fprintf(fd, boldmagenta "[%-2c]" eoc, 'a');
 	//qqprintf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
 	fclose(fd);

@@ -137,4 +137,22 @@ char			*ft_wconvert_str(char *str, wchar_t *wstr);
 int				ft_wconvert(char *str, wchar_t w);
 char			*ft_stradd_char(char **s, char c);
 
+#define eoc   "\033[0m"
+#define black   "\033[30m"
+#define red     "\033[31m"
+#define green   "\033[32m"
+#define yellow  "\033[33m"
+#define blue    "\033[34m"
+#define magenta "\033[35m"
+#define cyan    "\033[36m"
+#define whiye   "\033[37m"
+#define boldblack   "\033[1m\033[30m"
+#define boldred     "\033[1m\033[31m"
+#define boldgreen   "\033[1m\033[32m"
+#define boldyellow  "\033[1m\033[33m"
+#define boldblue    "\033[1m\033[34m"
+#define boldmagenta "\033[1m\033[35m"
+#define boldcyan    "\033[1m\033[36m"
+#define boldwhite   "\033[1m\033[37m"
+
 #endif
