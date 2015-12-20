@@ -30,14 +30,31 @@ void	ft_save_string(char **str, t_format **f, va_list ap)
 				if ((*f)->size)
 					ft_print_size(f, str);
 				if (**str)
-					(*f)->len += ft_putchar_len(**str);
+					(*f)->len += ft_putchar_len(**str, *f);
 			}
 		}
 		else
-			(*f)->len += ft_putchar_len(**str);
+			(*f)->len += ft_putchar_len(**str, *f);
 		(*str)++;
 	}
 	//ft_print_format(*f);
+}
+
+int		ft_fprintf(FILE *fd, const char *tmp, ...)
+{
+	va_list		ap;
+	char		*str;
+	t_format	*f;
+
+	va_start(ap, tmp);
+	f = (t_format *)malloc(sizeof(t_format));
+	f->len = 0;
+	f->fd = fileno(fd);
+	str = (char *)malloc(sizeof(char) * (strlen(tmp)) + 1);
+	str = strcpy(str, tmp);
+	ft_save_string(&str, &f, ap);
+	va_end(ap);
+	return (f->len);
 }
 
 int		ft_printf(const char *tmp, ...)
@@ -49,6 +66,7 @@ int		ft_printf(const char *tmp, ...)
 	va_start(ap, tmp);
 	f = (t_format *)malloc(sizeof(t_format));
 	f->len = 0;
+	f->fd = 1;
 	str = (char *)malloc(sizeof(char) * (strlen(tmp)) + 1);
 	str = strcpy(str, tmp);
 	ft_save_string(&str, &f, ap);

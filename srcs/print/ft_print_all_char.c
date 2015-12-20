@@ -40,10 +40,16 @@ int		ft_join_all_char(t_format **f, char c)
 	else
 		l = ' ';
 	adj = ft_adj_char(*f, l);
-	if ((*f)->size && adj)
+	if ((*f)->size && adj && !(*f)->less)
 	{
-		(*f)->len += ft_putstr_len(adj);
-		(*f)->len += ft_putchar_len(c);
+		(*f)->len += ft_putstr_len(adj, *f);
+		(*f)->len += ft_putchar_len(c, *f);
+		return (0);
+	}
+	else if ((*f)->size && adj && (*f)->less)
+	{
+		(*f)->len += ft_putchar_len(c, *f);
+		(*f)->len += ft_putstr_len(adj, *f);
 		return (0);
 	}
 	return (1);

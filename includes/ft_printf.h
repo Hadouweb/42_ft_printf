@@ -40,8 +40,10 @@ typedef struct	s_format
 	char		*str;
 	wchar_t		*wstr;
 	int			star;
+	int			fd;
 }				t_format;
 
+int				ft_fprintf(FILE *fd, const char *tmp, ...);
 int				ft_printf(const char *f, ...);
 void			ft_save_string(char **str, t_format **f, va_list ap);
 
@@ -125,9 +127,9 @@ char			*ft_strncpy_wchar(char *dst, size_t n, t_format *f);
 char			ft_nbrlen(long long n, int base);
 char			ft_nbrlen_u(unsigned long long n, int base);
 size_t			ft_strlen(const char *s);
-void			ft_putchar(char c);
-int				ft_putchar_len(char c);
-int				ft_putstr_len(char *str);
+void			ft_putchar(char c, t_format *f);
+int				ft_putchar_len(char c, t_format *f);
+int				ft_putstr_len(char *str, t_format *f);
 size_t			ft_wlen(wchar_t *wstr);
 int				ft_wcharlen(wchar_t *w);
 int				ft_size_wchar(wchar_t w);

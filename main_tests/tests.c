@@ -175,8 +175,6 @@ int main()
 	TEST("%3s\n", "%d");
 	TEST("%-1d\n", -0);
 	TEST("% 000000  %.0d\n", NULL);
-	TEST("%#.2564lo\n", 0001777777777777777777634);
-	TEST("%0xh.hhhhp\n", -0);
 	TEST("%20p\n", (void *)-42);
 	TEST("%-15s: %+030lld\n", "%+030lld", 8127534ll);
 	TEST("%-15s: %+-10lld\n", "%+-10lld", 8127534ll);

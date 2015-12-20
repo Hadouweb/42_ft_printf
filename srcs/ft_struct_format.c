@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_struct_format.c                                 :+:      :+:    :+:   */
+/*   ft_struct_f.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-bret <nle-bret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,47 +12,48 @@
 
 #include "ft_printf.h"
 
-void	ft_format_init(t_format **format)
+void	ft_format_init(t_format **f)
 {
-	(*format)->sharp = 0;
-	(*format)->zero = 0;
-	(*format)->less = 0;
-	(*format)->more = 0;
-	(*format)->space = 0;
-	(*format)->h = 0;
-	(*format)->l = 0;
-	(*format)->j = 0;
-	(*format)->z = 0;
-	(*format)->prec = 0;
-	(*format)->pnt = 0;
-	(*format)->size = 0;
-	(*format)->conv = 0;
-	(*format)->sign = 0;
-	(*format)->nbr = -1;
-	(*format)->wstr = NULL;
-	(*format)->str = NULL;
-	(*format)->star = 0;
+	(*f)->sharp = 0;
+	(*f)->zero = 0;
+	(*f)->less = 0;
+	(*f)->more = 0;
+	(*f)->space = 0;
+	(*f)->h = 0;
+	(*f)->l = 0;
+	(*f)->j = 0;
+	(*f)->z = 0;
+	(*f)->prec = 0;
+	(*f)->pnt = 0;
+	(*f)->size = 0;
+	(*f)->conv = 0;
+	(*f)->sign = 0;
+	(*f)->nbr = -1;
+	(*f)->wstr = NULL;
+	(*f)->str = NULL;
+	(*f)->star = 0;
 }
 
-void	ft_print_format(t_format *format)
+void	ft_print_format(t_format *f)
 {
-	printf("FORMAT\n");
-	printf("#  : %d\n", format->sharp);
-	printf("0  : %d\n", format->zero);
-	printf("-  : %d\n", format->less);
-	printf("+  : %d\n", format->more);
-	printf("   : %d\n", format->space);
-	printf("h  : %d\n", format->h);
-	printf("l  : %d\n", format->l);
-	printf("j  : %d\n", format->j);
-	printf("z  : %d\n", format->z);
-	printf("prec  : %d\n", format->prec);
-	printf("point  : %d\n", format->pnt);
-	printf("nbr  : %lld\n", format->nbr);
-	printf("size  : %d\n", format->size);
-	printf("conv  : %c\n", format->conv);
-	printf("len  : %d\n", format->len);
-	printf("str  : %s\n", format->str);
-	printf("wstr  : %S\n", format->wstr);
-	printf("star  : %d\n", format->star);
+	printf("f\n");
+	printf("#  : %d\n", f->sharp);
+	printf("0  : %d\n", f->zero);
+	printf("-  : %d\n", f->less);
+	printf("+  : %d\n", f->more);
+	printf("   : %d\n", f->space);
+	printf("h  : %d\n", f->h);
+	printf("l  : %d\n", f->l);
+	printf("j  : %d\n", f->j);
+	printf("z  : %d\n", f->z);
+	printf("prec  : %d\n", f->prec);
+	printf("point  : %d\n", f->pnt);
+	printf("nbr  : %lld\n", f->nbr);
+	printf("size  : %d\n", f->size);
+	printf("conv  : %c\n", f->conv);
+	printf("len  : %d\n", f->len);
+	printf("str  : %s\n", f->str);
+	printf("wstr  : %S\n", f->wstr);
+	printf("star  : %d\n", f->star);
+	printf("fd  : %d\n", f->fd);
 }

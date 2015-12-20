@@ -46,7 +46,7 @@ void	ft_format_char(va_list ap, t_format **f)
 	{
 		c = va_arg(ap, int);
 		if (ft_join_all_char(f, c))
-			(*f)->len += ft_putchar_len(c);
+			(*f)->len += ft_putchar_len(c, *f);
 	}
 }
 
@@ -65,7 +65,7 @@ void	ft_format_uni_one(va_list ap, t_format **f)
 	str[cnt] = '\0';
 	(*f)->space = 0;
 	if (!w && !(*f)->size)
-		(*f)->len += ft_putchar_len(0);
+		(*f)->len += ft_putchar_len(0, *f);
 	else
 	{
 		if (!w && (*f)->size)

@@ -13,30 +13,25 @@
 #include "ft_printf.h"
 #include <locale.h>
 #include <limits.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
 int     main(void)
 {
 	int     n1;
 	int     n2;
 	char	c;
+	FILE 	*fd;
 
 	c = 0;
 	setlocale (LC_ALL, "");
+	fd = fopen("test2", "w+a+");
 
-	ft_printf("[b] : ");
-	n1 = ft_printf("\n{%*c}", -15, 0);
-	n2 = printf("\n{%*c}", -15, 0);
-	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
 
-	ft_printf("[b] : ");
-	n1 = ft_printf("{% -30.10d}", 0x7FFFFFFF);
-	n2 = printf("{% -30.10d}", 0x7FFFFFFF);
-	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
-	
-	ft_printf("[b] : ");
-	n1 = ft_printf("{% 30lld}", __LONG_LONG_MAX__);
-	n2 = printf("{% 30lld}", __LONG_LONG_MAX__);
-	printf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
-	
+	n1 = ft_fprintf(fd, "[%-2c]", 'a');
+	n2 = fprintf(fd, "[%-2c]", 'x');
+	//qqprintf("\n%d %d LINE : %d\n______________________________________________________________________\n", n1, n2, __LINE__);
+
+	fclose(fd);
 	return (0);
 }

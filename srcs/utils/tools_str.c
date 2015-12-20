@@ -24,18 +24,24 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_putchar(char c)
+void	ft_putchar(char c, t_format *f)
 {
-	write(1, &c, 1);
+	if (f->fd != 1)
+		write(f->fd, &c, 1);
+	else
+		write(1, &c, 1);
 }
 
-int		ft_putchar_len(char c)
+int		ft_putchar_len(char c, t_format *f)
 {
-	write(1, &c, 1);
+	if (f->fd != 1)
+		write(f->fd, &c, 1);
+	else
+		write(1, &c, 1);
 	return (1);
 }
 
-int		ft_putstr_len(char *str)
+int		ft_putstr_len(char *str, t_format *f)
 {
 	size_t	i;
 
@@ -44,7 +50,7 @@ int		ft_putstr_len(char *str)
 		return (0);
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		ft_putchar(str[i], f);
 		i++;
 	}
 	return (i);
