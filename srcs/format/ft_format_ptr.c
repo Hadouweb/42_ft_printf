@@ -15,15 +15,19 @@
 void	ft_format_ptr(va_list ap, t_format **f)
 {
 	char			*str;
+	char			*tmp;
 	unsigned long	n;
 
 	n = va_arg(ap, unsigned long);
-	str = ft_itoa_base(n, 16);
+	str = ft_ulltoa_base(n, 16);
 	if (n == 0)
 		str = ft_strdup("");
 	if (n == 0 && !(*f)->pnt)
 		(*f)->sign = "0x0";
 	else
 		(*f)->sign = "0x";
+	tmp = str;
+	str = ft_str_tolower(str);
+	ft_strdel(&tmp);
 	ft_print_all(f, str);
 }

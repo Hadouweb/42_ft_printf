@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 
 void	ft_print_size_char(t_format **f, char *str)
-{//printf("ok1\n");
+{
 	if (!(*f)->less)
 	{
 		(*f)->len += ft_putstr_len(ft_adj_space(*f, str), *f);
@@ -28,7 +28,6 @@ void	ft_print_size_char(t_format **f, char *str)
 
 void	ft_print_zero_size_char(t_format **f, char *str)
 {
-	//printf("ok2\n");
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign, *f);
 	(*f)->len += ft_putstr_len(ft_adj_zero(*f, str), *f);
@@ -36,7 +35,7 @@ void	ft_print_zero_size_char(t_format **f, char *str)
 }
 
 void	ft_print_size_prec_char(t_format **f, char *str)
-{//printf("ok3\n");
+{
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
 		(*f)->len += ft_putstr_len(" ", *f);
 	if (ft_strlen(str) > (size_t)(*f)->prec)
@@ -53,7 +52,7 @@ void	ft_print_size_prec_char(t_format **f, char *str)
 }
 
 void	ft_print_default_char(t_format **f, char *str)
-{//printf("ok4\n");
+{
 	if ((*f)->pnt)
 		(*f)->len += ft_putstr_len(ft_check_str(*f, str), *f);
 	else
@@ -61,7 +60,7 @@ void	ft_print_default_char(t_format **f, char *str)
 }
 
 void	ft_print_noprec_nosize_char(t_format **f, char *str)
-{//printf("ok5\n");
+{
 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str), *f);
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign, *f);

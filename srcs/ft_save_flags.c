@@ -75,18 +75,6 @@ int		ft_check_modifier(t_format **f, char **s)
 	return (1);
 }
 
-int		ft_check_conv(t_format **f, char **s)
-{
-	if (**s == 'd' || **s == 'D' || **s == 'i' || **s == 'u' || **s == 'U'
-		|| **s == 'o' || **s == 'O' || **s == 'x' || **s == 'X' || **s == 'c'
-		|| **s == 'C' || **s == 's' || **s == 'S' || **s == 'p' || **s == 'b')
-	{
-		(*f)->conv = **s;
-		return (1);
-	}
-	return (0);
-}
-
 int		ft_check_precision(t_format **f, char **s)
 {
 	char	*prec;

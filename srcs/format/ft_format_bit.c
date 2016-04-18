@@ -22,7 +22,7 @@ void	ft_format_bit(va_list ap, t_format **f)
 	n = va_arg(ap, unsigned long long);
 	(*f)->nbr = n;
 	ft_modif_type_hexa(*f, &n);
-	str = ft_itoa_base(n, 2);
+	str = ft_ulltoa_base(n, 2);
 	if (n == 0)
 		str = ft_strdup("0");
 	(*f)->space = 0;

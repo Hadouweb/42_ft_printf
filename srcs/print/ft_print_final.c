@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 
 void	ft_print_less_size(t_format **f, char *str)
-{//printf("ok1\n");
+{
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
 		(*f)->len += ft_putstr_len(" ", *f);
 	if ((*f)->sign)
@@ -31,7 +31,7 @@ void	ft_print_less_size(t_format **f, char *str)
 }
 
 void	ft_print_less_prec(t_format **f, char *str)
-{//printf("ok2\n");
+{
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
 		(*f)->len += ft_putstr_len(" ", *f);
 	if ((*f)->sign)
@@ -41,7 +41,7 @@ void	ft_print_less_prec(t_format **f, char *str)
 }
 
 void	ft_print_zero_prec(t_format **f, char *str)
-{//printf("ok3\n");
+{
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign, *f);
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
@@ -51,7 +51,7 @@ void	ft_print_zero_prec(t_format **f, char *str)
 }
 
 void	ft_print_size_prec(t_format **f, char *str)
-{//printf("ok4\n");
+{
 	if ((*f)->sign && !((*f)->prec) && (*f)->size)
 		(*f)->len += ft_putstr_len((*f)->sign, *f);
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
@@ -68,7 +68,7 @@ void	ft_print_size_prec(t_format **f, char *str)
 }
 
 void	ft_print_default(t_format **f, char *str)
-{//printf("ok5\n");
+{
 	if ((*f)->space && !(*f)->sign && ft_strcmp(str, "(null)") && str[0])
 	{
 		(*f)->len += ft_putstr_len(" ", *f);
@@ -77,7 +77,6 @@ void	ft_print_default(t_format **f, char *str)
 	(*f)->len += ft_putstr_len(ft_adj_space(*f, str), *f);
 	if ((*f)->sign)
 		(*f)->len += ft_putstr_len((*f)->sign, *f);
-	//printf("|%d|\n", (int)(*f)->nbr);
 	if (!((*f)->nbr == 0 && (*f)->pnt))
 		(*f)->len += ft_putstr_len(str, *f);
 }

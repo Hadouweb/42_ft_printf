@@ -12,6 +12,18 @@
 
 #include "ft_printf.h"
 
+int		ft_check_conv(t_format **f, char **s)
+{
+	if (**s == 'd' || **s == 'D' || **s == 'i' || **s == 'u' || **s == 'U'
+		|| **s == 'o' || **s == 'O' || **s == 'x' || **s == 'X' || **s == 'c'
+		|| **s == 'C' || **s == 's' || **s == 'S' || **s == 'p' || **s == 'b')
+	{
+		(*f)->conv = **s;
+		return (1);
+	}
+	return (0);
+}
+
 void	ft_save_string(char **str, t_format **f, va_list ap)
 {
 	size_t	i;
@@ -37,7 +49,6 @@ void	ft_save_string(char **str, t_format **f, va_list ap)
 			(*f)->len += ft_putchar_len(**str, *f);
 		(*str)++;
 	}
-	//ft_print_format(*f);
 }
 
 int		ft_fprintf(FILE *fd, const char *tmp, ...)
