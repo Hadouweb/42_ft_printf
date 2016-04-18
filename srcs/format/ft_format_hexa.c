@@ -43,7 +43,10 @@ void	ft_format_hexa(va_list ap, t_format *f)
 	ft_modif_type_hexa(f, &n);
 	str = ft_ulltoa_base(n, 16);
 	if (n == 0)
+	{
+		ft_strdel(&str);
 		str = ft_strdup("0");
+	}
 	f->space = 0;
 	if (f->sharp && str && n != 0)
 		f->sign = "0x";
@@ -51,6 +54,7 @@ void	ft_format_hexa(va_list ap, t_format *f)
 	str = ft_str_tolower(str);
 	ft_strdel(&tmp);
 	ft_print_all(f, str);
+	ft_strdel(&str);
 }
 
 void	ft_format_hexaup(va_list ap, t_format *f)
@@ -63,9 +67,13 @@ void	ft_format_hexaup(va_list ap, t_format *f)
 	ft_modif_type_hexa(f, &n);
 	str = ft_ulltoa_base(n, 16);
 	if (n == 0)
+	{
+		ft_strdel(&str);
 		str = ft_strdup("0");
+	}
 	f->space = 0;
 	if (f->sharp && str && n != 0)
 		f->sign = "0X";
 	ft_print_all(f, str);
+	ft_strdel(&str);
 }

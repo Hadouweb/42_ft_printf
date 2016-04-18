@@ -90,14 +90,18 @@ void	ft_format_uni_many(va_list ap, t_format *f)
 	wchar_t *wstr;
 	size_t	cnt;
 	size_t	i;
+	int		token;
+	char	*tmp;
 
 	i = 0;
 	cnt = 0;
 	wstr = va_arg(ap, wchar_t*);
 	str = NULL;
+	token = 0;
 	if (wstr == NULL)
 	{
 		str = ft_strdup("(null)");
+		token = 1;
 		f->conv = 's';
 	}
 	else
@@ -105,8 +109,11 @@ void	ft_format_uni_many(va_list ap, t_format *f)
 		if ((str = (char *)ft_memalloc(ft_wlen(wstr) * sizeof(wchar_t) + 1)) == NULL)
 			return;
 		f->wstr = wstr;
+		tmp = str;
 		str = ft_wconvert_str(str, wstr);
+		ft_strdel(&tmp);
 	}
 	ft_print_all_char(f, str);
-	ft_strdel(&str);
+	if (token)
+		ft_strdel(&str);
 }
