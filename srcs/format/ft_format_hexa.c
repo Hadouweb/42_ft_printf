@@ -40,7 +40,7 @@ void	ft_format_hexa(va_list ap, t_format **f)
 	n = va_arg(ap, unsigned long long);
 	(*f)->nbr = n;
 	ft_modif_type_hexa(*f, &n);
-	str = ft_uitoa_base(n, 16, '0');
+	str = ft_itoa_base(n, 16);
 	if (n == 0)
 		str = ft_strdup("0");
 	(*f)->space = 0;
@@ -57,7 +57,7 @@ void	ft_format_hexaup(va_list ap, t_format **f)
 	n = va_arg(ap, unsigned long long);
 	(*f)->nbr = n;
 	ft_modif_type_hexa(*f, &n);
-	str = ft_uitoa_base(n, 16, '0' - 32);
+	str = ft_itoa_base(n, 16);
 	if (n == 0)
 		str = ft_strdup("0");
 	(*f)->space = 0;

@@ -13,11 +13,12 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <string.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+#include <string.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "libft.h"
 
 typedef struct	s_format
 {
@@ -103,30 +104,10 @@ void			ft_print_size_prec_char(t_format **f, char *str);
 void			ft_print_default_char(t_format **f, char *str);
 void			ft_print_noprec_nosize_char(t_format **f, char *str);
 
-int				ft_atoi(const char *str);
-int				ft_isdigit(int c);
-int				ft_intlen_base(long long n, int base);
-int				ft_uintlen_base(unsigned long long n, int base);
-char			*ft_itoa_base(long long n, int base, int print_v);
-char			*ft_uitoa_base(unsigned long long n, int base, int print_v);
-void			*ft_memalloc(size_t size);
-void			*ft_memcpy(void *dst, const void *src, size_t n);
-void			ft_memdel(void **ap);
-char			*ft_strcpy(char *dst, const char *src);
-void			*ft_memset(void *b, int c, size_t len);
-char			*ft_strcat(char *s1, const char *s2);
-char			*ft_stradd_char(char **s, char c);
-char			*ft_strcat(char *s1, const char *s2);
-int				ft_strcmp(const char *s1, const char *s2);
-void			ft_strdel(char **as);
-char			*ft_strdup(const char *s1);
-char			*ft_strjoin(char *s, char *s2);
-size_t			ft_strlen(const char *str);
-char			*ft_strncpy(char *dst, const char *src, size_t n);
+
 char			*ft_strncpy_wchar(char *dst, size_t n, t_format *f);
 char			ft_nbrlen(long long n, int base);
 char			ft_nbrlen_u(unsigned long long n, int base);
-void			ft_putchar(char c, t_format *f);
 int				ft_putchar_len(char c, t_format *f);
 int				ft_putstr_len(char *str, t_format *f);
 size_t			ft_wlen(wchar_t *wstr);

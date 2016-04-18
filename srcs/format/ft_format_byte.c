@@ -42,7 +42,7 @@ void	ft_format_byte(va_list ap, t_format **f)
 	n = va_arg(ap, unsigned long long);
 	(*f)->nbr = n;
 	ft_modif_type_byte(*f, &n);
-	str = ft_uitoa_base(n, 8, '0');
+	str = ft_itoa_base(n, 8);
 	(*f)->space = 0;
 	if (((*f)->sharp && !(*f)->prec && !(*f)->size && n != 0) ||
 	 ((*f)->sharp && (*f)->pnt && !(*f)->prec))

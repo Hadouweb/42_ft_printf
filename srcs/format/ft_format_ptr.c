@@ -18,7 +18,7 @@ void	ft_format_ptr(va_list ap, t_format **f)
 	unsigned long	n;
 
 	n = va_arg(ap, unsigned long);
-	str = ft_uitoa_base(n, 16, '0');
+	str = ft_itoa_base(n, 16);
 	if (n == 0)
 		str = ft_strdup("");
 	if (n == 0 && !(*f)->pnt)

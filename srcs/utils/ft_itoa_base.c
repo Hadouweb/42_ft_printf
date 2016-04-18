@@ -40,7 +40,7 @@ int		ft_uintlen_base(unsigned long long n, int base)
 	return (i);
 }
 
-char	*ft_itoa_base(long long n, int base, int print_v)
+/*char	*ft_itoa_base(long long n, int base, int print_v)
 {
 	char	*str;
 	size_t	i;
@@ -67,29 +67,4 @@ char	*ft_itoa_base(long long n, int base, int print_v)
 		i--;
 	}
 	return (str);
-}
-
-char	*ft_uitoa_base(unsigned long long n, int base, int print_v)
-{
-	char	*str;
-	size_t	i;
-
-	if (base < 2 || base > 16)
-		return (0);
-	i = ft_uintlen_base(n, base);
-	if (n == 0)
-		return (ft_strdup("0"));
-	if ((str = (char *)malloc(i * sizeof(char) + 1)) == NULL)
-		return (NULL);
-	str[i] = '\0';
-	while (n != 0)
-	{
-		if (n % base >= 10)
-			str[i - 1] = (n % base) + print_v + 39;
-		else
-			str[i - 1] = (n % base) + '0';
-		n /= base;
-		i--;
-	}
-	return (str);
-}
+}*/

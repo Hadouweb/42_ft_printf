@@ -43,7 +43,7 @@ void	ft_format_int(va_list ap, t_format **f)
 		(*f)->l = 1;
 	else
 		ft_modif_type_int(*f, &n);
-	str = ft_itoa_base(n, 10, 0);
+	str = ft_itoa_base(n, 10);
 	if (n < 0)
 	{
 		(*f)->sign = ft_strdup("-");
@@ -82,7 +82,7 @@ void	ft_format_uint(va_list ap, t_format **f)
 	(*f)->nbr = n;
 	(*f)->space = 0;
 	ft_modif_type_uint(*f, &n);
-	str = ft_uitoa_base(n, 10, 0);
+	str = ft_itoa_base(n, 10);
 	ft_print_all(f, str);
 	
 }
