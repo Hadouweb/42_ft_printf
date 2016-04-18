@@ -30,10 +30,22 @@ void	ft_modif_type_int(t_format *f, long long *n)
 		*n = (int)*n;
 }
 
+void	ft_format_split_int(char **str, char **tmp, t_format *f)
+{
+	char		*tmp2;
+
+	*tmp = ft_strdup("-");
+	f->sign = *tmp;
+	tmp2 = *str;
+	*str = ft_strdup(&(*str)[1]);
+	ft_strdel(&tmp2);
+}
+
 void	ft_format_int(va_list ap, t_format *f)
 {
 	long long	n;
 	char		*str;
+	char		*tmp;
 	int			size;
 
 	size = 0;
@@ -45,13 +57,13 @@ void	ft_format_int(va_list ap, t_format *f)
 		ft_modif_type_int(f, &n);
 	str = ft_lltoa_base(n, 10);
 	if (n < 0)
-	{
-		f->sign = ft_strdup("-");
-		str = ft_strdup(&str[1]);
-	}
-	f->sign = (!f->sign && f->more) ? ft_strdup("+") : f->sign;
+		ft_format_split_int(&str, &tmp, f);
+	else
+		tmp = ft_strdup("+");
+	f->sign = (!f->sign && f->more) ? tmp : f->sign;
 	ft_print_all(f, str);
 	ft_strdel(&str);
+	ft_strdel(&tmp);
 }
 
 void	ft_modif_type_uint(t_format *f, unsigned long long *n)
@@ -85,4 +97,5 @@ void	ft_format_uint(va_list ap, t_format *f)
 	ft_modif_type_uint(f, &n);
 	str = ft_ulltoa_base(n, 10);
 	ft_print_all(f, str);
+	ft_strdel(&str);
 }

@@ -15,7 +15,9 @@
 void	ft_format_str(va_list ap, t_format *f)
 {
 	char	*str;
+	int		token;
 
+	token = 0;
 	str = NULL;
 	if (f->conv == 's')
 	{
@@ -25,12 +27,17 @@ void	ft_format_str(va_list ap, t_format *f)
 		{
 			str = va_arg(ap, char*);
 			if (!str)
+			{
 				str = ft_strdup("(null)");
+				token = 1;
+			}
 			ft_print_all_char(f, str);
 		}
 	}
 	else if (f->conv == 'c')
 		ft_format_char(ap, f);
+	if (token)
+		ft_strdel(&str);
 }
 
 void	ft_format_char(va_list ap, t_format *f)
@@ -101,4 +108,5 @@ void	ft_format_uni_many(va_list ap, t_format *f)
 		str = ft_wconvert_str(str, wstr);
 	}
 	ft_print_all_char(f, str);
+	ft_strdel(&str);
 }

@@ -48,4 +48,5 @@ void	ft_format_byte(va_list ap, t_format *f)
 		(f->sharp && f->pnt && !f->prec))
 		f->sign = "0";
 	ft_print_all(f, str);
+	ft_strdel(&str);
 }

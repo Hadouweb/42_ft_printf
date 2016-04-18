@@ -21,13 +21,18 @@ void	ft_format_ptr(va_list ap, t_format *f)
 	n = va_arg(ap, unsigned long);
 	str = ft_ulltoa_base(n, 16);
 	if (n == 0)
+	{
+		ft_strdel(&str);
 		str = ft_strdup("");
+	}
 	if (n == 0 && !f->pnt)
-		f->sign = "0x0";
+		f->sign = ft_strdup("0x0");
 	else
-		f->sign = "0x";
+		f->sign = ft_strdup("0x");
 	tmp = str;
 	str = ft_str_tolower(str);
-	ft_strdel(&tmp);
 	ft_print_all(f, str);
+	ft_strdel(&str);
+	ft_strdel(&tmp);
+	ft_strdel(&f->sign);
 }
