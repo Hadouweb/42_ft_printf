@@ -13,12 +13,12 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <string.h>
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "libft.h"
+# include <string.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include "libft.h"
 
 typedef struct	s_format
 {
@@ -104,7 +104,6 @@ void			ft_print_size_prec_char(t_format **f, char *str);
 void			ft_print_default_char(t_format **f, char *str);
 void			ft_print_noprec_nosize_char(t_format **f, char *str);
 
-
 char			*ft_strncpy_wchar(char *dst, size_t n, t_format *f);
 char			ft_nbrlen(long long n, int base);
 char			ft_nbrlen_u(unsigned long long n, int base);
@@ -117,22 +116,22 @@ char			*ft_wconvert_str(char *str, wchar_t *wstr);
 int				ft_wconvert(char *str, wchar_t w);
 char			*ft_stradd_char(char **s, char c);
 
-#define eoc   "\033[0m"
-#define black   "\033[30m"
-#define red     "\033[31m"
-#define green   "\033[32m"
-#define yellow  "\033[33m"
-#define blue    "\033[34m"
-#define magenta "\033[35m"
-#define cyan    "\033[36m"
-#define whiye   "\033[37m"
-#define boldblack   "\033[1m\033[30m"
-#define boldred     "\033[1m\033[31m"
-#define boldgreen   "\033[1m\033[32m"
-#define boldyellow  "\033[1m\033[33m"
-#define boldblue    "\033[1m\033[34m"
-#define boldmagenta "\033[1m\033[35m"
-#define boldcyan    "\033[1m\033[36m"
-#define boldwhite   "\033[1m\033[37m"
+# define EOC   "\033[0m"
+# define BLACK   "\033[30m"
+# define RED     "\033[31m"
+# define GREEN   "\033[32m"
+# define YELLOW  "\033[33m"
+# define BLUE    "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN    "\033[36m"
+# define WHITE   "\033[37m"
+# define BOLDBLACK   "\033[1m\033[30m"
+# define BOLDRED     "\033[1m\033[31m"
+# define BOLDGREEN   "\033[1m\033[32m"
+# define BOLDYELLOW  "\033[1m\033[33m"
+# define BOLDBLUE    "\033[1m\033[34m"
+# define BOLDMAGENTA "\033[1m\033[35m"
+# define BOLDCYAN    "\033[1m\033[36m"
+# define BOLDWHITE   "\033[1m\033[37m"
 
 #endif
