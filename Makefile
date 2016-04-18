@@ -1,4 +1,4 @@
-CC = clang -Wall -Werror -Wextra
+CC = clang -Wall -Werror -Wextra -g
 
 SRCPATH = ./srcs
 INCPATH = ./includes

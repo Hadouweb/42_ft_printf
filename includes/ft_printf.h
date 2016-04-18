@@ -51,7 +51,7 @@ void			ft_save_string(char **str, t_format *f, va_list ap);
 int				ft_check_star(t_format *f, char **s, va_list ap);
 int				ft_check_flag(t_format *f, char **s);
 int				ft_check_modifier(t_format *f, char **s);
-int				ft_check_conv(t_format *f, char **s);
+int				ft_check_conv(t_format *f, char c);
 int				ft_check_precision(t_format *f, char **s);
 int				ft_check_size(t_format *f, char **s);
 

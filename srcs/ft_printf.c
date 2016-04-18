@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int		ft_check_conv(t_format *f, char **s)
+int		ft_check_conv(t_format *f, char c)
 {
-	if (**s == 'd' || **s == 'D' || **s == 'i' || **s == 'u' || **s == 'U'
-		|| **s == 'o' || **s == 'O' || **s == 'x' || **s == 'X' || **s == 'c'
-		|| **s == 'C' || **s == 's' || **s == 'S' || **s == 'p' || **s == 'b')
+	if (c == 'd' || c == 'D' || c == 'i' || c == 'u' || c == 'U'
+		|| c == 'o' || c == 'O' || c == 'x' || c == 'X' || c == 'c'
+		|| c == 'C' || c == 's' || c == 'S' || c == 'p' || c == 'b')
 	{
-		f->conv = **s;
+		f->conv = c;
 		return (1);
 	}
 	return (0);
@@ -35,7 +35,7 @@ void	ft_save_string(char **str, t_format *f, va_list ap)
 		{
 			ft_format_init(f);
 			(*str)++;
-			if (ft_check_conv(f, str) || ft_parse_percent(str, f, ap))
+			if (ft_check_conv(f, **str) || ft_parse_percent(str, f, ap))
 				ft_select_format(ap, f);
 			else
 			{
@@ -55,14 +55,17 @@ int		ft_fprintf(FILE *fd, const char *tmp, ...)
 {
 	va_list		ap;
 	char		*str;
+	char		*begin_str;
 	t_format	f;
 
 	va_start(ap, tmp);
 	ft_bzero(&f, sizeof(t_format));
 	f.fd = fileno(fd);
 	str = ft_strdup(tmp);
+	begin_str = str;
 	ft_save_string(&str, &f, ap);
 	va_end(ap);
+	ft_strdel(&begin_str);
 	return (f.len);
 }
 
@@ -70,13 +73,16 @@ int		ft_printf(const char *tmp, ...)
 {
 	va_list		ap;
 	char		*str;
+	char		*begin_str;
 	t_format	f;
 
 	va_start(ap, tmp);
 	ft_bzero(&f, sizeof(t_format));
 	f.fd = 1;
 	str = ft_strdup(tmp);
+	begin_str = str;
 	ft_save_string(&str, &f, ap);
 	va_end(ap);
+	ft_strdel(&begin_str);
 	return (f.len);
 }

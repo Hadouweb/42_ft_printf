@@ -45,10 +45,13 @@ int		ft_print_size(t_format *f, char **str)
 	char	*news;
 
 	i = ft_strlen(*str) - 1;
-	news = ft_memalloc(i + 1);
-	news = ft_strncpy(news, *str, i);
-	ft_print_all(f, news);
-	(*str) += i;
+	if ((news = ft_memalloc(i + 1)) != NULL)
+	{
+		news = ft_strncpy(news, *str, i);
+		ft_print_all(f, news);
+		ft_strdel(&news);
+		(*str) += i;
+	}
 	return (0);
 }
 
@@ -65,7 +68,7 @@ int		ft_parse_percent(char **str, t_format *f, va_list ap)
 		ret += ft_check_precision(f, str);
 		ret += ft_check_size(f, str);
 		ret += ft_check_star(f, str, ap);
-		if (ft_check_conv(f, str))
+		if (ft_check_conv(f, **str))
 			return (1);
 		if (!ret)
 			return (0);

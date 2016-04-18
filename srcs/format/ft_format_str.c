@@ -58,7 +58,8 @@ void	ft_format_uni_one(va_list ap, t_format *f)
 	size = 0;
 	str = NULL;
 	w = va_arg(ap, wchar_t);
-	str = (char*)malloc(sizeof(wchar_t) + 1);
+	if ((str = (char*)ft_memalloc(sizeof(wchar_t) + 1)) == NULL)
+		return;
 	cnt = ft_wconvert(str, w);
 	str[cnt] = '\0';
 	f->space = 0;
@@ -73,6 +74,7 @@ void	ft_format_uni_one(va_list ap, t_format *f)
 		}
 		ft_print_all_char(f, str);
 	}
+	ft_strdel(&str);
 }
 
 void	ft_format_uni_many(va_list ap, t_format *f)
@@ -93,7 +95,8 @@ void	ft_format_uni_many(va_list ap, t_format *f)
 	}
 	else
 	{
-		str = (char *)malloc(ft_wlen(wstr) * sizeof(wchar_t) + 1);
+		if ((str = (char *)ft_memalloc(ft_wlen(wstr) * sizeof(wchar_t) + 1)) == NULL)
+			return;
 		f->wstr = wstr;
 		str = ft_wconvert_str(str, wstr);
 	}
