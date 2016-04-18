@@ -42,11 +42,11 @@ void	ft_save_string(char **str, t_format **f, va_list ap)
 				if ((*f)->size)
 					ft_print_size(f, str);
 				if (**str)
-					(*f)->len += ft_putchar_len(**str, *f);
+					(*f)->len += ft_putchar_len_fd(**str, (*f)->fd);
 			}
 		}
 		else
-			(*f)->len += ft_putchar_len(**str, *f);
+			(*f)->len += ft_putchar_len_fd(**str, (*f)->fd);
 		(*str)++;
 	}
 }

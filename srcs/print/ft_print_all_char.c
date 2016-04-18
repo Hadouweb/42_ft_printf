@@ -42,14 +42,14 @@ int		ft_join_all_char(t_format **f, char c)
 	adj = ft_adj_char(*f, l);
 	if ((*f)->size && adj && !(*f)->less)
 	{
-		(*f)->len += ft_putstr_len(adj, *f);
-		(*f)->len += ft_putchar_len(c, *f);
+		(*f)->len += ft_putstr_len_fd(adj, (*f)->fd);
+		(*f)->len += ft_putchar_len_fd(c, (*f)->fd);
 		return (0);
 	}
 	else if ((*f)->size && adj && (*f)->less)
 	{
-		(*f)->len += ft_putchar_len(c, *f);
-		(*f)->len += ft_putstr_len(adj, *f);
+		(*f)->len += ft_putchar_len_fd(c, (*f)->fd);
+		(*f)->len += ft_putstr_len_fd(adj, (*f)->fd);
 		return (0);
 	}
 	return (1);
@@ -82,7 +82,7 @@ char	*ft_check_str(t_format *f, char *str)
 		if (f->conv != 'S')
 			ft_strncpy(adj, str, size);
 		if (f->conv == 'S')
-			ft_strncpy_wchar(adj, size, f);
+			ft_strncpy_wchar(adj, size, f->wstr);
 		adj[size] = '\0';
 	}
 	return (adj);

@@ -104,18 +104,6 @@ void			ft_print_size_prec_char(t_format **f, char *str);
 void			ft_print_default_char(t_format **f, char *str);
 void			ft_print_noprec_nosize_char(t_format **f, char *str);
 
-char			*ft_strncpy_wchar(char *dst, size_t n, t_format *f);
-char			ft_nbrlen(long long n, int base);
-char			ft_nbrlen_u(unsigned long long n, int base);
-int				ft_putchar_len(char c, t_format *f);
-int				ft_putstr_len(char *str, t_format *f);
-size_t			ft_wlen(wchar_t *wstr);
-int				ft_wcharlen(wchar_t *w);
-int				ft_size_wchar(wchar_t w);
-char			*ft_wconvert_str(char *str, wchar_t *wstr);
-int				ft_wconvert(char *str, wchar_t w);
-char			*ft_stradd_char(char **s, char c);
-
 # define EOC   "\033[0m"
 # define BLACK   "\033[30m"
 # define RED     "\033[31m"

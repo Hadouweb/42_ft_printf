@@ -27,12 +27,6 @@ SRC = $(SRCPATH)/ft_printf.c\
 	  $(PRINTPATH)/ft_print_final.c\
 	  $(PRINTPATH)/ft_print_all_char.c\
 	  $(PRINTPATH)/ft_print_final_char.c\
-	  $(UTILSPATH)/tools_str.c\
-	  $(UTILSPATH)/tools_nbr.c\
-	  $(UTILSPATH)/tools_unicode.c\
-	  $(UTILSPATH)/ft_stradd_char.c\
-	  $(UTILSPATH)/ft_strncpy.c\
-	  $(UTILSPATH)/ft_isdigit.c
 
 OBJ = $(SRC:.c=.o)
 
