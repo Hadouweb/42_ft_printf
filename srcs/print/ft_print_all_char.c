@@ -84,8 +84,8 @@ char	*ft_check_str(t_format *f, char *str)
 		adj = ft_memalloc(size + 1);
 		if (f->conv != 'S')
 			ft_strncpy(adj, str, size);
-		if (f->conv == 'S')
-			ft_strncpy_wchar(adj, size, f->wstr);
+		else if (f->conv == 'S')
+			adj = ft_strncpy_wchar(adj, size, f->wstr);
 		adj[size] = '\0';
 	}
 	return (adj);
