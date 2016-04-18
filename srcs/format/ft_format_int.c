@@ -51,6 +51,7 @@ void	ft_format_int(va_list ap, t_format *f)
 	}
 	f->sign = (!f->sign && f->more) ? ft_strdup("+") : f->sign;
 	ft_print_all(f, str);
+	ft_strdel(&str);
 }
 
 void	ft_modif_type_uint(t_format *f, unsigned long long *n)

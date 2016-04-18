@@ -44,14 +44,17 @@ int		ft_join_all_char(t_format *f, char c)
 	{
 		f->len += ft_putstr_len_fd(adj, f->fd);
 		f->len += ft_putchar_len_fd(c, f->fd);
+		ft_strdel(&adj);
 		return (0);
 	}
 	else if (f->size && adj && f->less)
 	{
 		f->len += ft_putchar_len_fd(c, f->fd);
 		f->len += ft_putstr_len_fd(adj, f->fd);
+		ft_strdel(&adj);
 		return (0);
 	}
+	ft_strdel(&adj);
 	return (1);
 }
 
