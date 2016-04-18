@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		ft_check_star(t_format **f, char **s, va_list ap)
+int		ft_check_star(t_format *f, char **s, va_list ap)
 {
 	int		n;
 
@@ -20,20 +20,20 @@ int		ft_check_star(t_format **f, char **s, va_list ap)
 	if (**s == '*')
 	{
 		(*s)++;
-		(*f)->star++;
+		f->star++;
 		n = va_arg(ap, int);
-		if ((*f)->pnt && n >= 0)
-			(*f)->prec = n;
-		else if ((*f)->pnt && n < 0)
-			(*f)->pnt--;
-		else if (!(*f)->pnt)
+		if (f->pnt && n >= 0)
+			f->prec = n;
+		else if (f->pnt && n < 0)
+			f->pnt--;
+		else if (!f->pnt)
 		{
 			if (n < 0)
 			{
 				n = -n;
-				(*f)->less++;
+				f->less++;
 			}
-			(*f)->size = n;
+			f->size = n;
 		}
 	}
 	else
@@ -41,46 +41,46 @@ int		ft_check_star(t_format **f, char **s, va_list ap)
 	return (1);
 }
 
-int		ft_check_flag(t_format **f, char **s)
+int		ft_check_flag(t_format *f, char **s)
 {
 	if (**s == '#')
-		(*f)->sharp++;
+		f->sharp++;
 	else if (**s == '0')
-		(*f)->zero++;
+		f->zero++;
 	else if (**s == '-')
-		(*f)->less++;
+		f->less++;
 	else if (**s == '+')
-		(*f)->more++;
+		f->more++;
 	else if (**s == ' ')
-		(*f)->space++;
+		f->space++;
 	else
 		return (0);
 	(*s)++;
 	return (1);
 }
 
-int		ft_check_modifier(t_format **f, char **s)
+int		ft_check_modifier(t_format *f, char **s)
 {
 	if (**s == 'h')
-		(*f)->h++;
+		f->h++;
 	else if (**s == 'l')
-		(*f)->l++;
+		f->l++;
 	else if (**s == 'j')
-		(*f)->j++;
+		f->j++;
 	else if (**s == 'z')
-		(*f)->z++;
+		f->z++;
 	else
 		return (0);
 	(*s)++;
 	return (1);
 }
 
-int		ft_check_precision(t_format **f, char **s)
+int		ft_check_precision(t_format *f, char **s)
 {
 	char	*prec;
 
 	prec = NULL;
-	if (**s == '.' && ((*f)->pnt = 1 == 1))
+	if (**s == '.' && (f->pnt = 1 == 1))
 	{
 		if (ft_isdigit(*(*s + 1)) && (*s)++)
 		{
@@ -93,7 +93,7 @@ int		ft_check_precision(t_format **f, char **s)
 					prec = ft_stradd_char(&prec, **s);
 				(*s)++;
 			}
-			(*f)->prec = ft_atoi(prec);
+			f->prec = ft_atoi(prec);
 			ft_strdel(&prec);
 		}
 		else
@@ -103,7 +103,7 @@ int		ft_check_precision(t_format **f, char **s)
 	return (0);
 }
 
-int		ft_check_size(t_format **f, char **s)
+int		ft_check_size(t_format *f, char **s)
 {
 	char	*size;
 
@@ -122,7 +122,7 @@ int		ft_check_size(t_format **f, char **s)
 				size = ft_stradd_char(&size, **s);
 			(*s)++;
 		}
-		(*f)->size = ft_atoi(size);
+		f->size = ft_atoi(size);
 		ft_strdel(&size);
 		return (1);
 	}

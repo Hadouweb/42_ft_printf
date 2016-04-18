@@ -32,7 +32,7 @@ void	ft_modif_type_byte(t_format *f, unsigned long long *n)
 		*n = (unsigned int)*n;
 }
 
-void	ft_format_byte(va_list ap, t_format **f)
+void	ft_format_byte(va_list ap, t_format *f)
 {
 	unsigned long long	n;
 	char				*str;
@@ -40,12 +40,12 @@ void	ft_format_byte(va_list ap, t_format **f)
 
 	i = 0;
 	n = va_arg(ap, unsigned long long);
-	(*f)->nbr = n;
-	ft_modif_type_byte(*f, &n);
+	f->nbr = n;
+	ft_modif_type_byte(f, &n);
 	str = ft_ulltoa_base(n, 8);
-	(*f)->space = 0;
-	if (((*f)->sharp && !(*f)->prec && !(*f)->size && n != 0) ||
-		((*f)->sharp && (*f)->pnt && !(*f)->prec))
-		(*f)->sign = "0";
+	f->space = 0;
+	if ((f->sharp && !f->prec && !f->size && n != 0) ||
+		(f->sharp && f->pnt && !f->prec))
+		f->sign = "0";
 	ft_print_all(f, str);
 }

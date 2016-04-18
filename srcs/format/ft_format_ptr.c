@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_format_ptr(va_list ap, t_format **f)
+void	ft_format_ptr(va_list ap, t_format *f)
 {
 	char			*str;
 	char			*tmp;
@@ -22,10 +22,10 @@ void	ft_format_ptr(va_list ap, t_format **f)
 	str = ft_ulltoa_base(n, 16);
 	if (n == 0)
 		str = ft_strdup("");
-	if (n == 0 && !(*f)->pnt)
-		(*f)->sign = "0x0";
+	if (n == 0 && !f->pnt)
+		f->sign = "0x0";
 	else
-		(*f)->sign = "0x";
+		f->sign = "0x";
 	tmp = str;
 	str = ft_str_tolower(str);
 	ft_strdel(&tmp);

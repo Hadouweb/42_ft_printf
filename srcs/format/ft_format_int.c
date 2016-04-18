@@ -30,7 +30,7 @@ void	ft_modif_type_int(t_format *f, long long *n)
 		*n = (int)*n;
 }
 
-void	ft_format_int(va_list ap, t_format **f)
+void	ft_format_int(va_list ap, t_format *f)
 {
 	long long	n;
 	char		*str;
@@ -38,18 +38,18 @@ void	ft_format_int(va_list ap, t_format **f)
 
 	size = 0;
 	n = va_arg(ap, long long);
-	(*f)->nbr = n;
-	if ((*f)->conv == 'D')
-		(*f)->l = 1;
+	f->nbr = n;
+	if (f->conv == 'D')
+		f->l = 1;
 	else
-		ft_modif_type_int(*f, &n);
+		ft_modif_type_int(f, &n);
 	str = ft_lltoa_base(n, 10);
 	if (n < 0)
 	{
-		(*f)->sign = ft_strdup("-");
+		f->sign = ft_strdup("-");
 		str = ft_strdup(&str[1]);
 	}
-	(*f)->sign = (!(*f)->sign && (*f)->more) ? ft_strdup("+") : (*f)->sign;
+	f->sign = (!f->sign && f->more) ? ft_strdup("+") : f->sign;
 	ft_print_all(f, str);
 }
 
@@ -73,15 +73,15 @@ void	ft_modif_type_uint(t_format *f, unsigned long long *n)
 		*n = (unsigned int)*n;
 }
 
-void	ft_format_uint(va_list ap, t_format **f)
+void	ft_format_uint(va_list ap, t_format *f)
 {
 	unsigned long long		n;
 	char					*str;
 
 	n = va_arg(ap, unsigned long long);
-	(*f)->nbr = n;
-	(*f)->space = 0;
-	ft_modif_type_uint(*f, &n);
+	f->nbr = n;
+	f->space = 0;
+	ft_modif_type_uint(f, &n);
 	str = ft_ulltoa_base(n, 10);
 	ft_print_all(f, str);
 }

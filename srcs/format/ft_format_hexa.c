@@ -30,7 +30,7 @@ void	ft_modif_type_hexa(t_format *f, unsigned long long *n)
 		*n = (unsigned int)*n;
 }
 
-void	ft_format_hexa(va_list ap, t_format **f)
+void	ft_format_hexa(va_list ap, t_format *f)
 {
 	unsigned long long	n;
 	char				*str;
@@ -39,33 +39,33 @@ void	ft_format_hexa(va_list ap, t_format **f)
 
 	i = 0;
 	n = va_arg(ap, unsigned long long);
-	(*f)->nbr = n;
-	ft_modif_type_hexa(*f, &n);
+	f->nbr = n;
+	ft_modif_type_hexa(f, &n);
 	str = ft_ulltoa_base(n, 16);
 	if (n == 0)
 		str = ft_strdup("0");
-	(*f)->space = 0;
-	if ((*f)->sharp && str && n != 0)
-		(*f)->sign = "0x";
+	f->space = 0;
+	if (f->sharp && str && n != 0)
+		f->sign = "0x";
 	tmp = str;
 	str = ft_str_tolower(str);
 	ft_strdel(&tmp);
 	ft_print_all(f, str);
 }
 
-void	ft_format_hexaup(va_list ap, t_format **f)
+void	ft_format_hexaup(va_list ap, t_format *f)
 {
 	unsigned long long	n;
 	char				*str;
 
 	n = va_arg(ap, unsigned long long);
-	(*f)->nbr = n;
-	ft_modif_type_hexa(*f, &n);
+	f->nbr = n;
+	ft_modif_type_hexa(f, &n);
 	str = ft_ulltoa_base(n, 16);
 	if (n == 0)
 		str = ft_strdup("0");
-	(*f)->space = 0;
-	if ((*f)->sharp && str && n != 0)
-		(*f)->sign = "0X";
+	f->space = 0;
+	if (f->sharp && str && n != 0)
+		f->sign = "0X";
 	ft_print_all(f, str);
 }

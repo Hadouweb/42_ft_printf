@@ -12,26 +12,26 @@
 
 #include "ft_printf.h"
 
-void	ft_format_init(t_format **f)
+void	ft_format_init(t_format *f)
 {
-	(*f)->sharp = 0;
-	(*f)->zero = 0;
-	(*f)->less = 0;
-	(*f)->more = 0;
-	(*f)->space = 0;
-	(*f)->h = 0;
-	(*f)->l = 0;
-	(*f)->j = 0;
-	(*f)->z = 0;
-	(*f)->prec = 0;
-	(*f)->pnt = 0;
-	(*f)->size = 0;
-	(*f)->conv = 0;
-	(*f)->sign = 0;
-	(*f)->nbr = -1;
-	(*f)->wstr = NULL;
-	(*f)->str = NULL;
-	(*f)->star = 0;
+	f->sharp = 0;
+	f->zero = 0;
+	f->less = 0;
+	f->more = 0;
+	f->space = 0;
+	f->h = 0;
+	f->l = 0;
+	f->j = 0;
+	f->z = 0;
+	f->prec = 0;
+	f->pnt = 0;
+	f->size = 0;
+	f->conv = 0;
+	f->sign = 0;
+	f->nbr = -1;
+	f->wstr = NULL;
+	f->str = NULL;
+	f->star = 0;
 }
 
 void	ft_print_format(t_format *f)

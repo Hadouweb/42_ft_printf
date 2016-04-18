@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-void	ft_format_str(va_list ap, t_format **f)
+void	ft_format_str(va_list ap, t_format *f)
 {
 	char	*str;
 
 	str = NULL;
-	if ((*f)->conv == 's')
+	if (f->conv == 's')
 	{
-		if ((*f)->l && (*f)->l % 2 != 0)
+		if (f->l && f->l % 2 != 0)
 			ft_format_uni_many(ap, f);
 		else
 		{
@@ -29,26 +29,26 @@ void	ft_format_str(va_list ap, t_format **f)
 			ft_print_all_char(f, str);
 		}
 	}
-	else if ((*f)->conv == 'c')
+	else if (f->conv == 'c')
 		ft_format_char(ap, f);
 }
 
-void	ft_format_char(va_list ap, t_format **f)
+void	ft_format_char(va_list ap, t_format *f)
 {
 	char	c;
 
 	c = 0;
-	if ((*f)->l && (*f)->l % 2 != 0)
+	if (f->l && f->l % 2 != 0)
 		ft_format_uni_one(ap, f);
 	else
 	{
 		c = va_arg(ap, int);
 		if (ft_join_all_char(f, c))
-			(*f)->len += ft_putchar_len_fd(c, (*f)->fd);
+			f->len += ft_putchar_len_fd(c, f->fd);
 	}
 }
 
-void	ft_format_uni_one(va_list ap, t_format **f)
+void	ft_format_uni_one(va_list ap, t_format *f)
 {
 	wchar_t w;
 	char	*str;
@@ -61,21 +61,21 @@ void	ft_format_uni_one(va_list ap, t_format **f)
 	str = (char*)malloc(sizeof(wchar_t) + 1);
 	cnt = ft_wconvert(str, w);
 	str[cnt] = '\0';
-	(*f)->space = 0;
-	if (!w && !(*f)->size)
-		(*f)->len += ft_putchar_len_fd(0, (*f)->fd);
+	f->space = 0;
+	if (!w && !f->size)
+		f->len += ft_putchar_len_fd(0, f->fd);
 	else
 	{
-		if (!w && (*f)->size)
+		if (!w && f->size)
 		{
-			(*f)->len++;
-			(*f)->size--;
+			f->len++;
+			f->size--;
 		}
 		ft_print_all_char(f, str);
 	}
 }
 
-void	ft_format_uni_many(va_list ap, t_format **f)
+void	ft_format_uni_many(va_list ap, t_format *f)
 {
 	char	*str;
 	wchar_t *wstr;
@@ -89,12 +89,12 @@ void	ft_format_uni_many(va_list ap, t_format **f)
 	if (wstr == NULL)
 	{
 		str = ft_strdup("(null)");
-		(*f)->conv = 's';
+		f->conv = 's';
 	}
 	else
 	{
 		str = (char *)malloc(ft_wlen(wstr) * sizeof(wchar_t) + 1);
-		(*f)->wstr = wstr;
+		f->wstr = wstr;
 		str = ft_wconvert_str(str, wstr);
 	}
 	ft_print_all_char(f, str);

@@ -12,22 +12,22 @@
 
 #include "ft_printf.h"
 
-void	ft_print_all(t_format **f, char *str)
+void	ft_print_all(t_format *f, char *str)
 {
-	if (!(*f)->less)
+	if (!f->less)
 	{
-		if ((!(*f)->prec && !(*f)->zero))
+		if ((!f->prec && !f->zero))
 			ft_print_default(f, str);
-		else if (((*f)->zero || (*f)->prec) && !((*f)->size && (*f)->prec))
+		else if ((f->zero || f->prec) && !(f->size && f->prec))
 			ft_print_zero_prec(f, str);
-		else if ((*f)->prec && (*f)->size)
+		else if (f->prec && f->size)
 			ft_print_size_prec(f, str);
 	}
-	if ((*f)->less)
+	if (f->less)
 	{
-		if ((*f)->size)
+		if (f->size)
 			ft_print_less_size(f, str);
-		else if (!(*f)->size && (!(*f)->zero || (*f)->prec))
+		else if (!f->size && (!f->zero || f->prec))
 			ft_print_less_prec(f, str);
 	}
 }

@@ -30,40 +30,40 @@ char	*ft_adj_char(t_format *f, char c)
 	return (adj);
 }
 
-int		ft_join_all_char(t_format **f, char c)
+int		ft_join_all_char(t_format *f, char c)
 {
 	char	*adj;
 	char	l;
 
-	if ((*f)->zero)
+	if (f->zero)
 		l = '0';
 	else
 		l = ' ';
-	adj = ft_adj_char(*f, l);
-	if ((*f)->size && adj && !(*f)->less)
+	adj = ft_adj_char(f, l);
+	if (f->size && adj && !f->less)
 	{
-		(*f)->len += ft_putstr_len_fd(adj, (*f)->fd);
-		(*f)->len += ft_putchar_len_fd(c, (*f)->fd);
+		f->len += ft_putstr_len_fd(adj, f->fd);
+		f->len += ft_putchar_len_fd(c, f->fd);
 		return (0);
 	}
-	else if ((*f)->size && adj && (*f)->less)
+	else if (f->size && adj && f->less)
 	{
-		(*f)->len += ft_putchar_len_fd(c, (*f)->fd);
-		(*f)->len += ft_putstr_len_fd(adj, (*f)->fd);
+		f->len += ft_putchar_len_fd(c, f->fd);
+		f->len += ft_putstr_len_fd(adj, f->fd);
 		return (0);
 	}
 	return (1);
 }
 
-void	ft_print_all_char(t_format **f, char *str)
+void	ft_print_all_char(t_format *f, char *str)
 {
-	if ((!(*f)->prec && !(*f)->zero && !(*f)->pnt && !(*f)->size))
+	if ((!f->prec && !f->zero && !f->pnt && !f->size))
 		ft_print_noprec_nosize_char(f, str);
-	else if ((*f)->pnt && (*f)->size)
+	else if (f->pnt && f->size)
 		ft_print_size_prec_char(f, str);
-	else if ((*f)->zero && (*f)->size)
+	else if (f->zero && f->size)
 		ft_print_zero_size_char(f, str);
-	else if ((*f)->size && !(*f)->prec)
+	else if (f->size && !f->prec)
 		ft_print_size_char(f, str);
 	else
 		ft_print_default_char(f, str);
