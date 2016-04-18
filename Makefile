@@ -42,7 +42,9 @@ all: $(NAME)
 
 $(NAME) : $(OBJ)
 	@make -C $(LIBFT)
-	@ar rc $(NAME) $^
+	@ar -x $(LIBFT)/libft.a
+	@ar rc $(NAME) $(OBJ) ./*.o
+	@rm ./*.o __.SYMDEF*
 	@ranlib $(NAME)
 
 %.o: %.c
