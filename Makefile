@@ -46,7 +46,7 @@ SRC = $(SRCPATH)ft_printf.c\
 
 OBJ = $(SRC:.c=.o)
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME) : $(OBJ)
 	ar rc $(NAME) $^

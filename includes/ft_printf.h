@@ -126,7 +126,6 @@ char			*ft_strncpy(char *dst, const char *src, size_t n);
 char			*ft_strncpy_wchar(char *dst, size_t n, t_format *f);
 char			ft_nbrlen(long long n, int base);
 char			ft_nbrlen_u(unsigned long long n, int base);
-size_t			ft_strlen(const char *s);
 void			ft_putchar(char c, t_format *f);
 int				ft_putchar_len(char c, t_format *f);
 int				ft_putstr_len(char *str, t_format *f);
